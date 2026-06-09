@@ -1,0 +1,7 @@
+copyright() {
+	echo
+	echo "-----------------------------------------------------------------"
+	echo "© William C. Canin <https://github.com/williamcanin/my-hyprland>"
+	# echo "  Project: https://github.com/williamcanin/my-hyprland"
+	echo "-----------------------------------------------------------------"
+}

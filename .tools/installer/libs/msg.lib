@@ -1,0 +1,83 @@
+# Detect UTF-8 support
+case "${LANG:-}${LC_ALL:-}" in
+  *UTF-8*|*utf8*)
+    MSG_ICON_ARROW="→"
+    MSG_ICON_OK="✔"
+    MSG_ICON_WARN="⚠"
+    MSG_ICON_ERROR="✖"
+    ;;
+  *)
+    MSG_ICON_ARROW=">"
+    MSG_ICON_OK="[OK]"
+    MSG_ICON_WARN="[WARN]"
+    MSG_ICON_ERROR="[ERR]"
+    ;;
+esac
+
+# Detect color support
+if [ -t 1 ]; then
+  MSG_COLOR_CYAN="\033[0;36m"
+  MSG_COLOR_MAGENTA="\033[0;35m"
+  MSG_COLOR_GREEN="\033[0;32m"
+  MSG_COLOR_YELLOW="\033[0;33m"
+  MSG_COLOR_RED="\033[0;31m"
+  MSG_COLOR_RESET="\033[0m"
+else
+  MSG_COLOR_CYAN=""
+  MSG_COLOR_MAGENTA=""
+  MSG_COLOR_GREEN=""
+  MSG_COLOR_YELLOW=""
+  MSG_COLOR_RED=""
+  MSG_COLOR_RESET=""
+fi
+
+# $1: mensagem  $2: sufixo opcional (ex: "\n")
+log () {
+  printf "%b%s %s%b%b" \
+    "$MSG_COLOR_CYAN" \
+    "$MSG_ICON_ARROW" \
+    "$1" \
+    "$MSG_COLOR_RESET" \
+    "${2:-}"
+}
+
+ok () {
+  printf "%b%s %s%b\n" \
+    "$MSG_COLOR_GREEN" \
+    "$MSG_ICON_OK" \
+    "$*" \
+    "$MSG_COLOR_RESET"
+}
+
+warn () {
+  printf "%b%s %s%b\n" \
+    "$MSG_COLOR_YELLOW" \
+    "$MSG_ICON_WARN" \
+    "$*" \
+    "$MSG_COLOR_RESET"
+}
+
+die () {
+  printf "%b%s %s%b\n" \
+    "$MSG_COLOR_RED" \
+    "$MSG_ICON_ERROR" \
+    "$*" \
+    "$MSG_COLOR_RESET" >&2
+  exit 1
+}
+
+# $1: texto  $2: sufixo opcional (ex: "\n")
+accent () {
+  printf "%b%s%b%b" \
+    "$MSG_COLOR_MAGENTA" \
+    "$1" \
+    "$MSG_COLOR_RESET" \
+    "${2:-}"
+}
+
+# $1: texto  $2: sufixo opcional (ex: "\n")
+plain () {
+  printf "%s%b" \
+    "$1" \
+    "${2:-}"
+}

@@ -1,0 +1,33 @@
+
+Ctrl + Shift + c    = Copiar texto
+Ctrl + Shift + v    = Colar texto
+Ctrl + n            = Nova aba
+Ctrl + q            = Fechar aba
+
+Splits »
+-----------------------------------------------
+
+Ctrl + Shift + d    = Split horizontal
+Ctrl + Shift + s    = Split vertical
+Ctrl + Shift + h    = Foco esquerda
+Ctrl + Shift + j    = Foco abaixo
+Ctrl + Shift + k    = Foco acima
+Ctrl + Shift + l    = Foco direita
+Ctrl + Shift + x    = Fechar split
+
+Abas »
+-----------------------------------------------
+
+Alt + 1             = Aba 1
+Alt + 2             = Aba 2
+Ctrl + Tab          = Próxima aba
+Ctrl + Shift + Tab  = Aba anterior
+
+Histórico »
+-----------------------------------------------
+
+Ctrl + Shift + ↑    = Prompt anterior
+Ctrl + Shift + ↓    = Próximo prompt
+Ctrl + Shift + O    = Selecionar saída do último comando
+
+-

@@ -1,0 +1,9 @@
+[[row]]
+  ratio=100
+  [[row.child]]
+    type="cpu"
+
+[[row]]
+  ratio=70
+  [[row.child]]
+    type="proc"

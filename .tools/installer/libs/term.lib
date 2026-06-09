@@ -1,0 +1,28 @@
+add_term_options() {
+  local rc_file="$1"
+  local source_line='. "$HOME/.config/term/options.sh"'
+
+  [ -f "$rc_file" ] || touch "$rc_file"
+
+  if ! grep -Fxq "$source_line" "$rc_file"; then
+    cat >> "$rc_file" <<'EOF'
+
+# Colors by Hyprland
+. "$HOME/.config/term/options.sh"
+EOF
+  fi
+}
+
+install_term_options() {
+  case "$(basename "$SHELL")" in
+    bash)
+      add_term_options "$HOME/.bashrc"
+      ;;
+    zsh)
+      add_term_options "$HOME/.zshrc"
+      ;;
+    *)
+      add_term_options "$HOME/.profile"
+      ;;
+  esac
+}

@@ -1,0 +1,71 @@
+#!/usr/bin/env sh
+
+### Automatic login example
+# if systemctl -q is-active graphical.target && [ ! $DISPLAY && $XDG_VTNR -eq 1 ]; then
+#  exec uwsm start $DE &>/dev/null
+# fi
+
+export LANG=pt_BR.UTF-8
+export LC_CTYPE=pt_BR.UTF-8
+
+export WLR_RENDERER=vulkan
+export WLR_NO_HARDWARE_CURSORS=1
+export XWAYLAND_NO_GLAMOR=1
+
+# NVIDIA
+export GBM_BACKEND=nvidia-drm
+export LIBVA_DRIVER_NAME=nvidia
+export __GLX_VENDOR_LIBRARY_NAME=nvidia
+
+## Choice Desktop Environment
+## Options: sway | hyprland
+DE="hyprland"
+
+if [ -z "$DISPLAY" ] && [ -z "$WAYLAND_DISPLAY" ] && [ "$XDG_VTNR" -eq 1 ]; then
+
+  if [ $DE = "sway" ]; then
+    # Disabled linux-drm-syncobj/drm_atomic NVIDIA, to avoid error in Sway
+    # or add in: /etc/modprobe.d/nvidia.conf
+    # options nvidia-drm modeset=1 atomic=0
+    export WLR_DRM_NO_ATOMIC=1
+    export SWAY_DISABLE_LINUX_DRM_SYNCOBJ=1
+
+    export XDG_CURRENT_DESKTOP=sway
+    export XDG_SESSION_DESKTOP=sway
+
+    LOG_ROOT="$HOME/.local/state/sway"
+    LOG="$LOG_ROOT/sway-session-$(date +%Y%m%d-%H%M%S).log"
+
+    mkdir -p "$LOG_ROOT"
+
+    # Delete old logs
+    find "$LOG_ROOT" -name 'sway-session-*.log' -type f -print | sort -r |
+    tail -n +5 |
+    xargs -r rm -f
+
+    # Note:
+    # The "--unsupported-gpu" flag must be used because Sway refuses to start with
+    # proprietary NVIDIA cards.
+    # There is no official support in wlroots for the Maxwell series (GTX 750 Ti).
+    # sway --unsupported-gpu # fallback
+    sway --unsupported-gpu -d 2>&1 | ts '[%Y-%m-%d %H:%M:%S]' > "$LOG"
+
+    elif [ $DE = "hyprland" ]; then
+      export XDG_CURRENT_DESKTOP=Hyprland
+      export XDG_SESSION_DESKTOP=Hyprland
+
+      LOG_ROOT="$HOME/.local/state/hyprland"
+      LOG="$LOG_ROOT/hyprland-session-$(date +%Y%m%d-%H%M%S).log"
+
+      mkdir -p "$LOG_ROOT"
+
+      find "$LOG_ROOT" -name 'hyprland-session-*.log' -type f -print | sort -r |
+      tail -n +5 |
+      xargs -r rm -f
+
+      start-hyprland > "$LOG" 2>&1
+  fi
+
+    # Exit TTY
+    logout
+fi

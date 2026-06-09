@@ -1,0 +1,46 @@
+Desktop Environment shortcuts »
+-----------------------------------------------
+SHORTCUT                 DESCRIPTION
+
+Alt + Tab                      = Navigates between all windows
+SUPER (Win) + Tab              = Switch between Workspace
+SUPER (Win) + 1..8             = Workspace
+SUPER (Win) + < >              = Window Focus
+SUPER (Win) + w                = Tab mode
+SUPER (Win) + e                = Side by side
+SUPER (Win) + r + < >          = Window resize mode
+SUPER (Win) + Mouse Button 2   = Window resize mode (mouse)
+SUPER (Win) + f                = Full Screen
+SUPER (Win) + q                = Close Window
+SUPER (Win) + Shift + Space    = Floating window
+SUPER (Win) + Mouse Button 1   = Floating window (mouse)
+SUPER (Win) + Shift + < >      = Move Window
+SUPER (Win) + Shift + 1..8     = Move window to workspace
+Print                          = Capture selected area
+Ctrl + Print                   = Capture focused window
+Shift + Print                  = Capture entire screen
+Ctrl + Shift + Print           = Capture current monitor
+SUPER (Win) + g                = Start/Pause/Resume screen recording
+SUPER (Win) + Shift + g        = Stop and save screen recording
+SUPER (Win) + Shift + m        = Turn off the monitor (not suspend)
+SUPER (Win) + Shift + l        = Block system
+SUPER (Win) + Shift + e        = Exit system
+SUPER (Win) + Shift + r        = Reload Hyprland
+
+Software shortcuts »
+-----------------------------------------------
+SHORTCUT                 DESCRIPTION
+
+SUPER (Win) + b                = Default browser
+SUPER (Win) + d                = Launcher
+SUPER (Win) + c                = Calculator
+SUPER (Win) + Enter            = Terminal
+SUPER (Win) + Space            = File Manager
+SUPER (Win) + h                = Clipboard history
+SUPER (Win) + Shift + h        = Clear clipboard history
+SUPER (Win) + p                = Color Picker
+
+Logs »
+-----------------------------------------------
+
+Hyprland logs (diretory): $HOME/.local/state/hyprland/

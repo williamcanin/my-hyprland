@@ -1,0 +1,4 @@
+[[row]]
+  ratio=100
+  [[row.child]]
+    type="mem"

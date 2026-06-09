@@ -1,0 +1,45 @@
+Atalhos do ambiente de Desktop »
+-----------------------------------------------
+ATALHO                    DESCRIÇÃO
+
+SUPER (Win) + 1..9              = Áreas de trabalho
+SUPER (Win) + < >               = Foco na janela
+[APPLY] SUPER (Win) + Tab       = Circular entre janelas
+SUPER (Win) + Shift + Space     = Janela flutuante (toggle)
+[APPLY] SUPER (Win) + r + < >   = Modo redimensionar janela
+SUPER (Win) + Mouse Button 2    = Modo redimensionar janela (flutuante)
+SUPER (Win) + f                 = Tela cheia
+[APPLY] SUPER (Win) + w         = Agrupar em abas
+SUPER (Win) + Mouse Button 1    = Arrasta janela (mouse)
+SUPER (Win) + Shift + < >       = Mover janela
+SUPER (Win) + q                 = Fechar janela
+SUPER (Win) + Shift + 1..9      = Mover janela para a área de trabalho
+Print                           = Capturar área selecionada
+SUPER (Win) + Print             = Capturar janela em foco
+SUPER (Win) + Shift + Print     = Capturar tela inteira
+SUPER (Win) + g                 = Iniciar/Pausar/Retormar gravação de tela
+SUPER (Win) + Shift + g         = Parar e salvar gravação de tela
+SUPER (Win) + Shift + l         = Bloquear sistema
+[APPLY] SUPER (Win) + Shift + m = Desligar monitor (não é suspender)
+SUPER (Win) + Shift + e         = Sair do sistema
+SUPER (Win) + Shift + r         = Recarregar Hyprland
+
+Atalhos de software »
+-----------------------------------------------
+ATALHO                    DESCRIÇÃO
+
+SUPER (Win) + b                 = Navegador padrão
+SUPER (Win) + d                 = Lançador de programas
+SUPER (Win) + c                 = Calculadora
+SUPER (Win) + Enter             = Terminal
+SUPER (Win) + Space             = Gerenciador de arquivosHH
+SUPER (Win) + h                 = Histórico no Clipboard
+SUPER (Win) + Shift + h         = Apagar histórico do Clipboard
+SUPER (Win) + p                 = Seletor de cores (Color Picker)
+
+Diretórios »
+-----------------------------------------------
+
+Hyprland configs: $HOME/.config/hypr/
+Hyprland logs:    $HOME/.local/state/hyprland/
+Waybar configs:   $HOME/.config/waybar/

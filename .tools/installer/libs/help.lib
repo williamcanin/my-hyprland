@@ -1,0 +1,16 @@
+help() {
+	printf "\n"
+	log "Options »" "\n"
+	accent "  make install"; plain " -------- Install Desktop Environment Hyprland" "\n"
+	accent "  make upgrade"; plain " -------- Upgrade Desktop Environment Hyprland" "\n"
+	accent "  make version"; plain " -------- Version" "\n"
+}
+
+help_dev() {
+	help
+	printf "\n"
+	log "Development options »" "\n"
+	accent "  make set-permissions"; plain " ------- Makes all .sh files executable." "\n"
+	accent "  make push"; plain " ------------------ Performs a remote push to all branches" "\n"
+	accent "  make push-lease"; plain " ------------ Performs a remote push of all branches (lease mode)" "\n"
+}
