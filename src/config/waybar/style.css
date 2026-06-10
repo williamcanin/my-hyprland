@@ -69,6 +69,7 @@ window#waybar.empty #window {
   margin: 3px 1px 3px 1px;
   padding: 0px 4px;
   color: @background;
+  opacity: 0.70;
 }
 
 
@@ -78,9 +79,17 @@ window#waybar.empty #window {
   opacity: 0.40;
 }
 
-#workspaces button.empty.active {
-  background: @background;
+#workspaces button.empty {
+  background: none;
+  color: @background;   /* texto apagado */
 }
+
+#workspaces button.empty.active {
+  color: rgba(236, 239, 244, 0.35);
+}
+
+/* Workspace com janelas mas não ativo */
+
 
 /* Font size bar */
 #language,

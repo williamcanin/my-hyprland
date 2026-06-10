@@ -197,9 +197,8 @@ hl.window_rule({ match = { class = "Alacritty" }, opacity = "0.90 0.85" })
 local mod = "SUPER"
 
 -- Moving between windows ----------------------------------------------------------------------------------------------
--- hl.bind(mod .. " + TAB", hl.dsp.focus({ workspace = "previous" }))
--- hl.bind("ALT + TAB", hl.dsp.window.cycle_next())
--- hl.bind(mod .. " + SHIFT + TAB", hl.dsp.window.cycle_next({ prev = true }))
+hl.bind("ALT + Tab", hl.dsp.exec_cmd("snappy-switcher next --mod alt"))
+hl.bind("ALT + SHIFT + Tab", hl.dsp.exec_cmd("snappy-switcher prev --mod alt"))
 
 -- Shortcuts -----------------------------------------------------------------------------------------------------------
 hl.bind(mod .. " + SHIFT + slash", hl.dsp.exec_cmd("sh ~/.config/hypr/scripts/shortcuts.sh"))
@@ -211,65 +210,13 @@ hl.bind(mod .. " + SHIFT + space", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mod .. " + F", hl.dsp.window.fullscreen())
 hl.bind(mod .. " + E", hl.dsp.layout("togglesplit"))
 
--- Window mode tab -----------------------------------------------------------------------------------------------------
--- BUG
-hl.bind(mod .. " + W", function()
-  local ws = hl.get_active_workspace()
-  if ws == nil then
-    return
-  end
+-- Tabbed windows ------------------------------------------------------------------------------------------------------
 
-  local all_wins = hl.get_windows()
-  if all_wins == nil or #all_wins == 0 then
-    return
-  end
-
-  local wins = {}
-  for _, w in ipairs(all_wins) do
-    if w.workspace ~= nil and w.workspace.id == ws.id then
-      table.insert(wins, w)
-    end
-  end
-
-  if #wins == 0 then
-    return
-  end
-
-  hl.dispatch(hl.dsp.focus({ window = wins[1].address }))
-  hl.dispatch(hl.dsp.group.toggle())
-
-  for i = 2, #wins do
-    if wins[i] ~= nil and wins[i].address ~= nil then
-      hl.dispatch(hl.dsp.focus({ window = wins[i].address }))
-      hl.dispatch(hl.dsp.group.toggle())
-    end
-  end
-end)
-
--- hl.bind(mod .. " + W", hl.dsp.group.toggle())
--- hl.bind(mod .. " + SHIFT + W", hl.dsp.group.lock())
-
--- -- Navegate between window / group tabs --------------------------------------------------------------------------------
--- hl.bind(mod .. " + left", function()
---   local w = hl.get_active_window()
---   if w ~= nil and w.group then
---     hl.dispatch(hl.dsp.group.prev())
---   else
---     hl.dispatch(hl.dsp.focus({ direction = "left" }))
---   end
--- end)
-
--- hl.bind(mod .. " + right", function()
---   local w = hl.get_active_window()
---   if w ~= nil and w.group then
---     hl.dispatch(hl.dsp.group.next())
---   else
---     hl.dispatch(hl.dsp.focus({ direction = "right" }))
---   end
--- end)
-
--- hl.bind(mod .. " + up", hl.dsp.focus({ direction = "up" }))
--- hl.bind(mod .. " + down", hl.dsp.focus({ direction = "down" }))
+-- Navigate between windows---------------------------------------------------------------------------------------------
+hl.bind(mod .. " + left", hl.dsp.focus({ direction = "left" }))
+hl.bind(mod .. " + right", hl.dsp.focus({ direction = "right" }))
+hl.bind(mod .. " + up", hl.dsp.focus({ direction = "up" }))
+hl.bind(mod .. " + down", hl.dsp.focus({ direction = "down" }))
 
 -- Move window float ---------------------------------------------------------------------------------------------------
 hl.bind(mod .. " + SHIFT + left", hl.dsp.window.move({ direction = "left" }))
@@ -349,10 +296,5 @@ hl.bind(mod .. " + SHIFT + R", hl.dsp.exec_cmd("sh ~/.config/hypr/scripts/init.s
 
 -- Autostart -----------------------------------------------------------------------------------------------------------
 hl.on("hyprland.start", function()
-  hl.exec_cmd("hyprpaper")
-  hl.exec_cmd("hypridle")
-  hl.exec_cmd("sh ~/.config/hypr/scripts/init.sh --waybars")
-  hl.exec_cmd("mako")
-  hl.exec_cmd("wl-paste --type text --watch cliphist store")
-  hl.exec_cmd("wl-paste --type image --watch cliphist store")
+  hl.exec_cmd("sh ~/.config/hypr/scripts/init.sh --started")
 end)

@@ -23,6 +23,16 @@ run_waybars() {
 }
 
 case "$1" in
+  --started)
+    pkill hyprpaper; hyprpaper &
+    pkill hypridle; hypridle &
+    run_waybars
+    set_wallpaper
+    pkill mako; mako &
+    pkill snappy-switcher; snappy-switcher --daemon &
+    wl-paste --type text --watch cliphist store &
+    wl-paste --type image --watch cliphist store &
+  ;;
   --waybars)
     run_waybars
   ;;
@@ -33,8 +43,10 @@ case "$1" in
     hyprctl reload
     pkill hyprpaper; hyprpaper &
     pkill hypridle; hypridle &
+    pkill mako; mako &
     set_wallpaper
     run_waybars
+    pkill snappy-switcher; snappy-switcher --daemon &
   ;;
   *)
     notify-send "Error" "[hyprland:scripts:init]: Invalid parameter"

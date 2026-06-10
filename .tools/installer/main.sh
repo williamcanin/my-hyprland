@@ -3,17 +3,17 @@
 set -e
 
 # shellcheck disable=SC1091
-. "tools/installer/libs/version.lib"
+. ".tools/installer/libs/version.lib"
 # shellcheck disable=SC1091
-. "tools/installer/libs/msg.lib"
+. ".tools/installer/libs/msg.lib"
 # shellcheck disable=SC1091
-. "tools/installer/libs/help.lib"
+. ".tools/installer/libs/help.lib"
 # shellcheck disable=SC1091
-. "tools/installer/libs/symlink.lib"
+. ".tools/installer/libs/symlink.lib"
 # shellcheck disable=SC1091
-. "tools/installer/libs/term.lib"
+. ".tools/installer/libs/term.lib"
 # shellcheck disable=SC1091
-. "tools/installer/libs/copyright.lib"
+. ".tools/installer/libs/copyright.lib"
 
 REPO_ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
 CONFIG_SRC="$REPO_ROOT/src/config"
@@ -31,7 +31,7 @@ PACKAGES="
   kooha xdg-utils gtk3 gtk4 adwaita-icon-theme noto-fonts noto-fonts-emoji uwsm
   ttf-nerd-fonts-symbols-mono ttf-jetbrains-mono-nerd otf-font-awesome vivid
   libnotify pamixer wireplumber networkmanager zsh papirus-icon-theme wf-recorder
-  gpu-screen-recorder
+  gpu-screen-recorder snappy-switcher
 "
 
 install_yay () {

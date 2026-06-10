@@ -4,7 +4,7 @@ ATALHO                    DESCRIÇÃO
 
 SUPER (Win) + 1..9              = Áreas de trabalho
 SUPER (Win) + < >               = Foco na janela
-[APPLY] SUPER (Win) + Tab       = Circular entre janelas
+ALT + Tab                       = Circular entre todas janelas
 SUPER (Win) + Shift + Space     = Janela flutuante (toggle)
 [APPLY] SUPER (Win) + r + < >   = Modo redimensionar janela
 SUPER (Win) + Mouse Button 2    = Modo redimensionar janela (flutuante)
