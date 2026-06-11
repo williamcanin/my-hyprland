@@ -1,3 +1,6 @@
+Hyprland Cheatsheets
+====================
+
 Atalhos do ambiente de Desktop »
 ------------------------------------------------
 ATALHO                                 DESCRIÇÃO
@@ -36,10 +39,12 @@ ATALHO                                 DESCRIÇÃO
 24 - SUPER (Win) + b                  = Navegador padrão
 25 - SUPER (Win) + d                  = Lançador de programas
 26 - SUPER (Win) + c                  = Calculadora
-27 - SUPER (Win) + h                  = Histórico no Clipboard
-28 - SUPER (Win) + Shift + h          = Apagar histórico do Clipboard
-29 - SUPER (Win) + p                  = Seletor de cores (Color Picker)
-30 - ALT + SHIFT                      = Altera teclado entre "pt-br (abnt2)" e "us"
+27 - SUPER (Win) + Ctrl + /?          = Cheatsheets do Kitty
+28 - SUPER (Win) + h                  = Histórico no Clipboard
+29 - SUPER (Win) + Shift + h          = Apagar histórico do Clipboard
+30 - SUPER (Win) + p                  = Seletor de cores (Color Picker)
+31 - ALT + SHIFT                      = Altera teclado entre "pt-br (abnt2)" e "us"
+
 
 Diretórios »
 -----------------------------------------------

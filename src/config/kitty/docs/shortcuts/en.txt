@@ -1,33 +1,40 @@
+Kitty Cheatsheets
+====================
 
-Ctrl + Shift + c  = Copy text
-Ctrl + Shift + v  = Paste text
-Ctrl + n          = New Tab
-Ctrl + q          = Close tab
+Conventional Shortcuts »
+------------------------------------------------
+SHORTCUT                         DESCRIPTION
 
-Splits »
+01 - Ctrl + Shift + c          = Copy text
+02 - Ctrl + Shift + v          = Paste text
+03 - Ctrl + n                  = New tab
+04 - Ctrl + q                  = Close tab
+
+Split Shortcuts »
+------------------------------------------------
+SHORTCUT                         DESCRIPTION
+
+05 - Ctrl + Shift + d          = Horizontal split
+06 - Ctrl + Shift + s          = Vertical split
+07 - Ctrl + Shift +           = Focus left
+08 - Ctrl + Shift +           = Focus down
+09 - Ctrl + Shift +           = Focus up
+10 - Ctrl + Shift +           = Focus right
+11 - Ctrl + Shift + x          = Close split
+
+Tab Shortcuts »
 -----------------------------------------------
+SHORTCUT                         DESCRIPTION
 
-Ctrl + Shift + d  = Horizontal Split
-Ctrl + Shift + s  = Vertical Split
-Ctrl + Shift + h  = Focus left
-Ctrl + Shift + j  = Focus below
-Ctrl + Shift + k  = Focus up
-Ctrl + Shift + l  = Focus right
-Ctrl + Shift + x  = Close split
+12 - Alt + 1                   = Tab 1
+13 - Alt + 2                   = Tab 2
+14 - Ctrl + Tab                = Next tab
+15 - Ctrl + Shift + Tab        = Previous tab
 
-Tabs »
+History Shortcuts »
 -----------------------------------------------
+SHORTCUT                         DESCRIPTION
 
-Alt + 1             = Tab 1
-Alt + 2             = Tab 2
-Ctrl + Tab          = Next Tab
-Ctrl + Shift + Tab  = Previous tab
-
-History »
------------------------------------------------
-
-Ctrl + Shift + ↑   = Previous prompt
-Ctrl + Shift + ↓   = Next prompt
-Ctrl + Shift + O   = Select output from last command
-
--
+16 - Ctrl + Shift + k          = Previous prompt
+17 - Ctrl + Shift + j          = Next prompt
+18 - Ctrl + Shift + O          = Select output of the last command

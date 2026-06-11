@@ -223,6 +223,7 @@ hl.bind("ALT + SHIFT + Tab", hl.dsp.exec_cmd("snappy-switcher prev --mod alt"))
 
 -- Shortcuts -----------------------------------------------------------------------------------------------------------
 hl.bind(mod .. " + SHIFT + slash", hl.dsp.exec_cmd("sh ~/.config/hypr/scripts/shortcuts.sh"))
+hl.bind(mod .. " + CTRL + slash", hl.dsp.exec_cmd("sh ~/.config/kitty/scripts/shortcuts.sh"))
 hl.bind(mod .. " + Return", hl.dsp.exec_cmd("kitty"))
 hl.bind(mod .. " + Space", hl.dsp.exec_cmd("nautilus"))
 hl.bind(mod .. " + D", hl.dsp.exec_cmd('rofi -show drun -display-drun "drun"'))

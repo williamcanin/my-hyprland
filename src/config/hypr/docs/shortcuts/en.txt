@@ -1,3 +1,6 @@
+Hyprland Cheatsheets
+====================
+
 Desktop Environment Shortcuts »
 --------------------------------------------------
 SHORTCUT                               DESCRIPTION
@@ -36,10 +39,11 @@ SHORTCUT                               DESCRIPTION
 24 - SUPER (Win) + b                  = Default Browser
 25 - SUPER (Win) + d                  = Program Launcher
 26 - SUPER (Win) + c                  = Calculator
-27 - SUPER (Win) + h                  = Clipboard History
-28 - SUPER (Win) + Shift + h          = Clear Clipboard History
-29 - SUPER (Win) + p                  = Color Picker
-30 - ALT + SHIFT                      = Switch keyboard between "pt-br (abnt2)" and "us"
+27 - SUPER (Win) + Ctrl + /?          = Kitty Cheatsheets
+28 - SUPER (Win) + h                  = Clipboard History
+29 - SUPER (Win) + Shift + h          = Clear Clipboard History
+30 - SUPER (Win) + p                  = Color Picker
+31 - ALT + SHIFT                      = Switch keyboard between "pt-br (abnt2)" and "us"
 
 Directories »
 -----------------------------------------------

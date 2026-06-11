@@ -98,7 +98,7 @@
       "tooltip": false
     },
 
-    // -- Hyprland Shortcuts ---------------------------------------------------
+    // -- Hyprland cheatsheets -------------------------------------------------
     "custom/header-keys": {
       "exec": "~/.config/waybar/scripts/sysinfo/header.sh keys",
       "interval": 3600
