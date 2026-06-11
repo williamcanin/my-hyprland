@@ -31,7 +31,7 @@ mais um painel lateral opcional de informações do sistema.
 - Terminais Kitty e Foot com JetBrainsMono Nerd Font, Font Awesome e cores escuras.
 - Yazi com flavor `flexoki-dark`.
 - Configurações Wayland para Firefox, Electron, SDL2, Java, LibreOffice e cursor.
-- Tema GTK escuro com Papirus Dark e Adwaita dark aplicado pelo instalador.
+- Tema GTK escuro com Graphite-teal-Dark e Mint-Y-Teal para icones aplicado pelo instalador.
 
 ## Componentes
 

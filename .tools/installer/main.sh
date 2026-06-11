@@ -26,14 +26,14 @@ BASE_DEPS="git base-devel go gcc"
 PACKAGES="
   firefox hyprland hyprpaper hypridle hyprshutdown hyprlock hyprshot hyprlua-git
   lua rofi-wayland kitty wev playerctl brightnessctl moreutils wtype fastfetch
-  flameshot grim cliphist wl-clipboard slurp swappy foot
+  flameshot grim cliphist wl-clipboard slurp swappy foot zsh snappy-switcher
   xdg-desktop-portal xdg-desktop-portal-wlr smog-bin xarchiver file-roller zip
   unzip zathura terminus-font nautilus terminus-font-ttf mpv magick pwvucontrol
   mako jq rofimoji rofi-calc bottom btop satty gsimplecal calcurse hyprpicker
   kooha xdg-utils gtk3 gtk4 adwaita-icon-theme noto-fonts noto-fonts-emoji uwsm
   ttf-nerd-fonts-symbols-mono ttf-jetbrains-mono-nerd otf-font-awesome vivid
-  libnotify pamixer wireplumber networkmanager zsh papirus-icon-theme wf-recorder
-  gpu-screen-recorder snappy-switcher
+  libnotify pamixer wireplumber networkmanager mint-y-icons graphite-gtk-theme
+  gpu-screen-recorder wf-recorder
 "
 
 install_yay () {
@@ -78,8 +78,8 @@ set_theme() {
   # GTK Theme
   if command -v gsettings >/dev/null 2>&1; then
     if
-      gsettings set org.gnome.desktop.interface icon-theme Papirus-Dark &&
-        gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark' &&
+      gsettings set org.gnome.desktop.interface icon-theme Mint-Y-Teal &&
+        gsettings set org.gnome.desktop.interface gtk-theme 'Graphite-teal-Dark' &&
         gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
     then
       ok "GTK theme applied."
