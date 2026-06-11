@@ -2,7 +2,7 @@
 
 ### Automatic login example
 # if systemctl -q is-active graphical.target && [ ! $DISPLAY && $XDG_VTNR -eq 1 ]; then
-#  exec uwsm start $DE &>/dev/null
+#  <DE> &>/dev/null
 # fi
 
 export LANG=pt_BR.UTF-8
