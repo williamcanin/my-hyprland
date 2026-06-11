@@ -1,6 +1,5 @@
 -- ===================================
 --  Hyprland 0.55+ CONFIG
---  GTX 750 Ti / driver Nouveau
 --  File: ~/.config/hypr/hyprland.lua
 -- ===================================
 
@@ -9,7 +8,7 @@ hl.monitor({
   output = "", -- "" = any monitor
   mode = "preferred",
   position = "auto",
-  scale = "auto",
+  scale = 1,
 })
 
 -- Environment variables -----------------------------------------------------------------------------------------------
@@ -17,9 +16,6 @@ hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
 hl.env("QT_QPA_PLATFORMTHEME", "qt5ct")
 hl.env("MOZ_ENABLE_WAYLAND", "1")
--- Nouveau / GTX 750 Ti
-hl.env("WLR_NO_HARDWARE_CURSORS", "1")
-hl.env("WLR_RENDERER_ALLOW_SOFTWARE", "1")
 
 -- Global configuration ------------------------------------------------------------------------------------------------
 hl.config({
@@ -62,32 +58,32 @@ hl.config({
   decoration = {
     rounding = 8,
     rounding_power = 2,
-    active_opacity = 0.98,
-    inactive_opacity = 0.85,
+    active_opacity = 1.0,
+    inactive_opacity = 1.0,
     fullscreen_opacity = 1.0,
-    dim_inactive = true,
+    dim_inactive = false,
     dim_strength = 0.08,
 
     shadow = {
       enabled = true,
-      range = 20,
-      render_power = 3,
+      range = 6,
+      render_power = 2,
       color = 0xcc1a1a2e,
       color_inactive = 0x661a1a2e,
     },
 
     blur = {
       enabled = true,
-      size = 6,
-      passes = 3,
+      size = 3,
+      passes = 1,
       new_optimizations = true,
       xray = false,
-      noise = 0.02,
+      noise = 0.0,
       contrast = 0.9,
       brightness = 0.8,
       vibrancy = 0.1,
       ignore_opacity = false,
-      popups = true,
+      popups = false,
     },
   },
 
@@ -107,6 +103,15 @@ hl.config({
     force_default_wallpaper = 0,
     disable_hyprland_logo = true,
     disable_splash_rendering = true,
+  },
+
+  cursor = {
+    no_hardware_cursors = 2,
+    use_cpu_buffer = 2,
+  },
+
+  render = {
+    new_render_scheduling = true,
   },
 
   -- XWayland enabled/disabled

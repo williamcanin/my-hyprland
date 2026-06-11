@@ -10,7 +10,6 @@ export LC_CTYPE=pt_BR.UTF-8
 
 export WLR_RENDERER=vulkan
 export WLR_NO_HARDWARE_CURSORS=1
-export XWAYLAND_NO_GLAMOR=1
 
 # NVIDIA
 export GBM_BACKEND=nvidia-drm
