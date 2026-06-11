@@ -1,3 +1,5 @@
+# shellcheck shell=sh
+
 help() {
 	printf "\n"
 	log "Options »" "\n"

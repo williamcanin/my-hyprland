@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
-TERMINAL="kitty -e"
 EDITOR=nvim
+KITTY="/usr/bin/kitty"
 YAZI="/usr/bin/yazi"
 ZATHURA="/usr/bin/zathura"
 
@@ -11,7 +11,7 @@ target=$1
 [ -z "$target" ] && exit 1
 
 if [ -d "$target" ]; then
-    kitty -e $YAZI "$target" >/dev/null 2>&1 &
+    "$KITTY" -e "$YAZI" "$target" >/dev/null 2>&1 &
     exit 0
 fi
 
@@ -24,10 +24,10 @@ case "$mime" in
     application/toml|\
     application/x-yaml|\
     application/x-shellscript)
-        $TERMINAL $EDITOR "$target" >/dev/null 2>&1 &
+        "$KITTY" -e "$EDITOR" "$target" >/dev/null 2>&1 &
         ;;
     application/pdf)
-        $ZATHURA "$target" >/dev/null 2>&1 &
+        "$ZATHURA" "$target" >/dev/null 2>&1 &
         ;;
     image/*)
         xdg-open "$target" >/dev/null 2>&1 &

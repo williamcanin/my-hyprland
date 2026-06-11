@@ -22,10 +22,16 @@ IP_ADDR=$(
 RX1=$(cat "/sys/class/net/$IFACE/statistics/rx_bytes" 2>/dev/null)
 TX1=$(cat "/sys/class/net/$IFACE/statistics/tx_bytes" 2>/dev/null)
 
+RX1=${RX1:-0}
+TX1=${TX1:-0}
+
 sleep 1
 
 RX2=$(cat "/sys/class/net/$IFACE/statistics/rx_bytes" 2>/dev/null)
 TX2=$(cat "/sys/class/net/$IFACE/statistics/tx_bytes" 2>/dev/null)
+
+RX2=${RX2:-$RX1}
+TX2=${TX2:-$TX1}
 
 RX_RATE=$((RX2 - RX1))
 TX_RATE=$((TX2 - TX1))

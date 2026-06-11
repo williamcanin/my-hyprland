@@ -1,4 +1,4 @@
-# My Hyprland
+# My Hyprland (EM DESENVOLVIMENTO)
 
 Configuração pessoal de desktop Wayland baseada em Hyprland, com foco em um
 ambiente leve, direto e produtivo para [Arch Linux](https://archlinux.org). O repositório reúne os

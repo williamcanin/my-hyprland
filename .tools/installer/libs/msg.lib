@@ -1,3 +1,5 @@
+# shellcheck shell=sh
+
 # Detect UTF-8 support
 case "${LANG:-}${LC_ALL:-}" in
   *UTF-8*|*utf8*)

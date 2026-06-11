@@ -91,8 +91,13 @@ make_bar() {
 CPU_TEMP="$(cpu_temp)°C"
 CPU_USAGE="$(cpu_usage)%"
 
-GPU_TEMP="$("$GPU_SCRIPT" --temp)"
-GPU_USAGE="$("$GPU_SCRIPT" --usage)"
+if [ -x "$GPU_SCRIPT" ]; then
+  GPU_TEMP="$("$GPU_SCRIPT" --temp)"
+  GPU_USAGE="$("$GPU_SCRIPT" --usage)"
+else
+  GPU_TEMP="N/A"
+  GPU_USAGE="N/A"
+fi
 
 CPU_BAR=$(make_bar "${CPU_USAGE%\%}" "$BAR_SIZE")
 

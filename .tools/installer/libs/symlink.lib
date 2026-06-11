@@ -1,3 +1,5 @@
+# shellcheck shell=sh
+
 symlink() {
   if [ -f "$1" ]; then
     ln -fs "$1" "$2"

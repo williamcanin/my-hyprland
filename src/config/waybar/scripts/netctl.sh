@@ -6,7 +6,7 @@
 # $USER ALL=(root) NOPASSWD: /sbin/ip, /bin/ip
 # EOF
 
-tr() {
+msg() {
   case "${LC_MESSAGES:-${LANG:-en}}" in
     pt*)
       case "$1" in
@@ -37,21 +37,29 @@ if [ -z "$IFACE" ]; then
 fi
 
 [ -z "$IFACE" ] &&
-  notify-send "[waybar]:netctl.sh" "$(tr no_iface)" &&
+  notify-send "[waybar]:netctl.sh" "$(msg no_iface)" &&
   exit 1
 
 STATE=$(ip link show "$IFACE" 2>/dev/null | awk 'NR==1{print $9}')
 
 case "$STATE" in
 UP)
-  sudo -n ip link set "$IFACE" down &&
-    notify-send "$(tr network)" "$(tr disconnected) ($IFACE)"
+  if sudo -n ip link set "$IFACE" down; then
+    notify-send "$(msg network)" "$(msg disconnected) ($IFACE)"
+  else
+    notify-send "[waybar]:netctl.sh" "sudo ip link set $IFACE down failed"
+    exit 1
+  fi
   ;;
 DOWN | UNKNOWN | "")
-  sudo -n ip link set "$IFACE" up &&
-    notify-send "$(tr network)" "$(tr reconnecting) $IFACE..."
+  if sudo -n ip link set "$IFACE" up; then
+    notify-send "$(msg network)" "$(msg reconnecting) $IFACE..."
+  else
+    notify-send "[waybar]:netctl.sh" "sudo ip link set $IFACE up failed"
+    exit 1
+  fi
   ;;
 *)
-  notify-send "[waybar]:netctl.sh" "$(tr state): $STATE ($IFACE)"
+  notify-send "[waybar]:netctl.sh" "$(msg state): $STATE ($IFACE)"
   ;;
 esac

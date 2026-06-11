@@ -17,7 +17,10 @@ do_lock() {
 # -- power-menu.sh --lock
 # Also used for the keyboard shortcut Mod+Shift+l
 # ------------------------------------------------------------------------------
-[ "$1" = "--lock" ] && do_lock
+[ "$1" = "--lock" ] && {
+  do_lock
+  exit $?
+}
 
 # -- Translate -----------------------------------------------------------------
 case "${LC_MESSAGES:-${LANG:-en}}" in

@@ -2,20 +2,22 @@
 
 set -e
 
-# shellcheck disable=SC1091
-. ".tools/installer/libs/version.lib"
-# shellcheck disable=SC1091
-. ".tools/installer/libs/msg.lib"
-# shellcheck disable=SC1091
-. ".tools/installer/libs/help.lib"
-# shellcheck disable=SC1091
-. ".tools/installer/libs/symlink.lib"
-# shellcheck disable=SC1091
-. ".tools/installer/libs/term.lib"
-# shellcheck disable=SC1091
-. ".tools/installer/libs/copyright.lib"
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+REPO_ROOT="$(cd "$SCRIPT_DIR/../.." && pwd)"
 
-REPO_ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
+# shellcheck disable=SC1091
+. "$SCRIPT_DIR/libs/version.lib"
+# shellcheck disable=SC1091
+. "$SCRIPT_DIR/libs/msg.lib"
+# shellcheck disable=SC1091
+. "$SCRIPT_DIR/libs/help.lib"
+# shellcheck disable=SC1091
+. "$SCRIPT_DIR/libs/symlink.lib"
+# shellcheck disable=SC1091
+. "$SCRIPT_DIR/libs/term.lib"
+# shellcheck disable=SC1091
+. "$SCRIPT_DIR/libs/copyright.lib"
+
 CONFIG_SRC="$REPO_ROOT/src/config"
 CONFIG_DST="$HOME/.config"
 FONTS_SRC="$REPO_ROOT/src/fonts"
@@ -61,17 +63,31 @@ ensure_yay () {
 
 default_apps() {
   # Browser
-  xdg-settings set default-web-browser firefox.desktop
-  ok "Default browser applied to: Firefox."
+  if command -v xdg-settings >/dev/null 2>&1; then
+    if xdg-settings set default-web-browser firefox.desktop; then
+      ok "Default browser applied to: Firefox."
+    else
+      warn "Could not set Firefox as default browser."
+    fi
+  else
+    warn "xdg-settings not found — default browser not changed."
+  fi
 }
 
 set_theme() {
   # GTK Theme
   if command -v gsettings >/dev/null 2>&1; then
-    gsettings set org.gnome.desktop.interface icon-theme Papirus-Dark
-    gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
-    gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
-    ok "GTK theme applied."
+    if
+      gsettings set org.gnome.desktop.interface icon-theme Papirus-Dark &&
+        gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark' &&
+        gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+    then
+      ok "GTK theme applied."
+    else
+      warn "Could not apply GTK theme."
+    fi
+  else
+    warn "gsettings not found — GTK theme not changed."
   fi
 }
 
@@ -92,7 +108,7 @@ copy_configs() {
   mkdir -p "$CONFIG_DST"
 
   # Permissions .sh
-  find src/config -type f -name "*.sh" -exec chmod +x {} \;
+  find "$CONFIG_SRC" -type f -name "*.sh" -exec chmod +x {} \;
 
   for src_dir in "$CONFIG_SRC"/*/; do
     [ -d "$src_dir" ] || continue
@@ -211,6 +227,11 @@ case "$1" in
   ;;
 --version)
   plain "Version: $VERSION" "\n"
+  ;;
+*)
+  help
+  copyright
+  exit 1
   ;;
 esac
 exit 0

@@ -6,6 +6,10 @@ make_bar() {
   percent=$1
   size=$2
 
+  case "$percent" in
+    "" | *[!0-9]*) percent=0 ;;
+  esac
+
   filled=$((percent * size / 100))
   empty=$((size - filled))
 
@@ -36,6 +40,9 @@ get_mount_info() {
 
 ROOT_INFO=$(get_mount_info "/")
 HOME_INFO=$(get_mount_info "/home")
+
+[ -n "$ROOT_INFO" ] || ROOT_INFO="0 0 0"
+[ -n "$HOME_INFO" ] || HOME_INFO="0 0 0"
 
 ROOT_USED=$(printf '%s\n' "$ROOT_INFO" | awk '{print $1}')
 ROOT_TOTAL=$(printf '%s\n' "$ROOT_INFO" | awk '{print $2}')

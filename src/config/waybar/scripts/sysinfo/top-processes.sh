@@ -4,6 +4,7 @@ N_PROC="5"
 PS="/usr/bin/ps"
 AWK="/usr/bin/awk"
 
+# shellcheck disable=SC2016
 OUTPUT=$(
   {
     printf "%-7s %-5s %-5s %s\n" "PID" "CPU%" "MEM%" "CMD"
