@@ -1,41 +1,45 @@
 Atalhos do ambiente de Desktop »
------------------------------------------------
-ATALHO                    DESCRIÇÃO
+------------------------------------------------
+ATALHO                                 DESCRIÇÃO
 
-SUPER (Win) + 1..9              = Áreas de trabalho
-SUPER (Win) + < >               = Foco na janela
-ALT + Tab                       = Circular entre todas janelas
-SUPER (Win) + Shift + Space     = Janela flutuante (toggle)
-[APPLY] SUPER (Win) + r + < >   = Modo redimensionar janela
-SUPER (Win) + Mouse Button 2    = Modo redimensionar janela (flutuante)
-SUPER (Win) + f                 = Tela cheia
-[APPLY] SUPER (Win) + w         = Agrupar em abas
-SUPER (Win) + Mouse Button 1    = Arrasta janela (mouse)
-SUPER (Win) + Shift + < >       = Mover janela
-SUPER (Win) + q                 = Fechar janela
-SUPER (Win) + Shift + 1..9      = Mover janela para a área de trabalho
-Print                           = Capturar área selecionada
-SUPER (Win) + Print             = Capturar janela em foco
-SUPER (Win) + Shift + Print     = Capturar tela inteira
-SUPER (Win) + g                 = Iniciar/Pausar/Retormar gravação de tela
-SUPER (Win) + Shift + g         = Parar e salvar gravação de tela
-SUPER (Win) + Shift + l         = Bloquear sistema
-[APPLY] SUPER (Win) + Shift + m = Desligar monitor (não é suspender)
-SUPER (Win) + Shift + e         = Sair do sistema
-SUPER (Win) + Shift + r         = Recarregar Hyprland
+01 - SUPER (Win) + 1..9               = Áreas de trabalho
+02 - SUPER (Win) + Shift + Space      = Ativa/Desativa Janela flutuante
+03 - SUPER (Win) +                  = Foco na janela
+04 - ALT + Tab                        = Circular entre todas janelas
+05 - SUPER (Win) + r                  = Entrar modo redimensionar janela (apenas em janela flutuante)
+                                  = Redimencionar
+     SHIFT +                      = Mover janela
+     Esc                              = Sair modo redimencionar
+06 - SUPER (Win) + Mouse Button 1     = Arrasta janela (apenas em janela flutuante)
+07 - SUPER (Win) + Mouse Button 2     = Modo redimensionar janela (apenas em janela flutuante)
+08 - SUPER (Win) + f                  = Tela cheia
+09 - SUPER (Win) + w                  = Agrupar/Desagrupar em abas
+10 - SUPER (Win) + Shift +          = Mover janela
+11 - SUPER (Win) + q                  = Fechar janela
+12 - SUPER (Win) + Shift + 1..9       = Mover janela para a área de trabalho
+13 - Print                            = Capturar área selecionada
+14 - SUPER (Win) + Print              = Capturar janela em foco
+15 - SUPER (Win) + Shift + Print      = Capturar tela inteira
+16 - SUPER (Win) + g                  = Iniciar/Pausar/Retormar gravação de tela
+17 - SUPER (Win) + Shift + g          = Parar e salvar gravação de tela
+18 - SUPER (Win) + Shift + l          = Bloquear sistema
+19 - SUPER (Win) + Shift + m          = Desligar/Ligar monitor (não é suspender)
+20 - SUPER (Win) + Shift + e          = Sair do sistema
+21 - SUPER (Win) + Shift + r          = Recarregar Hyprland
 
 Atalhos de software »
------------------------------------------------
-ATALHO                    DESCRIÇÃO
+------------------------------------------------
+ATALHO                                 DESCRIÇÃO
 
-SUPER (Win) + b                 = Navegador padrão
-SUPER (Win) + d                 = Lançador de programas
-SUPER (Win) + c                 = Calculadora
-SUPER (Win) + Enter             = Terminal
-SUPER (Win) + Space             = Gerenciador de arquivosHH
-SUPER (Win) + h                 = Histórico no Clipboard
-SUPER (Win) + Shift + h         = Apagar histórico do Clipboard
-SUPER (Win) + p                 = Seletor de cores (Color Picker)
+22 - SUPER (Win) + Enter              = Terminal
+23 - SUPER (Win) + Space              = Gerenciador de arquivos
+24 - SUPER (Win) + b                  = Navegador padrão
+25 - SUPER (Win) + d                  = Lançador de programas
+26 - SUPER (Win) + c                  = Calculadora
+27 - SUPER (Win) + h                  = Histórico no Clipboard
+28 - SUPER (Win) + Shift + h          = Apagar histórico do Clipboard
+29 - SUPER (Win) + p                  = Seletor de cores (Color Picker)
+30 - ALT + SHIFT                      = Altera teclado entre "pt-br (abnt2)" e "us"
 
 Diretórios »
 -----------------------------------------------

@@ -9,7 +9,7 @@
     "spacing": 0,
     "exclusive": false,
     "passthrough": true,
-    "margin-top": -50,
+    "margin-top": -40,
     "modules-left": [
       "custom/header-system",
       "custom/system",

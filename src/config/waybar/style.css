@@ -81,15 +81,16 @@ window#waybar.empty #window {
 
 #workspaces button.empty {
   background: none;
-  color: @background;   /* texto apagado */
+  color: @transparent;
 }
 
 #workspaces button.empty.active {
-  color: rgba(236, 239, 244, 0.35);
+  color: @foreground;
 }
 
-/* Workspace com janelas mas não ativo */
-
+#submap {
+  font-weight: bold;
+}
 
 /* Font size bar */
 #language,
@@ -99,12 +100,13 @@ window#waybar.empty #window {
 #clock,
 #custom-expand-icon,
 #mpris,
+#custom-window-or-mpris,
 #tray,
 #custom-recording,
 #pulseaudio,
 #power-profiles-daemon,
 #custom-power {
-  /* min: 12px, med: 14px*/
+  /* Minimal: 12px, Medium (Recommended): 14px */
   font-size: 14px;
 }
 
@@ -144,6 +146,7 @@ tooltip label {
 #tray,
 #group-tray-expander,
 #mpris,
+#custom-window-or-mpris,
 #custom-recording,
 #pulseaudio,
 #language,
@@ -169,6 +172,10 @@ tooltip label {
   /* top right bottom left */
   margin: 0px 3px 0px 3px;
   padding: 0px 3px 0px 3px;
+}
+
+#custom-window-or-mpris {
+  margin-left: 15px;
 }
 
 /* --- Hover --- */

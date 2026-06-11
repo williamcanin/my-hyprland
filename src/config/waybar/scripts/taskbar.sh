@@ -24,7 +24,7 @@ switch_keyboard_layout() {
   case "$XDG_SESSION_DESKTOP" in
     Hyprland)
       # Hyprland: troca layout via hyprctl
-      hyprctl switchxkblayout all next
+      hyprctl switchxkblayout usb-usb-keyboard next
       ;;
     sway)
       swaymsg input type:keyboard xkb_switch_layout next
@@ -41,10 +41,10 @@ power_menu() {
 term() {
   case "$XDG_SESSION_DESKTOP" in
   Hyprland)
-    $KITTY -e sh -c "btm --config '$HOME/.config/bottom/mem.toml'; hyprctl dispatch \"hl.dsp.focus({ workspace = \\\"$CURRENT_WS\\\" })\""
+    $KITTY -e btm -C "$HOME/.config/bottom/$1.toml" && hyprctl dispatch "hl.dsp.focus({ workspace = $CURRENT_WS })"
     ;;
   sway)
-    $KITTY -e btm --config "$HOME/.config/bottom/cpu.toml"
+    $KITTY -e btm -C "$HOME/.config/bottom/$1.toml"
     ;;
   esac
 }
@@ -65,12 +65,12 @@ case $1 in
     ;;
   --mem)
     go_workspace 9
-    term
+    term "mem"
     go_workspace "$CURRENT_WS"
     ;;
   --cpu)
     go_workspace 9
-    term
+    term "cpu"
     go_workspace "$CURRENT_WS"
     ;;
   --power-menu)

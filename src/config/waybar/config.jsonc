@@ -3,10 +3,14 @@
   "position": "top",
   "mod": "dock",
   "margin-top": 5,
-  // min: 24px, med: 28px
+  // Minimal: "height": 24px, Medium: "height": 28px
   "height": 28,
-  "margin-left": 300,
-  "margin-right": 300,
+  // Minimal: "margin-left": 300
+  // Expanded: "margin-left": 10
+  "margin-left": 10,
+  // Minimal: "margin-right": 300
+  // Expanded: "margin-right": 10
+  "margin-right": 10,
   "margin-bottom": 0,
 
   "group/left1": {
@@ -18,7 +22,7 @@
     "modules": ["mpris"]
   },
   "modules-left": ["group/left1", "group/left2"],
-  // "modules-center": ["hyprland/window"],
+  "modules-center": ["custom/icon-window", "hyprland/submap", "hyprland/window"],
   "modules-right": [
     "group/tray-expander",
     "custom/recording",
@@ -33,6 +37,25 @@
     "clock#time",
     "custom/power"
   ],
+  "custom/icon-window": {
+    "format": " "
+  },
+  "hyprland/window": {
+    "format": "{}",
+    "max-length": 100,
+    "tooltip": false
+  },
+  "hyprland/submap": {
+    "format": "[ <span color='#3aa99f'>{}</span> ] ",
+    "max-length": 20,
+    "tooltip": false
+  },
+  "custom/window-or-mpris": {
+    "exec": "~/.config/waybar/scripts/window-or-mpris.sh",
+    "interval": 1,
+    "format": "{}",
+    "tooltip": false
+  },
   "hyprland/workspaces": {
     "format": "{id}",
     "on-click": "activate",
@@ -40,11 +63,11 @@
     "sort-by-number": true,
     "on-scroll-up": "hyprctl dispatch workspace e+1",
     "on-scroll-down": "hyprctl dispatch workspace e-1"
-},
+  },
   "hyprland/language": {
     "format": "\uf11c {short}",
     // Search keyboard with command: hyprctl devices
-    "keyboard-name": "usb-usb-keyboard-consumer-control",
+    "keyboard-name": "usb-usb-keyboard",
     "on-click": "~/.config/waybar/scripts/taskbar.sh --layout-keyboard"
   },
   "cpu": {
@@ -171,7 +194,7 @@
   "mpris": {
     "format": "{player_icon} {dynamic}",
     "format-paused": "<span color='grey'>{status_icon} {dynamic}</span>",
-    "max-length": 50,
+    "max-length": 80,
     "interval": 1,
     "player-icons": {
       "default": "\uf28b",

@@ -1,9 +1,6 @@
-[[row]]
-  ratio=100
-  [[row.child]]
-    type="mem"
-
 [styles]
+theme = "default"
+
 [styles.cpu]
 all_entry_color = "#3aa99f"
 avg_entry_color = "#aaffee"
@@ -16,6 +13,8 @@ swap_color = "#2a8080"
 [styles.network]
 rx_color = "#88ccff"
 tx_color = "#3aa99f"
+rx_total_color = "#aaffee"
+tx_total_color = "#2a8080"
 
 [styles.battery]
 high_battery_color = "#3aa99f"

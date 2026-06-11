@@ -1,46 +1,49 @@
-Desktop Environment shortcuts »
+Desktop Environment Shortcuts »
+--------------------------------------------------
+SHORTCUT                               DESCRIPTION
+
+01 - SUPER (Win) + 1..9               = Workspaces
+02 - SUPER (Win) + Shift + Space      = Enable/Disable Floating Window
+03 - SUPER (Win) +                  = Focus on window
+04 - ALT + Tab                        = Cycle through all windows
+05 - SUPER (Win) + r                  = Enter window resize mode (floating window only)
+                                  = Resize
+     SHIFT +                      = Move window
+     Esc                              = Exit resize mode
+06 - SUPER (Win) + Mouse Button 1     = Drag window (floating window only)
+07 - SUPER (Win) + Mouse Button 2     = Window resize mode (floating window only)
+08 - SUPER (Win) + f                  = Full screen window
+09 - SUPER (Win) + w                  = ​​Group/Ungroup into tabs
+10 - SUPER (Win) + Shift +          = Move window
+11 - SUPER (Win) + q                  = Close window
+12 - SUPER (Win) + Shift + 1..9       = Move window to desktop
+13 - Print                            = Capture selected area
+14 - SUPER (Win) + Print              = Capture focused window
+15 - SUPER (Win) + Shift + Print      = Capture entire screen
+16 - SUPER (Win) + g                  = Start/Pause/Resume screen recording
+17 - SUPER (Win) + Shift + g          = Stop and save screen recording
+18 - SUPER (Win) + Shift + l          = Lock system
+19 - SUPER (Win) + Shift + m          = Turn monitor off/on (not suspend system)
+20 - SUPER (Win) + Shift + e          = Exit system
+21 - SUPER (Win) + Shift + r          = Reload Hyprland
+
+Software Shortcuts »
+--------------------------------------------------
+SHORTCUT                               DESCRIPTION
+
+22 - SUPER (Win) + Enter              = Terminal
+23 - SUPER (Win) + Space              = File Manager
+24 - SUPER (Win) + b                  = Default Browser
+25 - SUPER (Win) + d                  = Program Launcher
+26 - SUPER (Win) + c                  = Calculator
+27 - SUPER (Win) + h                  = Clipboard History
+28 - SUPER (Win) + Shift + h          = Clear Clipboard History
+29 - SUPER (Win) + p                  = Color Picker
+30 - ALT + SHIFT                      = Switch keyboard between "pt-br (abnt2)" and "us"
+
+Directories »
 -----------------------------------------------
-SHORTCUT                 DESCRIPTION
 
-Alt + Tab                      = Navigates between all windows
-SUPER (Win) + Tab              = Switch between Workspace
-SUPER (Win) + 1..8             = Workspace
-SUPER (Win) + < >              = Window Focus
-SUPER (Win) + w                = Tab mode
-SUPER (Win) + e                = Side by side
-SUPER (Win) + r + < >          = Window resize mode
-SUPER (Win) + Mouse Button 2   = Window resize mode (mouse)
-SUPER (Win) + f                = Full Screen
-SUPER (Win) + q                = Close Window
-SUPER (Win) + Shift + Space    = Floating window
-SUPER (Win) + Mouse Button 1   = Floating window (mouse)
-SUPER (Win) + Shift + < >      = Move Window
-SUPER (Win) + Shift + 1..8     = Move window to workspace
-Print                          = Capture selected area
-Ctrl + Print                   = Capture focused window
-Shift + Print                  = Capture entire screen
-Ctrl + Shift + Print           = Capture current monitor
-SUPER (Win) + g                = Start/Pause/Resume screen recording
-SUPER (Win) + Shift + g        = Stop and save screen recording
-SUPER (Win) + Shift + m        = Turn off the monitor (not suspend)
-SUPER (Win) + Shift + l        = Block system
-SUPER (Win) + Shift + e        = Exit system
-SUPER (Win) + Shift + r        = Reload Hyprland
-
-Software shortcuts »
------------------------------------------------
-SHORTCUT                 DESCRIPTION
-
-SUPER (Win) + b                = Default browser
-SUPER (Win) + d                = Launcher
-SUPER (Win) + c                = Calculator
-SUPER (Win) + Enter            = Terminal
-SUPER (Win) + Space            = File Manager
-SUPER (Win) + h                = Clipboard history
-SUPER (Win) + Shift + h        = Clear clipboard history
-SUPER (Win) + p                = Color Picker
-
-Logs »
------------------------------------------------
-
-Hyprland logs (diretory): $HOME/.local/state/hyprland/
+Hyprland configs: $HOME/.config/hypr/
+Hyprland logs: $HOME/.local/state/hyprland/
+Waybar configs: $HOME/.config/waybar/

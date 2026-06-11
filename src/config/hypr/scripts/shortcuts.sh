@@ -4,11 +4,9 @@ ROFI="/usr/bin/rofi"
 
 case "${LC_MESSAGES:-${LANG:-en}}" in
 pt*)
-  # $ROFI -e "$(cat $HOME/.config/hypr/docs/shortcuts/pt.txt)"
-  cat "$HOME/.config/hypr/docs/shortcuts/pt.txt" | $ROFI -dmenu -p "Procurar" -i
+  cat "$HOME/.config/hypr/docs/shortcuts/pt.txt" | $ROFI -dmenu -p "Procurar" -i -theme-str 'window { height: 600px;}'
   ;;
 *)
-  # $ROFI -e "$(cat $HOME/.config/hypr/docs/shortcuts/en.txt)"
-  cat "$HOME/.config/hypr/docs/shortcuts/en.txt" | $ROFI -dmenu -p "Search" -i
+  cat "$HOME/.config/hypr/docs/shortcuts/en.txt" | $ROFI -dmenu -p "Search" -i -theme-str 'window { height: 600px;}'
   ;;
 esac

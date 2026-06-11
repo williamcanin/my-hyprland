@@ -6,7 +6,7 @@
     fg-selected:      rgba(0, 0, 0, 100%);
 
     row-alt:          rgba(255,255,255,6%);
-    row-selected:     rgba(154,215,209,85%);
+    row-selected:     rgba(154,215,209,95%);
 
     border-color:     @fg;
     separator-color:  @fg;
@@ -78,7 +78,7 @@ element normal.normal {
 
 element alternate.normal {
     text-color: @fg;
-    background-color: rgba(255,255,255,4%);
+    // background-color: rgba(255,255,255,4%);
 }
 
 element selected.normal {

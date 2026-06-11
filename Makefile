@@ -8,24 +8,24 @@ REMOTES := $(shell git remote)
 
 # ----- Menu help -----
 help:
-	@sh ./.tools/installer/main.sh --help
+	@sh .tools/installer/main.sh --help
 
 help-dev:
-	@sh ./.tools/installer/main.sh --help-dev
+	@sh .tools/installer/main.sh --help-dev
 
 # ----- Installation/Upgrade (user commands) -----
 upgrade:
-	@sh ./.tools/installer/main.sh --upgrade
+	@sh .tools/installer/main.sh --upgrade
 
 install:
-	@sh ./tools/installer/main.sh --install
+	@sh .tools/installer/main.sh --install
 
 version:
-	@sh ./.tools/installer/main.sh --version
+	@sh .tools/installer/main.sh --version
 
 set-permissions:
-	@find ./src/config -type f -name "*.sh" -exec chmod +x {} \;
-	@find ./src/config -type f -name "*.lib" -exec chmod +x {} \;
+	@find src/config -type f -name "*.sh" -exec chmod +x {} \;
+	@find src/config -type f -name "*.lib" -exec chmod +x {} \;
 
 # ----- GIT PUSH (development commands) -----
 push:
