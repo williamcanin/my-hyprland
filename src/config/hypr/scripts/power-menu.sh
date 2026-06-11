@@ -4,12 +4,11 @@
 . "$HOME/.config/hypr/scripts/base.sh"
 
 do_lock() {
-  IMG="/tmp/hyprlock-wallpaper-blur.png"
-  if [ ! -f "$IMG" ] || [ "$WALLPAPER_PATH" -nt "$IMG" ]; then
+  if [ ! -f "$HYPRLOCK_PATH" ] || [ "$WALLPAPER_PATH" -nt "$HYPRLOCK_PATH" ]; then
     magick "$WALLPAPER_PATH" \
       -blur 0x2 \
       -fill black -colorize 20% \
-      "$IMG"
+      "$HYPRLOCK_PATH"
   fi
   exec hyprlock
 }
