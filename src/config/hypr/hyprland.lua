@@ -1,6 +1,7 @@
 -- ===================================
---  Hyprland 0.55+ CONFIG
+--  Hyprland 0.55+
 --  File: ~/.config/hypr/hyprland.lua
+--  By: William C. Canin
 -- ===================================
 
 -- Monitor -------------------------------------------------------------------------------------------------------------
@@ -12,9 +13,15 @@ hl.monitor({
 })
 
 -- Environment variables -----------------------------------------------------------------------------------------------
-hl.env("XCURSOR_SIZE", "24")
+
+-- Cursor size
 hl.env("HYPRCURSOR_SIZE", "24")
+hl.env("XCURSOR_SIZE", "24")
+-- Forces Qt apps to use Kvantum as their theme engine
+hl.env("QT_STYLE_OVERRIDE", "kvantum")
+-- Use qt5ct to configure Qt (font, icons, style)
 hl.env("QT_QPA_PLATFORMTHEME", "qt5ct")
+-- Forces Firefox to run natively on Wayland
 hl.env("MOZ_ENABLE_WAYLAND", "1")
 
 -- Global configuration ------------------------------------------------------------------------------------------------
@@ -206,30 +213,55 @@ hl.window_rule({ match = { class = "blueman-manager" }, float = true })
 hl.window_rule({ match = { class = "xdg-desktop-portal-gtk" }, float = true })
 
 -- Transparency at the terminals ---------------------------------------------------------------------------------------
-hl.window_rule({ match = { class = "kitty" }, opacity = "0.90 0.85" })
-hl.window_rule({ match = { class = "foot" }, opacity = "0.90 0.85" })
-hl.window_rule({ match = { class = "Alacritty" }, opacity = "0.90 0.85" })
+hl.window_rule({ match = { class = "kitty" }, opacity = "1.0 1.0" })
+hl.window_rule({ match = { class = "foot" }, opacity = "1.0 1.0" })
+hl.window_rule({ match = { class = "Alacritty" }, opacity = "1.0 1.0" })
 
 -- Keybindings =========================================================================================================
 
 -- Variables -----------------------------------------------------------------------------------------------------------
 local mod = "SUPER"
 
--- Moving between windows
--- Using: snappy-switcher
-----------------------------------------------------------------------------------------------
+-- Moving between windows (Using: snappy-switcher) ---------------------------------------------------------------------
 hl.bind("ALT + Tab", hl.dsp.exec_cmd("snappy-switcher next --mod alt"))
 hl.bind("ALT + SHIFT + Tab", hl.dsp.exec_cmd("snappy-switcher prev --mod alt"))
 
--- Shortcuts -----------------------------------------------------------------------------------------------------------
+-- All cheatsheets -----------------------------------------------------------------------------------------------------
 hl.bind(mod .. " + SHIFT + slash", hl.dsp.exec_cmd("sh ~/.config/hypr/scripts/shortcuts.sh"))
+
+-- Cheatsheets Kitty ---------------------------------------------------------------------------------------------------
 hl.bind(mod .. " + CTRL + slash", hl.dsp.exec_cmd("sh ~/.config/kitty/scripts/shortcuts.sh"))
+
+-- Open Terminal -------------------------------------------------------------------------------------------------------
 hl.bind(mod .. " + Return", hl.dsp.exec_cmd("kitty"))
+
+-- File Manager --------------------------------------------------------------------------------------------------------
 hl.bind(mod .. " + Space", hl.dsp.exec_cmd("nautilus"))
+
+-- Finder --------------------------------------------------------------------------------------------------------------
 hl.bind(mod .. " + D", hl.dsp.exec_cmd('rofi -show drun -display-drun "drun"'))
+
+-- Closed Window -------------------------------------------------------------------------------------------------------
 hl.bind(mod .. " + Q", hl.dsp.window.close())
-hl.bind(mod .. " + SHIFT + space", hl.dsp.window.float({ action = "toggle" }))
+
+-- Enable/Disable Floating Window --------------------------------------------------------------------------------------
+hl.bind(mod .. " + SHIFT + space", function()
+  hl.dispatch(hl.dsp.window.float({ action = "toggle" }))
+
+  local win = hl.get_active_window()
+
+  if win and win.floating then
+    hl.dispatch(hl.dsp.window.resize({
+      x = 1399,
+      y = 920,
+    }))
+  end
+end)
+
+-- Window fullscreen ---------------------------------------------------------------------------------------------------
 hl.bind(mod .. " + F", hl.dsp.window.fullscreen())
+
+-- Split vertical/horizontal -------------------------------------------------------------------------------------------
 hl.bind(mod .. " + E", hl.dsp.layout("togglesplit"))
 
 -- Tabbed windows ------------------------------------------------------------------------------------------------------

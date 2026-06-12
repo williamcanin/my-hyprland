@@ -10,6 +10,31 @@ set_wallpaper() {
   hyprctl hyprpaper wallpaper ",$WALLPAPER_PATH" &
 }
 
+set_gsettings() {
+  # GTK Theme
+  if command -v gsettings >/dev/null 2>&1; then
+    if
+      gsettings set org.gnome.desktop.interface icon-theme "$GTK_ICON_THEME" &&
+      gsettings set org.gnome.desktop.interface gtk-theme "$GTK_THEME" &&
+      gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark' &&
+      gsettings set org.gnome.desktop.interface cursor-theme "$GTK_CURSOR"
+    then
+      printf "GTK theme applied."
+    else
+      printf "Could not apply GTK theme."
+    fi
+  else
+    printf "gsettings not found — GTK theme not changed."
+  fi
+
+  # Disabled buttons: minimize,maximize,close.
+  if
+    gsettings set org.gnome.desktop.wm.preferences button-layout "$BUTTON_LAYOUT"
+  then
+    printf "Disabled buttons 'minimize,maximize,close' in window"
+  fi
+}
+
 run_waybars() {
   pkill -x waybar &
   sleep 0.5
@@ -24,6 +49,7 @@ run_waybars() {
 
 case "$1" in
   --started)
+    set_gsettings
     pkill hyprpaper; hyprpaper &
     pkill hypridle; hypridle &
     run_waybars

@@ -26,14 +26,15 @@ BASE_DEPS="git base-devel go gcc"
 PACKAGES="
   firefox hyprland hyprpaper hypridle hyprshutdown hyprlock hyprshot hyprlua-git
   lua rofi-wayland kitty wev playerctl brightnessctl moreutils wtype fastfetch
-  flameshot grim cliphist wl-clipboard slurp swappy foot zsh snappy-switcher
+  flameshot grim cliphist wl-clipboard slurp zsh gpu-screen-recorder wf-recorder
   xdg-desktop-portal xdg-desktop-portal-wlr smog-bin xarchiver file-roller zip
   unzip zathura terminus-font nautilus terminus-font-ttf mpv magick pwvucontrol
   mako jq rofimoji rofi-calc bottom btop satty gsimplecal calcurse hyprpicker
   kooha xdg-utils gtk3 gtk4 adwaita-icon-theme noto-fonts noto-fonts-emoji uwsm
   ttf-nerd-fonts-symbols-mono ttf-jetbrains-mono-nerd otf-font-awesome vivid
-  libnotify pamixer wireplumber networkmanager mint-y-icons graphite-gtk-theme
-  gpu-screen-recorder wf-recorder
+  libnotify pamixer wireplumber networkmanager swappy foot snappy-switcher
+  gtk2 gtk-engine-murrine
+  mint-y-icons kvantum nwg-look qt5ct qt6ct
 "
 
 install_yay () {
@@ -74,21 +75,37 @@ default_apps() {
   fi
 }
 
-set_theme() {
-  # GTK Theme
+set_gsettings () {
   if command -v gsettings >/dev/null 2>&1; then
-    if
-      gsettings set org.gnome.desktop.interface icon-theme Mint-Y-Teal &&
-        gsettings set org.gnome.desktop.interface gtk-theme 'Graphite-teal-Dark' &&
-        gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
-    then
-      ok "GTK theme applied."
+
+    # GTK Theme
+    if command -v gsettings >/dev/null 2>&1; then
+      if
+        gsettings set org.gnome.desktop.interface icon-theme "$GTK_ICON_THEME" &&
+        gsettings set org.gnome.desktop.interface gtk-theme "$GTK_THEME" &&
+        gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark' &&
+        gsettings set org.gnome.desktop.interface cursor-theme "$GTK_CURSOR"
+      then
+        ok "GTK theme applied."
+      else
+        warn "Could not apply GTK theme."
+      fi
     else
-      warn "Could not apply GTK theme."
+      warn "gsettings not found — GTK theme not changed."
     fi
-  else
-    warn "gsettings not found — GTK theme not changed."
+
+    # Disabled buttons: minimize,maximize,close.
+    if
+      gsettings set org.gnome.desktop.wm.preferences button-layout "$BUTTON_LAYOUT"
+    then
+        ok "Disabled buttons 'minimize,maximize,close' in window"
+    fi
   fi
+}
+
+cleaner() {
+  # Removed build on "gvfs-metadata". This prevents certain compilation errors.
+  rm -rf "$HOME"/.local/share/gvfs-metadata/
 }
 
 install_packages () {
@@ -96,9 +113,6 @@ install_packages () {
   # shellcheck disable=SC2086
   yay -S --needed --noconfirm $PACKAGES || die "Failed to install required packages."
   ok "All packages installed."
-
-  default_apps
-  set_theme
 }
 
 copy_configs() {
@@ -200,7 +214,10 @@ pull () {
 
 install() {
   ensure_yay
+  cleaner
   install_packages
+  default_apps
+  set_gsettings
   copy_configs
   symlinks
   copy_fonts

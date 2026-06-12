@@ -7,10 +7,10 @@
   "height": 28,
   // Minimal: "margin-left": 300
   // Expanded: "margin-left": 10
-  "margin-left": 10,
+  "margin-left": 20,
   // Minimal: "margin-right": 300
   // Expanded: "margin-right": 10
-  "margin-right": 10,
+  "margin-right": 20,
   "margin-bottom": 0,
 
   "group/left1": {
@@ -42,7 +42,7 @@
   },
   "hyprland/window": {
     "format": "{}",
-    "max-length": 100,
+    "max-length": 80,
     "tooltip": false
   },
   "hyprland/submap": {
