@@ -1,0 +1,55 @@
+Hyprland Cheatsheets
+====================
+
+Desktop Environment Shortcuts »
+--------------------------------------------------
+SHORTCUT                               DESCRIPTION
+
+01 - SUPER (Win) + 1..9               = Workspaces
+02 - SUPER (Win) + Shift + Space      = Enable/Disable Floating Window
+03 - SUPER (Win) +                = Focus tiled window by direction
+04 - SUPER (Win) + Ctrl +           = Cycle focus between windows (tiled and floating)
+05 - Ctrl + Alt +                   = Moving between work areas
+06 - ALT + Tab                        = Cycle through all windows
+07 - SUPER (Win) + r                  = Enter window resize mode (floating window only)
+                                  = Resize
+     SHIFT +                      = Move window
+     Esc                              = Exit resize mode
+08 - SUPER (Win) + Mouse Button 1     = Drag window (floating window only)
+09 - SUPER (Win) + Mouse Button 2     = Window resize mode (floating window only)
+10 - SUPER (Win) + f                  = Full screen window
+11 - SUPER (Win) + w                  = ​​Group/Ungroup into tabs
+12 - SUPER (Win) + Shift +          = Move window
+13 - SUPER (Win) + q                  = Close window
+14 - SUPER (Win) + Shift + 1..9       = Move window to desktop
+15 - Print                            = Capture selected area
+16 - SUPER (Win) + Print              = Capture focused window
+17 - SUPER (Win) + Shift + Print      = Capture entire screen
+18 - SUPER (Win) + g                  = Start/Pause/Resume screen recording
+19 - SUPER (Win) + Shift + g          = Stop and save screen recording
+20 - SUPER (Win) + Shift + l          = Lock system
+21 - SUPER (Win) + Shift + m          = Turn monitor off/on (not suspend system)
+22 - SUPER (Win) + Shift + e          = Exit system
+23 - SUPER (Win) + Shift + r          = Reload Hyprland
+
+Software Shortcuts »
+--------------------------------------------------
+SHORTCUT                               DESCRIPTION
+
+24 - SUPER (Win) + Enter              = Terminal
+25 - SUPER (Win) + Space              = File Manager
+26 - SUPER (Win) + b                  = Default Browser
+27 - SUPER (Win) + d                  = Program Launcher
+28 - SUPER (Win) + c                  = Calculator
+29 - SUPER (Win) + Ctrl + /?          = Kitty Cheatsheets
+30 - SUPER (Win) + h                  = Clipboard History
+31 - SUPER (Win) + Shift + h          = Clear Clipboard History
+32 - SUPER (Win) + p                  = Color Picker
+33 - ALT + SHIFT                      = Switch keyboard between "pt-br (abnt2)" and "us"
+
+Directories »
+-----------------------------------------------
+
+Hyprland configs: $HOME/.config/hypr/
+Hyprland logs: $HOME/.local/state/hyprland/
+Waybar configs: $HOME/.config/waybar/

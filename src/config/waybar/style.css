@@ -52,7 +52,7 @@ window#waybar.empty #window {
   border: none;
   font-weight: bold;
   border-radius: 5px;
-  margin: 3px 1px 3px 1px;
+  margin: 4px 1px 4px 1px;
   padding: 0px 4px;
   transition: all 0.3s ease-in-out;
 }
@@ -65,8 +65,8 @@ window#waybar.empty #window {
   background: @foreground;
   box-shadow: none;
   border: none;
-  border-radius: 5px;
-  margin: 3px 1px 3px 1px;
+  border-radius: 4px;
+  margin: 4px 1px 4px 1px;
   padding: 0px 4px;
   color: @background;
   opacity: 0.70;

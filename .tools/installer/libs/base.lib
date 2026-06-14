@@ -1,0 +1,8 @@
+# shellcheck shell=sh disable=SC2034
+
+# -- Set variables global ------------------------------------------------------
+# Button Layout restored usage: appmenu:minimize,maximize,close
+BUTTON_LAYOUT=":"
+GTK_THEME="Adwaita-dark"
+GTK_ICON_THEME="Yaru-prussiangreen-dark"
+GTK_CURSOR="Adwaita"

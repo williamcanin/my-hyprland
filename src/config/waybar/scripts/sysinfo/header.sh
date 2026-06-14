@@ -19,5 +19,5 @@ case "$lang:$key" in
     en:storage)     echo "Storage »" ;;
     en:processes)   echo "Processes »" ;;
     en:network)     echo "Network »" ;;
-    en:keys)        echo "Shortcuts Menu »" ;;
+    en:keys)        echo "Cheatsheets Menu »" ;;
 esac

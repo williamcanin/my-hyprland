@@ -1,6 +1,6 @@
 # My Hyprland (EM DESENVOLVIMENTO)
 
-Configuração pessoal de desktop Wayland baseada em Hyprland, com foco em um
+Configuração pessoal de desktop Wayland baseada em [Hyprland](https://hypr.land), com foco em um
 ambiente leve, direto e produtivo para [Arch Linux](https://archlinux.org). O repositório reúne os
 arquivos de configuração, scripts de automação, temas, fontes e atalhos usados
 no meu setup diário.
@@ -145,10 +145,10 @@ Super + Shift + /?
 
 Os textos completos ficam em:
 
-- `src/config/hypr/docs/shortcuts/pt.txt`
-- `src/config/hypr/docs/shortcuts/en.txt`
-- `src/config/kitty/docs/shortcuts/pt.txt`
-- `src/config/kitty/docs/shortcuts/en.txt`
+- `src/config/hypr/docs/cheatsheets/pt.txt`
+- `src/config/hypr/docs/cheatsheets/en.txt`
+- `src/config/kitty/docs/cheatsheets/pt.txt`
+- `src/config/kitty/docs/cheatsheets/en.txt`
 
 ## Configurações importantes
 
@@ -169,7 +169,7 @@ Ao iniciar o Hyprland, `src/config/hypr/scripts/init.sh --started` sobe:
 - `hyprpaper`;
 - `hypridle`;
 - Waybar superior;
-- Waybar lateral de sysinfo;
+- Waybar lateral de informações do sistema e hardware;
 - `mako`;
 - `snappy-switcher --daemon`;
 - watchers do `cliphist` para texto e imagem.

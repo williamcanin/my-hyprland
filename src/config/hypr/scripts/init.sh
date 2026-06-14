@@ -49,15 +49,17 @@ run_waybars() {
 
 case "$1" in
   --started)
+    # qs -c noctalia-shell
+    #
     set_gsettings
     pkill hyprpaper; hyprpaper &
     pkill hypridle; hypridle &
     run_waybars
     set_wallpaper
-    pkill mako; mako &
     pkill snappy-switcher; snappy-switcher --daemon &
     wl-paste --type text --watch cliphist store &
     wl-paste --type image --watch cliphist store &
+    pkill mako; mako &
   ;;
   --waybars)
     run_waybars
@@ -69,10 +71,11 @@ case "$1" in
     hyprctl reload
     pkill hyprpaper; hyprpaper &
     pkill hypridle; hypridle &
-    pkill mako; mako &
+    systemctl --user restart xdg-desktop-portal-gtk
     set_wallpaper
     run_waybars
     pkill snappy-switcher; snappy-switcher --daemon &
+    pkill mako; mako &
   ;;
   *)
     notify-send "Error" "[hyprland:scripts:init]: Invalid parameter"

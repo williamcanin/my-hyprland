@@ -2,6 +2,7 @@
   "recommendations": [
     "sumneko.lua",
     "johnnymorganz.stylua",
+    "mpmischitelli.gtk-css", // waybar CSS
     "tamasfe.even-better-toml",
     "ms-vscode.makefile-tools",
     "chadalen.vscode-jetbrains-icon-theme",

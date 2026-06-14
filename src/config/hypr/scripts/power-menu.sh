@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 
+FINDER="/usr/bin/rofi"
+
 # shellcheck disable=SC1091
 . "$HOME/.config/hypr/scripts/base.sh"
 
@@ -39,20 +41,25 @@ pt*)
   ;;
 esac
 
-# -- Menu rofi -----------------------------------------------------------------
-CHOICE=$(printf '%s\n' \
-  "$LOCK" \
-  "$SUSPEND" \
-  "$LOGOUT" \
-  "$REBOOT" \
-  "$SHUTDOWN" |
-  rofi \
-    -dmenu \
-    -p ">" \
-    -theme-str 'window {width: 220px;}' \
-    -theme-str 'listview {lines: 5;}' \
-    -no-custom \
-    -i)
+# -- Menu -----------------------------------------------------------------
+if [ $FINDER = "/usr/bin/rofi" ]; then
+  CHOICE=$(printf '%s\n' \
+    "$LOCK" \
+    "$SUSPEND" \
+    "$LOGOUT" \
+    "$REBOOT" \
+    "$SHUTDOWN" |
+    $FINDER -dmenu -p ">" \
+    -theme-str 'window {width: 220px;} listview {lines: 5;}' -no-custom -i)
+elif [ $FINDER = "/usr/bin/wofi" ]; then
+  CHOICE=$(printf '%s\n' \
+    "$LOCK" \
+    "$SUSPEND" \
+    "$LOGOUT" \
+    "$REBOOT" \
+    "$SHUTDOWN" |
+    $FINDER)
+fi
 
 # ── Despatch ------------------------------------------------------------------
 case "$CHOICE" in

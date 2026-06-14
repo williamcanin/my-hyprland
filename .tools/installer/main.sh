@@ -1,45 +1,42 @@
 #!/usr/bin/env sh
 
+# shellcheck disable=SC1091,SC2086
+
 set -e
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 REPO_ROOT="$(cd "$SCRIPT_DIR/../.." && pwd)"
 
-# shellcheck disable=SC1091
+. "$SCRIPT_DIR/libs/base.lib"
 . "$SCRIPT_DIR/libs/version.lib"
-# shellcheck disable=SC1091
 . "$SCRIPT_DIR/libs/msg.lib"
-# shellcheck disable=SC1091
 . "$SCRIPT_DIR/libs/help.lib"
-# shellcheck disable=SC1091
 . "$SCRIPT_DIR/libs/symlink.lib"
-# shellcheck disable=SC1091
 . "$SCRIPT_DIR/libs/term.lib"
-# shellcheck disable=SC1091
 . "$SCRIPT_DIR/libs/copyright.lib"
 
 CONFIG_SRC="$REPO_ROOT/src/config"
 CONFIG_DST="$HOME/.config"
 FONTS_SRC="$REPO_ROOT/src/fonts"
 FONTS_DST="$HOME/.local/share/fonts"
-BASE_DEPS="git base-devel go gcc"
+BASE_DEPS="git base-devel go gcc wayland wayland-protocols"
 PACKAGES="
   firefox hyprland hyprpaper hypridle hyprshutdown hyprlock hyprshot hyprlua-git
   lua rofi-wayland kitty wev playerctl brightnessctl moreutils wtype fastfetch
   flameshot grim cliphist wl-clipboard slurp zsh gpu-screen-recorder wf-recorder
-  xdg-desktop-portal xdg-desktop-portal-wlr smog-bin xarchiver file-roller zip
+  xdg-desktop-portal xdg-desktop-portal-gtk xdg-desktop-portal-wlr file-roller
   unzip zathura terminus-font nautilus terminus-font-ttf mpv magick pwvucontrol
   mako jq rofimoji rofi-calc bottom btop satty gsimplecal calcurse hyprpicker
   kooha xdg-utils gtk3 gtk4 adwaita-icon-theme noto-fonts noto-fonts-emoji uwsm
   ttf-nerd-fonts-symbols-mono ttf-jetbrains-mono-nerd otf-font-awesome vivid
   libnotify pamixer wireplumber networkmanager swappy foot snappy-switcher
-  gtk2 gtk-engine-murrine
+  gtk2 gtk-engine-murrine smog-bin xarchiver zip just libqalculate fontconfig
   mint-y-icons kvantum nwg-look qt5ct qt6ct
 "
 
 install_yay () {
   log "yay not found — installing dependencies..." "\n"
-  # shellcheck disable=SC2086
+
   sudo pacman -S --needed --noconfirm $BASE_DEPS || die "Failed to install yay dependencies."
 
   tmp="$(mktemp -d)"
@@ -110,7 +107,7 @@ cleaner() {
 
 install_packages () {
   log "Installing necessary packages..." "\n"
-  # shellcheck disable=SC2086
+
   yay -S --needed --noconfirm $PACKAGES || die "Failed to install required packages."
   ok "All packages installed."
 }

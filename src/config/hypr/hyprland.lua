@@ -6,9 +6,9 @@
 
 -- Monitor -------------------------------------------------------------------------------------------------------------
 hl.monitor({
-  output = "", -- "" = any monitor
-  mode = "preferred",
-  position = "auto",
+  output = "HDMI-A-1", -- "" = any monitor
+  mode = "1920x1080@74.97", -- "preferred" = any mode
+  position = "0x0", -- "auto" = automatic
   scale = 1,
 })
 
@@ -23,6 +23,13 @@ hl.env("QT_STYLE_OVERRIDE", "kvantum")
 hl.env("QT_QPA_PLATFORMTHEME", "qt5ct")
 -- Forces Firefox to run natively on Wayland
 hl.env("MOZ_ENABLE_WAYLAND", "1")
+-- XDGs
+hl.env("XDG_CURRENT_DESKTOP", "Hyprland")
+hl.env("XDG_SESSION_TYPE", "wayland")
+hl.env("XDG_SESSION_DESKTOP", "Hyprland")
+-- Theme
+-- hl.env("GTK2_RC_FILES", "/dev/null")
+-- hl.env("GTK_THEME", "Hyprland-Dark-Teal")
 
 -- Global configuration ------------------------------------------------------------------------------------------------
 hl.config({
@@ -63,10 +70,10 @@ hl.config({
   },
 
   decoration = {
-    rounding = 8,
-    rounding_power = 2,
     active_opacity = 1.0,
     inactive_opacity = 1.0,
+    rounding = 8,
+    rounding_power = 2,
     fullscreen_opacity = 1.0,
     dim_inactive = false,
     dim_strength = 0.08,
@@ -82,7 +89,7 @@ hl.config({
     blur = {
       enabled = true,
       size = 3,
-      passes = 1,
+      passes = 3,
       new_optimizations = true,
       xray = false,
       noise = 0.0,
@@ -196,9 +203,17 @@ hl.animation({
 
 -- Window Rules (float) ------------------------------------------------------------------------------------------------
 hl.window_rule({
+  match = { class = "org.gnome.Nautilus" },
+  float = true,
+  size = "1399 920",
+  center = true,
+  opacity = "1.0 1.0",
+})
+hl.window_rule({
   match = { class = ".*pwvucontrol.*" },
   float = true,
   size = "700 450",
+  center = true,
 })
 hl.window_rule({ match = { class = ".*pavucontrol.*" }, float = true })
 hl.window_rule({ match = { class = "org.gnome.FileRoller" }, float = true })
@@ -208,6 +223,11 @@ hl.window_rule({
   match = { class = "kitty", title = ".*nmtui.*" },
   float = true,
   size = "900 900",
+  center = true,
+})
+hl.window_rule({
+  match = { class = "kitty", title = ".*nvim.*" },
+  opacity = "0.45 0.70",
 })
 hl.window_rule({ match = { class = "blueman-manager" }, float = true })
 hl.window_rule({ match = { class = "xdg-desktop-portal-gtk" }, float = true })
@@ -227,10 +247,10 @@ hl.bind("ALT + Tab", hl.dsp.exec_cmd("snappy-switcher next --mod alt"))
 hl.bind("ALT + SHIFT + Tab", hl.dsp.exec_cmd("snappy-switcher prev --mod alt"))
 
 -- All cheatsheets -----------------------------------------------------------------------------------------------------
-hl.bind(mod .. " + SHIFT + slash", hl.dsp.exec_cmd("sh ~/.config/hypr/scripts/shortcuts.sh"))
+hl.bind(mod .. " + SHIFT + slash", hl.dsp.exec_cmd("sh ~/.config/hypr/scripts/cheatsheets.sh"))
 
 -- Cheatsheets Kitty ---------------------------------------------------------------------------------------------------
-hl.bind(mod .. " + CTRL + slash", hl.dsp.exec_cmd("sh ~/.config/kitty/scripts/shortcuts.sh"))
+hl.bind(mod .. " + CTRL + slash", hl.dsp.exec_cmd("sh ~/.config/kitty/scripts/cheatsheets.sh"))
 
 -- Open Terminal -------------------------------------------------------------------------------------------------------
 hl.bind(mod .. " + Return", hl.dsp.exec_cmd("kitty"))
@@ -238,8 +258,17 @@ hl.bind(mod .. " + Return", hl.dsp.exec_cmd("kitty"))
 -- File Manager --------------------------------------------------------------------------------------------------------
 hl.bind(mod .. " + Space", hl.dsp.exec_cmd("nautilus"))
 
+-- Noctalia (QuickShell) -----------------------------------------------------------------------------------------------
+-- hl.bind(mod .. " + D", hl.dsp.exec_cmd("qs -c noctalia-shell ipc call launcher toggle"))
+-- hl.bind(mod .. " + S", hl.dsp.exec_cmd("qs -c noctalia-shell ipc call controlCenter toggle"))
+-- hl.bind(mod .. " + comma", hl.dsp.exec_cmd("qs -c noctalia-shell ipc call settings toggle"))
+
 -- Finder --------------------------------------------------------------------------------------------------------------
 hl.bind(mod .. " + D", hl.dsp.exec_cmd('rofi -show drun -display-drun "drun"'))
+-- hl.bind(mod .. " + D", hl.dsp.exec_cmd("wofi"))
+
+-- Maximize Window -----------------------------------------------------------------------------------------------------
+hl.bind(mod .. " + S", hl.dsp.window.fullscreen({ mode = "maximized", action = "toggle" }))
 
 -- Closed Window -------------------------------------------------------------------------------------------------------
 hl.bind(mod .. " + Q", hl.dsp.window.close())
@@ -305,6 +334,99 @@ hl.bind(mod .. " + left", hl.dsp.focus({ direction = "left" }))
 hl.bind(mod .. " + right", hl.dsp.focus({ direction = "right" }))
 hl.bind(mod .. " + up", hl.dsp.focus({ direction = "up" }))
 hl.bind(mod .. " + down", hl.dsp.focus({ direction = "down" }))
+
+-- Cycle focus between all windows in current workspace (including floating) -------------------------------------------
+hl.bind(mod .. " + CTRL + right", function()
+  local wins = hl.get_windows()
+  local active = hl.get_active_window()
+  if not active then
+    return
+  end
+
+  -- Filter only current workspace
+  local ws_wins = {}
+  for _, w in ipairs(wins) do
+    if w.workspace.id == active.workspace.id then
+      table.insert(ws_wins, w)
+    end
+  end
+
+  for i, w in ipairs(ws_wins) do
+    if w.address == active.address then
+      local next = ws_wins[i + 1] or ws_wins[1]
+      hl.dispatch(hl.dsp.focus({ window = "address:" .. next.address }))
+      break
+    end
+  end
+end)
+
+hl.bind(mod .. " + CTRL + left", function()
+  local wins = hl.get_windows()
+  local active = hl.get_active_window()
+  if not active then
+    return
+  end
+
+  local ws_wins = {}
+  for _, w in ipairs(wins) do
+    if w.workspace.id == active.workspace.id then
+      table.insert(ws_wins, w)
+    end
+  end
+
+  for i, w in ipairs(ws_wins) do
+    if w.address == active.address then
+      local prev = ws_wins[i - 1] or ws_wins[#ws_wins]
+      hl.dispatch(hl.dsp.focus({ window = "address:" .. prev.address }))
+      break
+    end
+  end
+end)
+
+-- Cycle workspaces in loop (like GNOME) -------------------------------------------------------------------------------
+local function get_sorted_workspaces()
+  local wins = hl.get_windows()
+  local seen = {}
+  local ws_ids = {}
+  for _, w in ipairs(wins) do
+    if not seen[w.workspace.id] then
+      seen[w.workspace.id] = true
+      table.insert(ws_ids, w.workspace.id)
+    end
+  end
+  table.sort(ws_ids)
+  return ws_ids
+end
+
+hl.bind("CTRL + ALT + right", function()
+  local active = hl.get_active_window()
+  if not active then
+    return
+  end
+  local ws_ids = get_sorted_workspaces()
+  for i, id in ipairs(ws_ids) do
+    if id == active.workspace.id then
+      local next = ws_ids[i + 1] or ws_ids[1]
+      hl.dispatch(hl.dsp.focus({ workspace = next }))
+      break
+    end
+  end
+end)
+
+hl.bind("CTRL + ALT + left", function()
+  local active = hl.get_active_window()
+  if not active then
+    return
+  end
+  local ws_ids = get_sorted_workspaces()
+  for i, id in ipairs(ws_ids) do
+    if id == active.workspace.id then
+      local prev = ws_ids[i - 1] or ws_ids[#ws_ids]
+      hl.dispatch(hl.dsp.focus({ workspace = prev }))
+      break
+    end
+  end
+end)
 
 -- Move window float ---------------------------------------------------------------------------------------------------
 hl.bind(mod .. " + SHIFT + left", hl.dsp.window.move({ direction = "left" }))

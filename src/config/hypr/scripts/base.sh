@@ -1,6 +1,7 @@
 #!/usr/bin/env sh
 
 # shellcheck disable=SC2034
+
 HYPRPAPER_FILE="$HOME/.config/hypr/hyprpaper.conf"
 HYPRLOCK_FILE="$HOME/.config/hypr/hyprlock.conf"
 
@@ -25,5 +26,5 @@ HYPRLOCK_PATH="$GET_HYPRLOCK_PATH"
 # Button Layout restored usage: appmenu:minimize,maximize,close
 BUTTON_LAYOUT=":"
 GTK_THEME="Adwaita-dark"
-GTK_ICON_THEME=""
-GTK_CURSOR=""
+GTK_ICON_THEME="Yaru-prussiangreen-dark"
+GTK_CURSOR="Adwaita"
