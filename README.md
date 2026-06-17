@@ -3,7 +3,7 @@
 [![GitHub Release](https://img.shields.io/github/v/release/williamcanin/my-environment?style=flat&color=3aa99f&label=Release)](https://github.com/williamcanin/my-environment/releases)
 
 Configuração pessoal de desktop Wayland baseada em [Hyprland](https://hypr.land), com foco em um
-ambiente leve, direto e produtivo para [Arch Linux](https://archlinux.org). O repositório reúne os
+ambiente leve, direto e produtivo para [Arch Linux](https://archlinux.org) e [Fedora](https://fedoraproject.org). O repositório reúne os
 arquivos de configuração, scripts de automação, temas, fontes e atalhos usados
 no meu setup diário.
 
@@ -98,9 +98,8 @@ painel lateral de (informações do sistema) e uma sidebar na direita com Quicks
 
 ## Requisitos
 
-- Arch Linux ou derivado compatível com pacotes do Arch/AUR.
+- **Arch Linux** ou **Fedora** 41+.
 - Sessão Wayland com `systemd`.
-- `git`, `base-devel`, `go` e `gcc` para preparar o `yay`, caso ele ainda não exista.
 - Placa de vídeo e drivers compatíveis com Wayland/Hyprland.
 
 > Nota: os configs incluem ajustes para NVIDIA e Nouveau, como
@@ -115,10 +114,21 @@ Clone o repositório e execute o instalador:
 git clone --depth=1 https://github.com/williamcanin/my-environment.git && cd my-environment && make install
 ```
 
+O instalador pergunta qual distribuição usar:
+
+```
+→ Select your distribution:
+  [1] Arch Linux
+  [2] Fedora
+Reply >
+```
+
+E valida se a distribuição escolhida corresponde à que está rodando.
+
 O instalador faz, em resumo:
 
-- instala `yay`, se necessário;
-- instala os pacotes principais do ambiente;
+- **Arch**: instala `yay` (se necessário) e pacotes via AUR;
+- **Fedora**: ativa COPR `solopasha/hyprland` e instala pacotes via `dnf`;
 - copia os diretórios de `src/config/*` para `~/.config`;
 - cria backup dos diretórios existentes em `~/.config/*.bak.DATA`;
 - copia fontes de `src/fonts` para `~/.local/share/fonts`;
@@ -131,6 +141,10 @@ Para atualizar depois:
 ```sh
 make upgrade
 ```
+
+> **Fedora**: `hyprshutdown` é compilado do fonte, `rofi-calc` é substituído
+> por `qalculate-gtk`, e os pacotes indisponíveis (`smog-bin`, `kooha`,
+> `cosmic-files`, `cosmic-settings`, `uwsm`) são ignorados automaticamente.
 
 ## Estrutura
 
