@@ -146,6 +146,19 @@ hl.config({
       tap_to_click = true,
       disable_while_typing = true,
       middle_button_emulation = true,
+      drag_lock = true,
+    },
+
+    gestures = {
+      workspace_swipe = true,
+      workspace_swipe_fingers = 3,
+      workspace_swipe_distance = 300,
+      workspace_swipe_invert = false,
+      workspace_swipe_min_speed_to_force = 30,
+      workspace_swipe_cancel_ratio = 0.5,
+      workspace_swipe_create_new = true,
+      workspace_swipe_forever = true,
+      workspace_swipe_numbered = false,
     },
   },
 })
@@ -205,6 +218,8 @@ hl.animation({
 hl.layer_rule({ match = { namespace = "waybar" }, blur = true })
 hl.layer_rule({ match = { namespace = "quickshell" }, blur = true })
 hl.layer_rule({ match = { namespace = "rofi" }, blur = true })
+hl.layer_rule({ match = { namespace = "dunst" }, blur = true })
+hl.layer_rule({ match = { namespace = "wlogout" }, blur = true })
 
 -- Window Rules  -------------------------------------------------------------------------------------------------------
 hl.window_rule({
@@ -237,6 +252,16 @@ hl.window_rule({
 })
 hl.window_rule({ match = { class = "blueman-manager" }, float = true })
 hl.window_rule({ match = { class = "xdg-desktop-portal-gtk" }, float = true })
+hl.window_rule({
+  match = { class = "firefox", title = ".*Picture-in-Picture.*" },
+  float = true,
+  pin = true,
+  noborder = true,
+  size = "420 320",
+  center = true,
+  keepaspectratio = true,
+})
+hl.window_rule({ match = { class = "mpv" }, float = true })
 
 -- Transparency at the terminals ---------------------------------------------------------------------------------------
 hl.window_rule({ match = { class = "kitty" }, opacity = "1.0 1.0" })
