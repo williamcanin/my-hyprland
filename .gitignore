@@ -6,4 +6,6 @@
 # This repo
 # -------------------------------------------------------------
 tmp/
+src/config/quickshell/*.zip
+src/config/quickshell/*.png
 TODO.txt

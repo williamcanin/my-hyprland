@@ -2,7 +2,10 @@
   "recommendations": [
     "sumneko.lua",
     "johnnymorganz.stylua",
+    "delgan.qml-format",
+    "mpmischitelli.gtk-css", // waybar CSS
     "tamasfe.even-better-toml",
+    "bbenoist.qml", // for Quickshell
     "ms-vscode.makefile-tools",
     "chadalen.vscode-jetbrains-icon-theme",
     "esbenp.prettier-vscode",

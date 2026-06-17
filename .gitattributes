@@ -7,6 +7,7 @@ docs/** linguist-vendored
 
 # Ignore front-end / misc
 *.toml linguist-vendored
+*.xml linguist-vendored
 Makefile linguist-vendored
 
 # Tell Linguist what IS the project
