@@ -148,20 +148,13 @@ hl.config({
       middle_button_emulation = true,
       drag_lock = true,
     },
-
-    gestures = {
-      workspace_swipe = true,
-      workspace_swipe_fingers = 3,
-      workspace_swipe_distance = 300,
-      workspace_swipe_invert = false,
-      workspace_swipe_min_speed_to_force = 30,
-      workspace_swipe_cancel_ratio = 0.5,
-      workspace_swipe_create_new = true,
-      workspace_swipe_forever = true,
-      workspace_swipe_numbered = false,
-    },
   },
 })
+
+-- Gestures ----------------------------------------------------------------------------------------------------------
+hl.gesture({ fingers = 3, direction = "horizontal", action = "workspace" })
+hl.gesture({ fingers = 3, direction = "up", action = function() hl.exec_cmd("~/.config/hypr/scripts/power-menu.sh") end })
+hl.gesture({ fingers = 3, direction = "down", action = function() hl.exec_cmd("qs -c sidebar-right ipc call sidebar toggle") end })
 
 -- XWayland ------------------------------------------------------------------------------------------------------------
 -- -- Prevent invisible XWayland ghost windows from stealing focus
