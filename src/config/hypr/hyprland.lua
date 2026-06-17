@@ -249,10 +249,9 @@ hl.window_rule({
   match = { class = "firefox", title = ".*Picture-in-Picture.*" },
   float = true,
   pin = true,
-  noborder = true,
   size = "420 320",
   center = true,
-  keepaspectratio = true,
+  keep_aspect_ratio = true,
 })
 hl.window_rule({ match = { class = "mpv" }, float = true })
 
