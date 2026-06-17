@@ -114,6 +114,7 @@ PanelWindow {
 
                 Item { Layout.preferredHeight: 2 }
 
+                UserCard          { Layout.fillWidth: true; Layout.leftMargin: 10; Layout.rightMargin: 10 }
                 NotificationCard  { Layout.fillWidth: true; Layout.leftMargin: 10; Layout.rightMargin: 10 }
                 CalendarCard      { Layout.fillWidth: true; Layout.leftMargin: 10; Layout.rightMargin: 10 }
                 WeatherCard       { Layout.fillWidth: true; Layout.leftMargin: 10; Layout.rightMargin: 10 }
