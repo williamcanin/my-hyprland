@@ -1,6 +1,6 @@
-# My Hyprland
+# My Environment
 
-[![GitHub Release](https://img.shields.io/github/v/release/williamcanin/my-hyprland?style=flat&color=3aa99f&label=Release)](https://github.com/williamcanin/my-hyprland/releases)
+[![GitHub Release](https://img.shields.io/github/v/release/williamcanin/my-environment?style=flat&color=3aa99f&label=Release)](https://github.com/williamcanin/my-environment/releases)
 
 Configuração pessoal de desktop Wayland baseada em [Hyprland](https://hypr.land), com foco em um
 ambiente leve, direto e produtivo para [Arch Linux](https://archlinux.org). O repositório reúne os
@@ -13,29 +13,29 @@ painel lateral de (informações do sistema) e uma sidebar na direita com Quicks
 <table>
   <tr>
     <td align="center">
-      <a href="https://raw.githubusercontent.com/williamcanin/my-hyprland/main/.docs/images/preview-1.png" target="_blank">
+      <a href="https://raw.githubusercontent.com/williamcanin/my-environment/main/.docs/images/preview-1.png" target="_blank">
         <img src=".docs/images/preview-1.png" width="200" alt="Preview 1">
       </a>
     </td>
     <td align="center">
-      <a href="https://raw.githubusercontent.com/williamcanin/my-hyprland/main/.docs/images/preview-2.png" target="_blank">
+      <a href="https://raw.githubusercontent.com/williamcanin/my-environment/main/.docs/images/preview-2.png" target="_blank">
         <img src=".docs/images/preview-2.png" width="200" alt="Preview 2">
       </a>
     </td>
     <td align="center">
-      <a href="https://raw.githubusercontent.com/williamcanin/my-hyprland/main/.docs/images/preview-3.png" target="_blank">
+      <a href="https://raw.githubusercontent.com/williamcanin/my-environment/main/.docs/images/preview-3.png" target="_blank">
         <img src=".docs/images/preview-3.png" width="200" alt="Preview 3">
       </a>
     </td>
   </tr>
   <tr>
     <td align="center">
-      <a href="https://raw.githubusercontent.com/williamcanin/my-hyprland/main/.docs/images/preview-4.png" target="_blank">
+      <a href="https://raw.githubusercontent.com/williamcanin/my-environment/main/.docs/images/preview-4.png" target="_blank">
         <img src=".docs/images/preview-4.png" width="200" alt="Preview 4">
       </a>
     </td>
     <td align="center">
-      <a href="https://raw.githubusercontent.com/williamcanin/my-hyprland/main/.docs/images/preview-5.png" target="_blank">
+      <a href="https://raw.githubusercontent.com/williamcanin/my-environment/main/.docs/images/preview-5.png" target="_blank">
         <img src=".docs/images/preview-5.png" width="200" alt="Preview 5">
       </a>
     </td>
@@ -63,7 +63,7 @@ painel lateral de (informações do sistema) e uma sidebar na direita com Quicks
 - Bloqueio com `hyprlock`, wallpaper desfocado gerado por `magick`, idle via
   `hypridle` e tela de logout com `wlogout`.
 - Wofi como launcher alternativo ao Rofi.
-- `my-hyprland/sh/` — biblioteca shell compartilhada com funções de logging,
+- `my-environment/sh/` — biblioteca shell compartilhada com funções de logging,
   locale, notificações, JSON, manipulação de strings e caminhos.
 - Áudio via PipeWire/WirePlumber, controle por `wpctl`, `pamixer` e `pwvucontrol`.
 - Suporte a atalhos multimídia, brilho, color picker, emoji picker e navegador padrão.
@@ -112,7 +112,7 @@ painel lateral de (informações do sistema) e uma sidebar na direita com Quicks
 Clone o repositório e execute o instalador:
 
 ```sh
-git clone --depth=1 https://github.com/williamcanin/my-hyprland.git && cd my-hyprland && make install
+git clone --depth=1 https://github.com/williamcanin/my-environment.git && cd my-environment && make install
 ```
 
 O instalador faz, em resumo:
@@ -152,7 +152,7 @@ src/
     environment.d/     Variáveis de ambiente Wayland
     term/              Opções compartilhadas do shell
     gtk-3.0/ gtk-4.0/  Temas e configurações GTK3/GTK4
-    my-hyprland/       Biblioteca shell compartilhada (sh/)
+    my-environment/    Biblioteca shell compartilhada (sh/)
   fonts/               Font Awesome e Terminus local
 ```
 
