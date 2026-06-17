@@ -1,5 +1,7 @@
 # My Hyprland
 
+[![GitHub Release](https://img.shields.io/github/v/release/williamcanin/my-hyprland?style=flat&color=3aa99f&label=Release)](https://github.com/williamcanin/my-hyprland/releases)
+
 Configuração pessoal de desktop Wayland baseada em [Hyprland](https://hypr.land), com foco em um
 ambiente leve, direto e produtivo para [Arch Linux](https://archlinux.org). O repositório reúne os
 arquivos de configuração, scripts de automação, temas, fontes e atalhos usados
