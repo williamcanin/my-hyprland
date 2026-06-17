@@ -153,8 +153,6 @@ hl.config({
 
 -- Gestures ----------------------------------------------------------------------------------------------------------
 hl.gesture({ fingers = 3, direction = "horizontal", action = "workspace" })
-hl.gesture({ fingers = 3, direction = "up", action = function() hl.exec_cmd("~/.config/hypr/scripts/power-menu.sh") end })
-hl.gesture({ fingers = 3, direction = "down", action = function() hl.exec_cmd("qs -c sidebar-right ipc call sidebar toggle") end })
 
 -- XWayland ------------------------------------------------------------------------------------------------------------
 -- -- Prevent invisible XWayland ghost windows from stealing focus
