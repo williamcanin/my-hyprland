@@ -9,8 +9,10 @@ background: #285577 #181818
 
 @define-color foreground #ffffff;
 @define-color decorate #3aa99f;
+@define-color decorate-rgba rgba(58, 169, 159, 0.45);
 @define-color hover #86e0d9;
 @define-color background #181818;
+@define-color background-rgba rgba(24, 24, 24, 0.5);
 @define-color transparent transparent;
 
 
@@ -23,8 +25,9 @@ background: #285577 #181818
 window#waybar {
   min-height: 0px;
   border-radius: 4px;
-  border: 1px groove alpha(@decorate, 1);
-  background: alpha(@background, 0.88);
+  border: 1px solid @decorate;
+  /*background: alpha(@background, 0.88);*/
+  background: @background-rgba;
   transition-property: background-color;
   transition-duration: .5s;
 }
@@ -52,7 +55,7 @@ window#waybar.empty #window {
   border: none;
   font-weight: bold;
   border-radius: 5px;
-  margin: 3px 1px 3px 1px;
+  margin: 4px 1px 4px 1px;
   padding: 0px 4px;
   transition: all 0.3s ease-in-out;
 }
@@ -65,10 +68,11 @@ window#waybar.empty #window {
   background: @foreground;
   box-shadow: none;
   border: none;
-  border-radius: 5px;
-  margin: 3px 1px 3px 1px;
+  border-radius: 4px;
+  margin: 4px 1px 4px 1px;
   padding: 0px 4px;
   color: @background;
+  opacity: 0.70;
 }
 
 
@@ -78,8 +82,17 @@ window#waybar.empty #window {
   opacity: 0.40;
 }
 
+#workspaces button.empty {
+  background: none;
+  color: @transparent;
+}
+
 #workspaces button.empty.active {
-  background: @background;
+  color: @foreground;
+}
+
+#submap {
+  font-weight: bold;
 }
 
 /* Font size bar */
@@ -90,12 +103,14 @@ window#waybar.empty #window {
 #clock,
 #custom-expand-icon,
 #mpris,
+#custom-window-or-mpris,
 #tray,
 #custom-recording,
 #pulseaudio,
 #power-profiles-daemon,
+#custom-settings,
 #custom-power {
-  /* min: 12px, med: 14px*/
+  /* Minimal: 12px, Medium (Recommended): 14px */
   font-size: 14px;
 }
 
@@ -123,6 +138,7 @@ tooltip label {
 #clock.time,
 #network,
 #memory,
+#custom-settings,
 #pulseaudio,
 #custom-recording,
 #window,
@@ -135,6 +151,7 @@ tooltip label {
 #tray,
 #group-tray-expander,
 #mpris,
+#custom-window-or-mpris,
 #custom-recording,
 #pulseaudio,
 #language,
@@ -143,6 +160,7 @@ tooltip label {
 #memory,
 #cpu,
 #clock,
+#custom-settings,
 #custom-power
 {
   /* top right bottom left */
@@ -162,6 +180,10 @@ tooltip label {
   padding: 0px 3px 0px 3px;
 }
 
+#custom-window-or-mpris {
+  margin-left: 15px;
+}
+
 /* --- Hover --- */
 #clock.date:hover,
 #tray,
@@ -173,9 +195,14 @@ tooltip label {
 #custom-update:hover,
 #network:hover,
 #pulseaudio:hover,
+#custom-settings:hover,
 #custom-power:hover {
   color: @foreground;
   border-bottom: 1px solid @foreground;
+}
+
+#custom-settings {
+  padding: 0 10px;
 }
 
 #tray {

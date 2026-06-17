@@ -1,26 +1,7 @@
 #!/usr/bin/env sh
 
-BAR_SIZE="8"
-
-make_bar() {
-  percent=$1
-  size=$2
-
-  filled=$((percent * size / 100))
-  empty=$((size - filled))
-
-  i=0
-  while [ "$i" -lt "$filled" ]; do
-    printf "█"
-    i=$((i + 1))
-  done
-
-  i=0
-  while [ "$i" -lt "$empty" ]; do
-    printf "░"
-    i=$((i + 1))
-  done
-}
+# shellcheck disable=SC1091
+. "$HOME/.config/my-hyprland/sh/bootstrap.sh"
 
 get_mount_info() {
   mount="$1"
@@ -37,6 +18,9 @@ get_mount_info() {
 ROOT_INFO=$(get_mount_info "/")
 HOME_INFO=$(get_mount_info "/home")
 
+[ -n "$ROOT_INFO" ] || ROOT_INFO="0 0 0"
+[ -n "$HOME_INFO" ] || HOME_INFO="0 0 0"
+
 ROOT_USED=$(printf '%s\n' "$ROOT_INFO" | awk '{print $1}')
 ROOT_TOTAL=$(printf '%s\n' "$ROOT_INFO" | awk '{print $2}')
 ROOT_PERC=$(printf '%s\n' "$ROOT_INFO" | awk '{print $3}')
@@ -45,8 +29,8 @@ HOME_USED=$(printf '%s\n' "$HOME_INFO" | awk '{print $1}')
 HOME_TOTAL=$(printf '%s\n' "$HOME_INFO" | awk '{print $2}')
 HOME_PERC=$(printf '%s\n' "$HOME_INFO" | awk '{print $3}')
 
-ROOT_BAR=$(make_bar "$ROOT_PERC" "$BAR_SIZE")
-HOME_BAR=$(make_bar "$HOME_PERC" "$BAR_SIZE")
+ROOT_BAR=$(string_bar "$ROOT_PERC" "$BAR_SIZE")
+HOME_BAR=$(string_bar "$HOME_PERC" "$BAR_SIZE")
 
 TEXT=$(
   cat <<EOF
@@ -56,5 +40,4 @@ Mount   Used         Perc
 EOF
 )
 
-printf '{"text":"%s"}\n' \
-  "$(printf '%s' "$TEXT" | sed ':a;N;$!ba;s/\n/\\n/g')"
+json_output "$TEXT"

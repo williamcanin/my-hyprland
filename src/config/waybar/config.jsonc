@@ -3,11 +3,15 @@
   "position": "top",
   "mod": "dock",
   "margin-top": 5,
-  // min: 24px, med: 28px
+  // Minimal: "height": 24px, Medium: "height": 28px
   "height": 28,
-  "margin-left": 300,
-  "margin-right": 300,
-  "margin-bottom": 0,
+  // Minimal: "margin-left": 300
+  // Expanded: "margin-left": 10
+  "margin-left": 20,
+  // Minimal: "margin-right": 300
+  // Expanded: "margin-right": 10
+  "margin-right": 20,
+  "margin-bottom": -8,
 
   "group/left1": {
     "orientation": "inherit",
@@ -18,7 +22,7 @@
     "modules": ["mpris"]
   },
   "modules-left": ["group/left1", "group/left2"],
-  // "modules-center": ["hyprland/window"],
+  "modules-center": ["custom/icon-window", "hyprland/submap", "hyprland/window"],
   "modules-right": [
     "group/tray-expander",
     "custom/recording",
@@ -27,22 +31,45 @@
     "hyprland/language",
     "power-profiles-daemon",
     "network",
+    // "bluetooth",
     "memory",
     "cpu",
     "clock#date",
     "clock#time",
-    "custom/power"
+    "custom/power",
+    "custom/settings"
   ],
+  "custom/icon-window": {
+    "format": " "
+  },
+  "hyprland/window": {
+    "format": "{}",
+    "max-length": 80,
+    "tooltip": false
+  },
+  "hyprland/submap": {
+    "format": "[ <span color='#3aa99f'>{}</span> ] ",
+    "max-length": 20,
+    "tooltip": false
+  },
+  "custom/window-or-mpris": {
+    "exec": "~/.config/waybar/scripts/window-or-mpris.sh",
+    "interval": 1,
+    "format": "{}",
+    "tooltip": false
+  },
   "hyprland/workspaces": {
     "format": "{id}",
     "on-click": "activate",
+    "all-outputs": true,
     "sort-by-number": true,
-    "active-only": false
+    "on-scroll-up": "hyprctl dispatch workspace e+1",
+    "on-scroll-down": "hyprctl dispatch workspace e-1"
   },
   "hyprland/language": {
     "format": "\uf11c {short}",
     // Search keyboard with command: hyprctl devices
-    "keyboard-name": "usb-usb-keyboard-consumer-control",
+    "keyboard-name": "usb-usb-keyboard",
     "on-click": "~/.config/waybar/scripts/taskbar.sh --layout-keyboard"
   },
   "cpu": {
@@ -85,7 +112,7 @@
     ],
     "format": "{icon}",
     "format-wifi": "{icon}",
-    "format-ethernet": "\uf0c1",
+    "format-ethernet": "\uf0ac",
     "format-disconnected": "\uf127",
     "tooltip-format-wifi": "{essid} ({frequency} GHz)\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
     "tooltip-format-ethernet": "⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
@@ -94,6 +121,17 @@
     "nospacing": 1,
     "on-click": "nm-connection-editor", // or: "kitty --title nmtui-float -e nmtui"
     "on-click-right": "~/.config/waybar/scripts/netctl.sh"
+  },
+  "bluetooth": {
+    "format": "{status}",
+    "format-connected": "\uf294 {num_connected}",
+    "format-off": "\uf294",
+    "format-on": "\uf294",
+    "format-no-controller": "",
+    "tooltip-format": "{controller_alias}\t{controller_address}\n{num_connected} device(s) connected",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+    "on-click": "blueman-manager",
+    "interval": 30
   },
   "power-profiles-daemon": {
     "format": "{icon}",
@@ -149,6 +187,13 @@
       "tray"
     ]
   },
+  "custom/settings": {
+      "exec": "[ \"$(cat ~/.cache/waybar/sidebar-state 2>/dev/null)\" = 'open' ] && echo '\uf0c9' || echo '\uf00d'",
+      "interval": 1,
+      "format": "{}",
+      "tooltip": false,
+      "on-click": "~/.config/waybar/scripts/taskbar.sh --sidebar-toggle"
+  },
   "custom/recording": {
     "exec": "~/.config/hypr/scripts/screenshot.sh --video-full-status",
     "return-type": "json",
@@ -169,7 +214,7 @@
   "mpris": {
     "format": "{player_icon} {dynamic}",
     "format-paused": "<span color='grey'>{status_icon} {dynamic}</span>",
-    "max-length": 50,
+    "max-length": 80,
     "interval": 1,
     "player-icons": {
       "default": "\uf28b",

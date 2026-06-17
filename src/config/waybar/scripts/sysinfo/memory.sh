@@ -1,26 +1,7 @@
 #!/usr/bin/env sh
 
-BAR_SIZE="8"
-
-make_bar() {
-  percent=$1
-  size=$2
-
-  filled=$((percent * size / 100))
-  empty=$((size - filled))
-
-  i=0
-  while [ "$i" -lt "$filled" ]; do
-    printf "█"
-    i=$((i + 1))
-  done
-
-  i=0
-  while [ "$i" -lt "$empty" ]; do
-    printf "░"
-    i=$((i + 1))
-  done
-}
+# shellcheck disable=SC1091
+. "$HOME/.config/my-hyprland/sh/bootstrap.sh"
 
 MEM_TOTAL=$(awk '/MemTotal/ {printf "%.1f", $2/1024/1024}' /proc/meminfo)
 
@@ -46,8 +27,8 @@ else
     'BEGIN {printf "%.0f", (u/t)*100}')
 fi
 
-RAM_BAR=$(make_bar "$MEM_PERC" "$BAR_SIZE")
-SWAP_BAR=$(make_bar "$SWAP_PERC" "$BAR_SIZE")
+RAM_BAR=$(string_bar "$MEM_PERC" "$BAR_SIZE")
+SWAP_BAR=$(string_bar "$SWAP_PERC" "$BAR_SIZE")
 
 TEXT=$(
   cat <<EOF
@@ -57,5 +38,4 @@ Swap   ${SWAP_USED}/${SWAP_TOTAL}G   ${SWAP_PERC}% $SWAP_BAR
 EOF
 )
 
-printf '{"text":"%s"}\n' \
-  "$(printf '%s' "$TEXT" | sed ':a;N;$!ba;s/\n/\\n/g')"
+json_output "$TEXT"

@@ -1,8 +1,9 @@
 #!/usr/bin/env sh
 
-GPU_SCRIPT="$HOME/.config/waybar/scripts/sysinfo/gpu.sh"
+# shellcheck disable=SC1091
+. "$HOME/.config/my-hyprland/sh/bootstrap.sh"
 
-BAR_SIZE="8"
+GPU_SCRIPT="$HOME/.config/waybar/scripts/sysinfo/gpu.sh"
 
 cpu_temp() {
   # Prioritizes known CPU sensors
@@ -68,33 +69,18 @@ cpu_usage() {
     }'
 }
 
-make_bar() {
-  percent=$1
-  size=$2
-
-  filled=$((percent * size / 100))
-  empty=$((size - filled))
-
-  i=0
-  while [ "$i" -lt "$filled" ]; do
-    printf "█"
-    i=$((i + 1))
-  done
-
-  i=0
-  while [ "$i" -lt "$empty" ]; do
-    printf "░"
-    i=$((i + 1))
-  done
-}
-
 CPU_TEMP="$(cpu_temp)°C"
 CPU_USAGE="$(cpu_usage)%"
 
-GPU_TEMP="$("$GPU_SCRIPT" --temp)"
-GPU_USAGE="$("$GPU_SCRIPT" --usage)"
+if [ -x "$GPU_SCRIPT" ]; then
+  GPU_TEMP="$("$GPU_SCRIPT" --temp)"
+  GPU_USAGE="$("$GPU_SCRIPT" --usage)"
+else
+  GPU_TEMP="N/A"
+  GPU_USAGE="N/A"
+fi
 
-CPU_BAR=$(make_bar "${CPU_USAGE%\%}" "$BAR_SIZE")
+CPU_BAR=$(string_bar "${CPU_USAGE%\%}" "$BAR_SIZE")
 
 TEXT=$(
   cat <<EOF
@@ -104,5 +90,4 @@ GPU         $GPU_TEMP   $GPU_USAGE
 EOF
 )
 
-printf '{"text":"%s"}\n' \
-  "$(printf '%s' "$TEXT" | sed ':a;N;$!ba;s/\n/\\n/g')"
+json_output "$TEXT"

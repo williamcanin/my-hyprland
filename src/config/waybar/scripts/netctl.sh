@@ -1,32 +1,32 @@
 #!/usr/bin/env sh
 
+# shellcheck disable=SC1091
+. "$HOME/.config/my-hyprland/sh/bootstrap.sh"
+
 # To use this script, you must create the following file:
 #
 # sudo cat << EOF > /etc/sudoers.d/network-commands
 # $USER ALL=(root) NOPASSWD: /sbin/ip, /bin/ip
 # EOF
 
-tr() {
-  case "${LC_MESSAGES:-${LANG:-en}}" in
-    pt*)
-      case "$1" in
-        no_iface)      echo "Nenhuma interface encontrada" ;;
-        network)       echo "Rede" ;;
-        disconnected)  echo "Desconectado" ;;
-        reconnecting)  echo "Reconectando" ;;
-        state)         echo "Estado" ;;
-      esac
-      ;;
-    *)
-      case "$1" in
-        no_iface)      echo "No interface found" ;;
-        network)       echo "Network" ;;
-        disconnected)  echo "Disconnected" ;;
-        reconnecting)  echo "Reconnecting" ;;
-        state)         echo "State" ;;
-      esac
-      ;;
-  esac
+msg() {
+  if locale_is_pt; then
+    case "$1" in
+      no_iface)      echo "Nenhuma interface encontrada" ;;
+      network)       echo "Rede" ;;
+      disconnected)  echo "Desconectado" ;;
+      reconnecting)  echo "Reconectando" ;;
+      state)         echo "Estado" ;;
+    esac
+  else
+    case "$1" in
+      no_iface)      echo "No interface found" ;;
+      network)       echo "Network" ;;
+      disconnected)  echo "Disconnected" ;;
+      reconnecting)  echo "Reconnecting" ;;
+      state)         echo "State" ;;
+    esac
+  fi
 }
 
 IFACE=$(ip route show default 2>/dev/null | awk 'NR==1{print $5}')
@@ -37,21 +37,29 @@ if [ -z "$IFACE" ]; then
 fi
 
 [ -z "$IFACE" ] &&
-  notify-send "[waybar]:netctl.sh" "$(tr no_iface)" &&
+  notify-send "[waybar]:netctl.sh" "$(msg no_iface)" &&
   exit 1
 
 STATE=$(ip link show "$IFACE" 2>/dev/null | awk 'NR==1{print $9}')
 
 case "$STATE" in
 UP)
-  sudo -n ip link set "$IFACE" down &&
-    notify-send "$(tr network)" "$(tr disconnected) ($IFACE)"
+  if sudo -n ip link set "$IFACE" down; then
+    notify-send "$(msg network)" "$(msg disconnected) ($IFACE)"
+  else
+    notify-send "[waybar]:netctl.sh" "sudo ip link set $IFACE down failed"
+    exit 1
+  fi
   ;;
 DOWN | UNKNOWN | "")
-  sudo -n ip link set "$IFACE" up &&
-    notify-send "$(tr network)" "$(tr reconnecting) $IFACE..."
+  if sudo -n ip link set "$IFACE" up; then
+    notify-send "$(msg network)" "$(msg reconnecting) $IFACE..."
+  else
+    notify-send "[waybar]:netctl.sh" "sudo ip link set $IFACE up failed"
+    exit 1
+  fi
   ;;
 *)
-  notify-send "[waybar]:netctl.sh" "$(tr state): $STATE ($IFACE)"
+  notify-send "[waybar]:netctl.sh" "$(msg state): $STATE ($IFACE)"
   ;;
 esac

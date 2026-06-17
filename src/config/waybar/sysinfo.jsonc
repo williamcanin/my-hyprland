@@ -9,7 +9,9 @@
     "spacing": 0,
     "exclusive": false,
     "passthrough": true,
-    "margin-top": -50,
+    "margin-top": 16,
+    "margin-left": 20,
+    "margin-bottom": 15,
     "modules-left": [
       "custom/header-system",
       "custom/system",
@@ -98,7 +100,7 @@
       "tooltip": false
     },
 
-    // -- Hyprland Shortcuts ---------------------------------------------------
+    // -- Hyprland cheatsheets -------------------------------------------------
     "custom/header-keys": {
       "exec": "~/.config/waybar/scripts/sysinfo/header.sh keys",
       "interval": 3600

@@ -1,6 +1,9 @@
 #!/usr/bin/env sh
 
-KITTY="/usr/bin/kitty"
+# shellcheck disable=SC1091
+. "$HOME/.config/my-hyprland/sh/bootstrap.sh"
+
+mkdir -p "$WAYBAR_CACHE_DIR"
 
 case "$XDG_SESSION_DESKTOP" in
   Hyprland)
@@ -11,9 +14,24 @@ case "$XDG_SESSION_DESKTOP" in
     DIR="sway"
     CURRENT_WS=$(swaymsg -t get_workspaces | jq -r '.[] | select(.focused).name')
     ;;
+  *)
+    DIR=""
+    CURRENT_WS=""
+    ;;
 esac
 
+require_session() {
+  case "$XDG_SESSION_DESKTOP" in
+    Hyprland | sway) return 0 ;;
+    *)
+      notify-send "[waybar]:taskbar.sh" "Unsupported session: ${XDG_SESSION_DESKTOP:-unknown}"
+      exit 1
+      ;;
+  esac
+}
+
 go_workspace() {
+  require_session
   case "$XDG_SESSION_DESKTOP" in
     Hyprland) hyprctl dispatch "hl.dsp.focus({ workspace = \"$1\" })" ;;
     sway)     swaymsg workspace "$1" ;;
@@ -21,10 +39,11 @@ go_workspace() {
 }
 
 switch_keyboard_layout() {
+  require_session
   case "$XDG_SESSION_DESKTOP" in
     Hyprland)
       # Hyprland: troca layout via hyprctl
-      hyprctl switchxkblayout all next
+      hyprctl switchxkblayout usb-usb-keyboard next
       ;;
     sway)
       swaymsg input type:keyboard xkb_switch_layout next
@@ -33,20 +52,34 @@ switch_keyboard_layout() {
 }
 
 power_menu() {
+  [ -n "$DIR" ] || require_session
   # shellcheck disable=SC1091
   # shellcheck disable=SC1090
   . "$HOME/.config/$DIR/scripts/power-menu.sh"
 }
 
 term() {
+  require_session
   case "$XDG_SESSION_DESKTOP" in
   Hyprland)
-    $KITTY -e sh -c "btm --config '$HOME/.config/bottom/mem.toml'; hyprctl dispatch \"hl.dsp.focus({ workspace = \\\"$CURRENT_WS\\\" })\""
+    "$KITTY" -e btm -C "$HOME/.config/bottom/$1.toml" && hyprctl dispatch "hl.dsp.focus({ workspace = $CURRENT_WS })"
     ;;
   sway)
-    $KITTY -e btm --config "$HOME/.config/bottom/cpu.toml"
+    "$KITTY" -e btm -C "$HOME/.config/bottom/$1.toml"
     ;;
   esac
+}
+
+sidebar_toggle() {
+  STATE_FILE="$WAYBAR_CACHE_DIR/sidebar-state"
+
+  if [ "$(cat "$STATE_FILE" 2>/dev/null)" = "open" ]; then
+    echo "close" > "$STATE_FILE"
+  else
+    echo "open" > "$STATE_FILE"
+  fi
+
+  qs -c sidebar-right ipc call sidebar toggle
 }
 
 case $1 in
@@ -60,17 +93,17 @@ case $1 in
 
     ## Calcurse
     # sudo pacman -S calcurse kitty
-    $KITTY --class calcurse-popup -e calcurse
+    "$KITTY" --class calcurse-popup -e calcurse
     go_workspace "$CURRENT_WS"
     ;;
   --mem)
     go_workspace 9
-    term
+    term "mem"
     go_workspace "$CURRENT_WS"
     ;;
   --cpu)
     go_workspace 9
-    term
+    term "cpu"
     go_workspace "$CURRENT_WS"
     ;;
   --power-menu)
@@ -78,5 +111,12 @@ case $1 in
     ;;
   --layout-keyboard)
     switch_keyboard_layout
+    ;;
+  --sidebar-toggle)
+    sidebar_toggle
+    ;;
+  *)
+    notify-send "[waybar]:taskbar.sh" "Invalid parameter: ${1:-empty}"
+    exit 1
     ;;
 esac

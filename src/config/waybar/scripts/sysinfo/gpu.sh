@@ -1,5 +1,8 @@
 #!/usr/bin/env sh
 
+# shellcheck disable=SC1091
+. "$HOME/.config/my-hyprland/sh/bootstrap.sh"
+
 # ==============================================================================
 # gpu.sh — GPU usage and temperature for Waybar
 # Compatible with: NVIDIA (proprietary driver), NVIDIA (nouveau), AMD (amdgpu/radeon)
@@ -209,12 +212,6 @@ get_class() {
   else
     echo "gpu-normal"
   fi
-}
-
-# Escaping special characters for JSON
-# ------------------------------------------------------------------------------
-json_escape() {
-  printf '%s' "$1" | sed 's/\\/\\\\/g; s/"/\\"/g'
 }
 
 # ==============================================================================

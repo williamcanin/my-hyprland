@@ -25,7 +25,10 @@ background: #181818
 window#waybar {
   min-width: 380px;
   color: @foreground;
-  background-color: alpha(@background, 0.5);
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255, 0.06);
+  /* Default background color: rgba(15, 58, 51, 0.06); */
+  background: rgba(112, 34, 119, 0.06);
 }
 
 /* -- Container  ------------------------------------------ */
@@ -67,7 +70,7 @@ window#waybar {
 }
 
 #custom-header-system {
-  padding-top: 50px;
+  padding-top: 10px;
 }
 
 /* -- Font ----------------------------------------------- */

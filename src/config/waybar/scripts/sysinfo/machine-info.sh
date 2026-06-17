@@ -1,5 +1,8 @@
 #!/usr/bin/env sh
 
+# shellcheck disable=SC1091
+. "$HOME/.config/my-hyprland/sh/bootstrap.sh"
+
 OS=$(grep '^PRETTY_NAME=' /etc/os-release | cut -d= -f2- | tr -d '"')
 LOCALE=$(locale | awk -F= '/^LANG=/{print $2}')
 UPTIME=$(uptime -p | sed 's/^up //')
@@ -29,6 +32,4 @@ cat <<EOF
 EOF
 )
 
-TEXT=$(printf '%s' "$TEXT" | sed ':a;N;$!ba;s/\n/\\n/g')
-
-printf '{"text":"%s"}\n' "$TEXT"
+json_output "$TEXT"
