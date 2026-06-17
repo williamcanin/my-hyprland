@@ -17,6 +17,12 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Get version
+        id: version
+        run: |
+          . .tools/installer/libs/version.lib
+          echo "name=Release $VERSION" >> "$GITHUB_OUTPUT"
+
       - name: Generate release notes
         run: |
           git log --pretty=format:"- %s" $(git describe --tags --abbrev=0 HEAD^ 2>/dev/null || git rev-list --max-parents=0 HEAD)..HEAD > /tmp/release-notes.md
@@ -26,5 +32,6 @@ jobs:
       - name: Create Release
         uses: softprops/action-gh-release@v3
         with:
+          name: ${{ steps.version.outputs.name }}
           body_path: /tmp/release-notes.md
           generate_release_notes: false
