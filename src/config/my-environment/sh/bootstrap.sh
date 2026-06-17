@@ -5,13 +5,14 @@
 # bootstrap.sh — Carrega automaticamente todos os módulos compartilhados.
 #
 # Uso em scripts:
-#   . "${HOME}/.config/my-hyprland/sh/bootstrap.sh"
+#   . "${HOME}/.config/.environment-bootstrap"
 #
 # Isso disponibiliza todas as APIs (log_*, string_*, json_*, ...)
 # e variáveis globais (WALLPAPER_PATH, BUTTON_LAYOUT, ...).
 # =============================================================================
 
-MODULES_DIR="${HOME}/.config/my-hyprland/sh"
+ENVIRONMENT_ROOT="${HOME}/.config/my-environment"
+MODULES_DIR="${ENVIRONMENT_ROOT}/sh"
 
 . "${MODULES_DIR}/variables.sh"
 . "${MODULES_DIR}/paths.sh"

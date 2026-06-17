@@ -1,5 +1,8 @@
 # shellcheck shell=sh disable=SC2034
 
+# -- Environment root ----------------------------------------------------------
+ENVIRONMENT_ROOT="${HOME}/.config/my-environment"
+
 # -- Cache directories --------------------------------------------------------
 HYPR_CACHE_DIR="${HOME}/.cache/hypr"
 WAYBAR_CACHE_DIR="${HOME}/.cache/waybar"
