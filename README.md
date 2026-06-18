@@ -46,7 +46,6 @@ painel lateral de (informações do sistema) e uma sidebar na direita com Quicks
         <img src=".docs/images/preview-6.png" width="200" alt="Preview 6">
       </a>
     </td>
-    <td align="center"></td>
   </tr>
 </table>
 
