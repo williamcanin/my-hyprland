@@ -189,6 +189,7 @@ tooltip label {
   margin-left: 5px;
   padding: 0px 10px;
   border-radius: 5px;
+  border: 1px solid rgba(255, 255, 255, .35);
 }
 
 #right-0 {
