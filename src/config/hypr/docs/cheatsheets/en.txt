@@ -28,25 +28,26 @@ SHORTCUT                               DESCRIPTION
 18 - SUPER (Win) + g                  = Start/Pause/Resume screen recording
 19 - SUPER (Win) + Shift + g          = Stop and save screen recording
 20 - SUPER (Win) + ,                  = Open/Close notification sidebar
-21 - SUPER (Win) + Shift + l          = Lock system
-22 - SUPER (Win) + Shift + m          = Turn monitor off/on (not suspend system)
-23 - SUPER (Win) + Esc                = Exit system
-24 - SUPER (Win) + Shift + r          = Reload Hyprland
+21 - SUPER (Win) + y                  = Opens the selector to change the wallpaper
+22 - SUPER (Win) + Shift + l          = Lock system
+23 - SUPER (Win) + Shift + m          = Turn monitor off/on (not suspend system)
+24 - SUPER (Win) + Esc                = Exit system
+25 - SUPER (Win) + Shift + r          = Reload Hyprland
 
 Software Shortcuts »
 --------------------------------------------------
 SHORTCUT                               DESCRIPTION
 
-25 - SUPER (Win) + Enter              = Terminal
-26 - SUPER (Win) + Space              = File Manager
-27 - SUPER (Win) + b                  = Default Browser
-28 - SUPER (Win) + d                  = Program Launcher
-29 - SUPER (Win) + c                  = Calculator
-30 - SUPER (Win) + Ctrl + /?          = Kitty Cheatsheets
-31 - SUPER (Win) + h                  = Clipboard History
-32 - SUPER (Win) + Shift + h          = Clear Clipboard History
-33 - SUPER (Win) + p                  = Color Picker
-34 - ALT + SHIFT                      = Switch keyboard between "pt-br (abnt2)" and "us"
+26 - SUPER (Win) + Enter              = Terminal
+27 - SUPER (Win) + Space              = File Manager
+28 - SUPER (Win) + b                  = Default Browser
+29 - SUPER (Win) + d                  = Program Launcher
+30 - SUPER (Win) + c                  = Calculator
+31 - SUPER (Win) + Ctrl + /?          = Kitty Cheatsheets
+32 - SUPER (Win) + h                  = Clipboard History
+33 - SUPER (Win) + Shift + h          = Clear Clipboard History
+34 - SUPER (Win) + p                  = Color Picker
+35 - ALT + SHIFT                      = Switch keyboard between "pt-br (abnt2)" and "us"
 
 Directories »
 -----------------------------------------------
