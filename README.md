@@ -27,7 +27,7 @@ painel lateral de (informações do sistema) e uma sidebar na direita com Quicks
       </a>
     </td>
     <td align="center">
-      <b>Nautilus</b><br>
+      <b>Nautilus e SysInfo</b><br>
       <a href="https://raw.githubusercontent.com/williamcanin/my-environment/main/.docs/images/preview-3.png" target="_blank">
         <img src=".docs/images/preview-3.png" width="200" alt="Preview 3">
       </a>
