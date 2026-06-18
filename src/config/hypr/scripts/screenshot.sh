@@ -1,5 +1,8 @@
 #!/usr/bin/env sh
 
+# shellcheck disable=SC1091
+. "$HOME/.config/.environment-bootstrap"
+
 PICTURES=$(xdg-user-dir PICTURES)
 VIDEOS=$(xdg-user-dir VIDEOS)
 
