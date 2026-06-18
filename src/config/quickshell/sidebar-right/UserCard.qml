@@ -3,7 +3,7 @@ import QtQuick.Layouts
 import Quickshell.Io
 
 BaseCard {
-    cardTitle: "USUÁRIO"
+    cardTitle: Strings.cardTitleUser
     cardIcon:  "»"
 
     property string fullName: ""

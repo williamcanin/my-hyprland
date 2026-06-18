@@ -3,7 +3,7 @@ import QtQuick.Layouts
 import Quickshell.Io
 
 BaseCard {
-    cardTitle: "SISTEMA"
+    cardTitle: Strings.cardTitleSystem
     cardIcon:  "»"
 
     property real cpuUsage:     0

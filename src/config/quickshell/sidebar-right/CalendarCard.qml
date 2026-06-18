@@ -2,18 +2,15 @@ import QtQuick
 import QtQuick.Layouts
 
 BaseCard {
-    cardTitle: "CALENDÁRIO"
+    cardTitle: Strings.cardTitleCalendar
     cardIcon:  "»"
 
     property var today: new Date()
     property int displayYear:  today.getFullYear()
     property int displayMonth: today.getMonth()
 
-    readonly property var monthNames: [
-        "Janeiro","Fevereiro","Março","Abril","Maio","Junho",
-        "Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"
-    ]
-    readonly property var dayNames: ["Dom","Seg","Ter","Qua","Qui","Sex","Sáb"]
+    readonly property var monthNames: Strings.monthNames
+    readonly property var dayNames: Strings.dayNames
 
     // ── month navigator ──────────────────────────────────────────
     RowLayout {

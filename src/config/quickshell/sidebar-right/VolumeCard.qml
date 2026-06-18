@@ -3,7 +3,7 @@ import QtQuick.Layouts
 import Quickshell.Io
 
 BaseCard {
-    cardTitle: "VOLUME"
+    cardTitle: Strings.cardTitleVolume
     cardIcon:  "»"
 
     property real volume: 0

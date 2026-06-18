@@ -3,7 +3,7 @@ import QtQuick.Layouts
 import Quickshell.Io
 
 BaseCard {
-    cardTitle: "NOTIFICACOES"
+    cardTitle: Strings.cardTitleNotifications
     cardIcon:  "»"
 
     property var notifications: []
@@ -57,7 +57,7 @@ BaseCard {
         Layout.fillWidth: true
 
         Text {
-            text: unreadCount > 0 ? unreadCount + " recente(s)" : "Nenhuma notificacao"
+            text: unreadCount > 0 ? unreadCount + " " + Strings.notifRecent : Strings.notifNone
             color: Theme.fgText
             font.pixelSize: 10
             font.family: "monospace"
@@ -69,7 +69,7 @@ BaseCard {
             implicitWidth: 70
             implicitHeight: 22
             iconText: "\uf2ed"
-            label: "Limpar"
+            label: Strings.notifClear
             active: false
             radius: 3
             onClicked: clearProc.running = true
@@ -144,7 +144,7 @@ BaseCard {
     Text {
         visible: notifications.length === 0
         Layout.fillWidth: true
-        text: "\uf00d  Tudo limpo"
+        text: "\uf00d  " + Strings.notifAllClear
         font.pixelSize: 10
         font.family: "monospace"
         color: Theme.accent

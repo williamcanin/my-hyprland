@@ -3,7 +3,7 @@ import QtQuick.Layouts
 import Quickshell.Io
 
 BaseCard {
-    cardTitle: "REDE"
+    cardTitle: Strings.cardTitleNetwork
     cardIcon:  "»"
 
     property string iface:     "—"
@@ -159,7 +159,7 @@ BaseCard {
             Layout.alignment: Qt.AlignVCenter
 
             Text {
-                text: "Internet"
+                text: Strings.netTitle
                 color: Theme.fgText
                 font.pixelSize: 11
                 font.family: "monospace"
@@ -168,9 +168,9 @@ BaseCard {
 
             Text {
                 text: {
-                    if (!networkingEnabled) return "Rede desativada"
-                    if (connected) return ssid !== "" ? ssid : "Conectado"
-                    return "Sem conexao"
+                    if (!networkingEnabled) return Strings.netDisabled
+                    if (connected) return ssid !== "" ? ssid : Strings.netConnected
+                    return Strings.netNoConnection
                 }
                 color: {
                     if (!networkingEnabled) return Theme.danger

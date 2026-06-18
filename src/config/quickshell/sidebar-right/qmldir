@@ -1,6 +1,7 @@
 module sidebar-right
 
 singleton Theme             1.0 Theme.qml
+singleton Strings           1.0 Strings.qml
 BaseCard          1.0 BaseCard.qml
 GlassButton       1.0 GlassButton.qml
 NotificationCard  1.0 NotificationCard.qml

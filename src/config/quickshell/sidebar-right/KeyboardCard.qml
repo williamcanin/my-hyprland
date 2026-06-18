@@ -3,7 +3,7 @@ import QtQuick.Layouts
 import Quickshell.Io
 
 BaseCard {
-    cardTitle: "TECLADO"
+    cardTitle: Strings.cardTitleKeyboard
     cardIcon:  "»"
 
     property string currentLayout: "br"

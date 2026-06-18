@@ -3,7 +3,7 @@ import QtQuick.Layouts
 import Quickshell.Io
 
 BaseCard {
-    cardTitle: "CLIMA"
+    cardTitle: Strings.cardTitleWeather
     cardIcon:  "»"
 
     // ── Configure aqui ────────────────────────────────────────────
@@ -75,7 +75,7 @@ BaseCard {
     Text {
         visible: loading
         Layout.fillWidth: true
-        text: "Buscando dados..."
+        text: Strings.weatherLoading
         color: Theme.accent; font.pixelSize: 10; font.family: "monospace"
         opacity: 1; horizontalAlignment: Text.AlignHCenter
     }
@@ -84,7 +84,7 @@ BaseCard {
     Text {
         visible: !loading && hasError
         Layout.fillWidth: true
-        text: "Sem conexao com wttr.in"
+        text: Strings.weatherError
         color: Theme.danger; font.pixelSize: 10; font.family: "monospace"
         horizontalAlignment: Text.AlignHCenter
     }
@@ -149,9 +149,9 @@ BaseCard {
 
             Repeater {
                 model: [
-                    { label: "Sensacao", value: feelsLike + "°C" },
-                    { label: "Umidade",  value: humidity  + "%"  },
-                    { label: "Vento",    value: windKmh   + " km/h" },
+                    { label: Strings.weatherFeelsLike, value: feelsLike + "°C" },
+                    { label: Strings.weatherHumidity,  value: humidity  + "%"  },
+                    { label: Strings.weatherWind,      value: windKmh   + " km/h" },
                 ]
                 delegate: ColumnLayout {
                     Layout.fillWidth: true
@@ -176,7 +176,7 @@ BaseCard {
             implicitWidth: 80
             implicitHeight: 22
             iconText: "\uf021"
-            label: "Atualizar"
+            label: Strings.weatherRefresh
             active: false
             radius: 3
             onClicked: fetchProc.running = true

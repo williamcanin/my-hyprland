@@ -3,16 +3,12 @@ import QtQuick.Layouts
 import Quickshell.Io
 
 BaseCard {
-    cardTitle: "ENERGIA"
+    cardTitle: Strings.cardTitlePower
     cardIcon:  "»"
 
     property string activeProfile: "balanced"
 
-    readonly property var profiles: [
-        { id: "power-saver",  label: "Economia",   icon: "\uf06c", desc: "Economia de energia" },
-        { id: "balanced",     label: "Balanceado", icon: "\uf24e", desc: "Padrao" },
-        { id: "performance",  label: "Performance",icon: "\uf0e7", desc: "Max. desempenho" },
-    ]
+    readonly property var profiles: Strings.profiles
 
     Timer {
         interval: 500; running: true; repeat: false
@@ -64,10 +60,11 @@ BaseCard {
     Text {
         Layout.fillWidth: true
         text: {
+            var icon = "\uf0e7"
             switch(activeProfile) {
-            case "power-saver":  return "\uf0e7  Economia de bateria ativa"
-            case "performance":  return "\uf0e7  Maximo desempenho ativo"
-            default:             return "\uf0e7  Perfil balanceado ativo"
+            case "power-saver":  return icon + "  " + Strings.powerSaverActive
+            case "performance":  return icon + "  " + Strings.powerPerfActive
+            default:             return icon + "  " + Strings.powerBalancedActive
             }
         }
         color: Theme.accent
