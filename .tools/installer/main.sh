@@ -5,7 +5,6 @@
 set -e
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
-REPO_ROOT="$(cd "$SCRIPT_DIR/../.." && pwd)"
 
 . "$SCRIPT_DIR/libs/version.lib"
 . "$SCRIPT_DIR/libs/msg.lib"
