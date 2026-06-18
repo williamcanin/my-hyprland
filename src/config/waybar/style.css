@@ -12,7 +12,7 @@ background: #285577 #181818
 @define-color decorate-rgba rgba(58, 169, 159, 0.45);
 @define-color hover #86e0d9;
 @define-color background #181818;
-@define-color background-rgba rgba(24, 24, 24, 0.5);
+@define-color background-rgba rgba(24, 24, 24, 0.7);
 @define-color transparent transparent;
 
 
@@ -184,6 +184,25 @@ tooltip label {
   margin-left: 15px;
 }
 
+#right-0, #right-1, #right-2 {
+  margin: 3px 0px;
+  margin-left: 5px;
+  padding: 0px 10px;
+  border-radius: 5px;
+}
+
+#right-0 {
+  background: rgba(58, 169, 159, 0.12);
+}
+
+#right-1 {
+  background: rgba(68, 23, 67, 0.37);
+}
+
+#right-2 {
+  background: rgba(58, 169, 159, 0.12);
+}
+
 /* --- Hover --- */
 #clock.date:hover,
 #tray,
@@ -202,7 +221,7 @@ tooltip label {
 }
 
 #custom-settings {
-  padding: 0 10px;
+  padding: 0 6px;
 }
 
 #tray {
@@ -256,7 +275,7 @@ tooltip label {
 }
 
 #custom-power {
-  color: @decorate;
+  color: #f89a9a;
 }
 
 /* Recording Screen */

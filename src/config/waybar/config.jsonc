@@ -21,21 +21,35 @@
     "orientation": "inherit",
     "modules": ["mpris"]
   },
+  "group/right-0": {
+    "orientation": "inherit",
+    "modules": ["clock#date", "clock#time"]
+  },
+  "group/right-1": {
+    "orientation": "inherit",
+    "modules": ["network",
+      "hyprland/language",
+      "power-profiles-daemon",
+      // "bluetooth",
+      "memory",
+      "cpu"
+    ]
+  },
+  "group/right-2": {
+    "orientation": "inherit",
+    "modules": [
+      "custom/recording",
+      "pulseaudio#output",
+      "pulseaudio#input"
+    ]
+  },
   "modules-left": ["group/left1", "group/left2"],
   "modules-center": ["custom/icon-window", "hyprland/submap", "hyprland/window"],
   "modules-right": [
     "group/tray-expander",
-    "custom/recording",
-    "pulseaudio#output",
-    "pulseaudio#input",
-    "hyprland/language",
-    "power-profiles-daemon",
-    "network",
-    // "bluetooth",
-    "memory",
-    "cpu",
-    "clock#date",
-    "clock#time",
+    "group/right-2",
+    "group/right-1",
+    "group/right-0",
     "custom/power",
     "custom/settings"
   ],
