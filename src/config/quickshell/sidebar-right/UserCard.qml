@@ -23,16 +23,17 @@ BaseCard {
             "whoami; hostname"
         ]
         stdout: SplitParser {
+            property int lineNum: 0
             onRead: data => {
-                var parts = data.trim().split(/\n/)
-                if (parts.length >= 3) {
-                    fullName = parts[0]
-                    userName = parts[1]
-                    hostName = parts[2]
-                } else if (parts.length >= 2) {
-                    userName = parts[0]
-                    hostName = parts[1]
+                var line = data.trim()
+                if (lineNum === 0) {
+                    fullName = line
+                } else if (lineNum === 1) {
+                    userName = line
+                } else if (lineNum === 2) {
+                    hostName = line
                 }
+                lineNum++
             }
         }
     }
