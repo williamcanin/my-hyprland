@@ -1,0 +1,5 @@
+/* theme: catppuccin-mocha */
+@define-color th-background  #1e1e2e;
+@define-color th-header      #cba6f7;
+@define-color th-foreground  #bac2de;
+@define-color th-window-bg   rgba(49, 50, 68, 0.45);

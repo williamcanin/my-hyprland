@@ -1,0 +1,9 @@
+/* theme: catppuccin-mocha */
+@define-color th-foreground      #cdd6f4;
+@define-color th-decorate        #cba6f7;
+@define-color th-decorate-rgba   rgba(203, 166, 247, 0.45);
+@define-color th-hover           #f5c2e7;
+@define-color th-background      #1e1e2e;
+@define-color th-background-rgba rgba(30, 30, 46, 0.7);
+@define-color th-right1-bg       rgba(69, 71, 90, 0.55);
+@define-color th-right02-bg      rgba(203, 166, 247, 0.12);

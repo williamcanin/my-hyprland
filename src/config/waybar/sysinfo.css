@@ -1,15 +1,6 @@
+@import url("./themes/hyprland-dark-teal/sysinfo-theme.css");
+
 /*  Waybar — Painel vertical (Sysinfo)  */
-
-/*
-Options colors:
-foreground: #ffffff #32222f #1c121a #463343 #3f1731 #e4b1d2 #978390
-header: #1c3c39
-background: #181818
-*/
-
-@define-color background #181818;
-@define-color header #3aa99f;
-@define-color foreground #c6b7c1;
 
 * {
     font-family: "JetBrainsMono Nerd Font", "Terminus (TTF)", "Symbols Nerd Font Mono";
@@ -24,11 +15,11 @@ background: #181818
 /* -- Window default -------------------------------------- */
 window#waybar {
   min-width: 380px;
-  color: @foreground;
+  color: @th-foreground;
   border-radius: 8px;
   border: 1px solid rgba(255,255,255, 0.06);
   /* Default background color: rgba(15, 58, 51, 0.06); */
-  background: rgba(112, 34, 119, 0.06);
+  background: @th-window-bg;
 }
 
 /* -- Container  ------------------------------------------ */
@@ -49,7 +40,7 @@ window#waybar {
 #custom-keys,
 #custom-network {
     padding: 1px 16px;
-    color: @foreground;
+    color: @th-foreground;
     background: transparent;
 }
 
@@ -61,7 +52,7 @@ window#waybar {
 #custom-header-storage,
 #custom-header-network,
 #custom-header-keys {
-    color: @header;
+    color: @th-header;
     font-size: 14px;
     font-weight: bold;
     padding: 10px 16px 2px 16px;
@@ -81,7 +72,7 @@ window#waybar {
 #custom-storage,
 #custom-network,
 #custom-keys {
-  color: @foreground;
+  color: @th-foreground;
   font-size: 14px;
   margin-bottom: 20px;
 }
@@ -98,4 +89,3 @@ window#waybar {
 @keyframes blink {
   50% { opacity: 0.6; }
 }
-

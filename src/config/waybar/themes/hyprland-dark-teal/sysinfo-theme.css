@@ -1,0 +1,5 @@
+/* theme: hyprland-dark-teal */
+@define-color th-background  #181818;
+@define-color th-header      #3aa99f;
+@define-color th-foreground  #c6b7c1;
+@define-color th-window-bg   rgba(112, 34, 119, 0.06);
