@@ -11,8 +11,8 @@ else
   PROMPT="Search"
 fi
 
-if [ $FINDER = "/usr/bin/rofi" ]; then
+if [ "$FINDER" = "/usr/bin/rofi" ]; then
   cat "$CHEAT_FILE" | $FINDER -dmenu -p "$PROMPT" -i -theme-str 'window { width: 1050px; height: 600px;}'
-elif [ $FINDER = "/usr/bin/wofi" ]; then
+elif [ "$FINDER" = "/usr/bin/wofi" ]; then
   cat "$CHEAT_FILE" | $FINDER
 fi
