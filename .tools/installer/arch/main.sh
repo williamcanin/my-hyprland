@@ -166,6 +166,7 @@ symlinks() {
 
   # Kitty Help shortcuts
   symlink "$HOME/.config/kitty/scripts/shortcuts.sh" "$HOME/.local/bin/kitty-help"
+  symlink "$HOME/.config/my-environment/sh/theme-switch.sh" "$HOME/.local/bin/theme-switch"
 
   ok "Creation of symbolic links completed."
   warn "Adding \"\$HOME/.local/bin\" in PATH"
