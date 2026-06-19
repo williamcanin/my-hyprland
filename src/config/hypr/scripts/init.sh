@@ -6,9 +6,9 @@
 # Run xdg-user
 xdg-user-dirs-update
 
-set_wallpaper() {
-  hyprctl hyprpaper wallpaper ",$WALLPAPER_PATH" &
-}
+# set_wallpaper() {
+#   hyprctl hyprpaper wallpaper ",$WALLPAPER_PATH" &
+# }
 
 set_gsettings() {
   # GTK Theme
@@ -54,7 +54,7 @@ case "$1" in
     pkill hypridle; hypridle &
     run_waybars
     pkill qs; qs -c sidebar-right &
-    set_wallpaper
+    # set_wallpaper
     pkill snappy-switcher; snappy-switcher --daemon &
     wl-paste --type text --watch cliphist store &
     wl-paste --type image --watch cliphist store &
@@ -71,7 +71,7 @@ case "$1" in
     run_waybars
   ;;
   --set-wallpaper)
-    set_wallpaper
+    # set_wallpaper
   ;;
   --reload)
     hyprctl reload
