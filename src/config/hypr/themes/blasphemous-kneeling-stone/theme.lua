@@ -1,4 +1,4 @@
--- Theme: catppuccin-mocha
+-- Theme: blasphemous-kneeling-stone
 -- Loaded by hyprland.lua via dofile()
 return {
   -- Borders

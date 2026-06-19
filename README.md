@@ -187,7 +187,7 @@ src/
 Switch the full desktop theme with:
 
 ```sh
-theme-switch catppuccin-mocha
+theme-switch blasphemous-kneeling-stone
 ```
 
 The active theme name is stored as plain text in:
