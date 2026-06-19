@@ -182,6 +182,49 @@ src/
   fonts/               Font Awesome e Terminus local
 ```
 
+## Themes
+
+Switch the full desktop theme with:
+
+```sh
+theme-switch catppuccin-mocha
+```
+
+The active theme name is stored as plain text in:
+
+```text
+~/.config/my-environment/.active-theme
+```
+
+Theme files live beside each tool's own config:
+
+```text
+src/config/hypr/themes/<theme-name>/
+src/config/waybar/themes/<theme-name>/
+src/config/quickshell/sidebar-right/themes/<theme-name>/
+src/config/rofi/themes/<theme-name>/
+src/config/dunst/themes/<theme-name>/
+src/config/wlogout/themes/<theme-name>/
+src/config/kitty/themes/<theme-name>/
+src/config/btop/themes/<theme-name>/
+src/config/snappy-switcher/themes/<theme-name>/
+```
+
+To create a new theme, add the matching files for every tool:
+
+- `hypr/theme.lua` and `hypr/hyprlock.conf`
+- `waybar/theme.css` and `waybar/sysinfo-theme.css`
+- `quickshell/sidebar-right/Theme.qml`
+- `rofi/theme.rasi`
+- `dunst/dunstrc.theme`
+- `wlogout/theme.css`
+- `kitty/theme.conf`
+- `btop/theme.theme`
+- `snappy-switcher/theme.ini`
+
+Optional wallpapers can be added as `wallpaper.jpeg`, `wallpaper.jpg`,
+`wallpaper.png`, or `wallpaper.webp` under `src/config/hypr/themes/<theme-name>/`.
+
 ## Atalhos principais
 
 | Atalho | Ação |
@@ -198,6 +241,7 @@ src/
 | `Super + Tab` | Navegar entre abas do grupo |
 | `Alt + Tab` | Alternar entre janelas com Snappy Switcher |
 | `Super + ,` | Abrir/fechar sidebar Quickshell |
+| `Super + Shift + T` | Selecionar tema com Rofi |
 | `Super + 1..9` | Ir para workspace |
 | `Super + Shift + 1..9` | Mover janela para workspace |
 | `Ctrl + Alt + ←/→` | Navegar workspaces (loop) |
