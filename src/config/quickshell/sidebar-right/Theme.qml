@@ -1,5 +1,6 @@
 pragma Singleton
 import QtQuick
+import QtCore
 import Quickshell
 import Quickshell.Io
 
@@ -12,10 +13,11 @@ Singleton {
 
     FileView {
         id: themeNameFile
+        blockLoading: true
         path: StandardPaths.writableLocation(StandardPaths.HomeLocation) +
               "/.config/my-environment/.active-theme"
         onTextChanged: {
-            var n = text.trim()
+            var n = text().trim()
             if (n !== "") root.themeName = n
         }
     }
@@ -26,8 +28,9 @@ Singleton {
 
     FileView {
         id: themeFile
+        blockLoading: true
         onTextChanged: {
-            var qml = text.trim()
+            var qml = text().trim()
             if (qml === "") return
             var obj = Qt.createQmlObject(qml, root, "themeLoader")
             if (obj) {
@@ -40,6 +43,7 @@ Singleton {
     function loadTheme() {
         themeFile.path = StandardPaths.writableLocation(StandardPaths.HomeLocation) +
             "/.config/quickshell/sidebar-right/themes/" + themeName + "/Theme.qml"
+        themeFile.reload()
     }
 
     onThemeNameChanged: loadTheme()
