@@ -1,0 +1,10 @@
+/* theme: hyprland-dark-teal */
+* {
+    th-bg:            rgba(0, 0, 0, 75%);
+    th-fg:            rgb(103, 202, 194);
+    th-fg-selected:   rgba(255, 255, 255, 100%);
+    th-row-alt:       rgba(255,255,255,6%);
+    th-row-selected:  rgba(68, 23, 67, 0.769);
+    th-border-color:  rgba(243, 243, 243, 0.33);
+    th-separator:     rgba(153, 90, 152, 0.99);
+}

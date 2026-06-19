@@ -1,0 +1,10 @@
+/* theme: catppuccin-mocha */
+* {
+    th-bg:            rgba(30, 30, 46, 92%);
+    th-fg:            rgb(203, 166, 247);
+    th-fg-selected:   rgba(205, 214, 244, 100%);
+    th-row-alt:       rgba(205, 214, 244, 6%);
+    th-row-selected:  rgba(69, 71, 90, 0.85);
+    th-border-color:  rgba(203, 166, 247, 0.45);
+    th-separator:     rgba(203, 166, 247, 0.65);
+}

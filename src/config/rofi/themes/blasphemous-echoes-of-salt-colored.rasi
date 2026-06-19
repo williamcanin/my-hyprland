@@ -1,15 +1,17 @@
+@import "~/.config/rofi/themes/hyprland-dark-teal/theme.rasi"
+
 /* Author: William C. Canin */
 
 * {
-    bg:               rgba(0, 0, 0, 75%);
-    fg:               rgb(103, 202, 194);
-    fg-selected:      rgba(255, 255, 255, 100%);
+    bg:               @th-bg;
+    fg:               @th-fg;
+    fg-selected:      @th-fg-selected;
 
-    row-alt:          rgba(255,255,255,6%);
-    row-selected:     rgba(68, 23, 67, 0.769);
+    row-alt:          @th-row-alt;
+    row-selected:     @th-row-selected;
 
-    border-color:     rgba(243, 243, 243, 0.33);
-    separator-color:  rgba(153, 90, 152, 0.99);
+    border-color:     @th-border-color;
+    separator-color:  @th-separator;
 
     spacing: 2px;
 }
