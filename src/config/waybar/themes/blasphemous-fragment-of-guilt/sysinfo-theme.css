@@ -1,5 +1,5 @@
 /* theme: blasphemous-fragment-of-guilt */
-@define-color th-background  #eef7f4;
+@define-color th-background  #f7f1d1;
 @define-color th-header      #181818;
-@define-color th-foreground  #24302e;
-@define-color th-window-bg   rgba(223, 236, 232, 0.62);
+@define-color th-foreground  #0a0a07;
+@define-color th-window-bg   rgba(24, 24, 24, 0.15);

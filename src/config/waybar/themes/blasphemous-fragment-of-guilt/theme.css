@@ -1,9 +1,9 @@
 /* theme: blasphemous-fragment-of-guilt */
-@define-color th-foreground      #24302e;
+@define-color th-foreground      #0a0a07;
 @define-color th-decorate        #181818;
 @define-color th-decorate-rgba   rgba(24, 24, 24, 0.42);
 @define-color th-hover           #181818;
-@define-color th-background      #eef7f4;
-@define-color th-background-rgba rgba(238, 247, 244, 0.82);
-@define-color th-right1-bg       rgba(203, 219, 214, 0.58);
-@define-color th-right02-bg      rgba(151, 199, 191, 0.24);
+@define-color th-background      #f7f1d1;
+@define-color th-background-rgba rgba(247, 241, 209, 0.82);
+@define-color th-right1-bg       rgba(24, 24, 24, 0.42);
+@define-color th-right02-bg      rgba(24, 24, 24, 0.24);

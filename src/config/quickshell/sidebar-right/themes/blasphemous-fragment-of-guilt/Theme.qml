@@ -9,11 +9,11 @@ QtObject {
     readonly property color accentLight:     "#181818"     // versão mais clara do accent
 
     // Foreground --------------------------------------------------------------
-    readonly property color fgTitle:         "#2f746e"     // títulos de seção, labels de card
-    readonly property color fgText:          "#24302e"     // texto principal
-    readonly property color fgDim:           "#465653"     // texto secundário / valores
-    readonly property color fgSubtle:        "#67827b"     // texto levemente apagado
-    readonly property color fgFaint:         "#9aada7"     // desabilitado / inativo
+    readonly property color fgTitle:         "#0a0a07"     // títulos de seção, labels de card
+    readonly property color fgText:          "#0a0a07"     // texto principal
+    readonly property color fgDim:           "#0a0a07"     // texto secundário / valores
+    readonly property color fgSubtle:        "#0a0a07"     // texto levemente apagado
+    readonly property color fgFaint:         "#0a0a07"     // desabilitado / inativo
     readonly property color fgOnAccent:      "#0a0a07"     // texto sobre fundo accent ativo
 
     // Background --------------------------------------------------------------
@@ -30,11 +30,11 @@ QtObject {
     readonly property color border:          "#33181818"   // borda padrão de card
     readonly property color borderStrong:    "#66181818"   // borda hover / destaque
     readonly property color borderItem:      "#18181818"   // borda interna de item
-    readonly property color borderSubtle:    "#cadbd6"     // borda neutra escura
+    readonly property color borderSubtle:    "#181818"     // borda neutra escura
 
     // Scrollbar
     readonly property color scrollbarFg:    "#181818"     // scrollbar cor
-    readonly property color scrollbarBg:    "#cadbd6"   // scrollbar fundo/track
+    readonly property color scrollbarBg:    "#181818"   // scrollbar fundo/track
 
     // Status ------------------------------------------------------------------
     readonly property color danger:          "#b45a52"

@@ -3,10 +3,10 @@
 return {
   -- Borders
   border_active          = "rgba(181818ff)",
-  border_inactive        = "rgba(cadbd6ff)",
+  border_inactive        = "rgba(181818ff)",
   -- Group bar
   groupbar_active        = "rgba(181818ff)",
-  groupbar_inactive      = "rgba(cadbd6cc)",
+  groupbar_inactive      = "rgba(181818cc)",
   -- Shadow
   shadow_color           = 0x665a6f6a,
   shadow_color_inactive  = 0x333d4443,
