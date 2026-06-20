@@ -1,0 +1,151 @@
+# Palette adapted for blasphemous-fragment-of-guilt
+# bg: #eef7f4
+# fg: #24302e
+# accent: #3a6b63
+
+[app]
+overall = { bg = "#eef7f4" }
+
+[mgr]
+cwd = { fg = "#24302e", bold = true }
+
+# Find
+find_keyword = { fg = "#3a6b63", reversed = true }
+find_position = { fg = "#3a6b63", bold = true, italic = true }
+
+# Marker
+marker_copied = { fg = "#3a6b63", bg = "#3a6b63" }
+marker_cut = { fg = "#b45a52", bg = "#b45a52" }
+marker_marked = { fg = "#1c6c66", bg = "#1c6c66" }
+marker_selected = { fg = "#eef7f4", bg = "#3a6b63" }
+
+# Count
+count_copied = { fg = "#3a6b63", bold = true, reversed = true }
+count_cut = { fg = "#b45a52", bold = true, reversed = true }
+count_selected = { fg = "#eef7f4", bold = true, reversed = true }
+
+# Border
+border_symbol = "│"
+border_style = { fg = "#d8e8e4" }
+
+[indicator]
+parent = { underline = true }
+current = { fg = "#24302e", bg = "#d8e8e4" }
+preview = { underline = true }
+padding = { open = "█", close = "█" }
+
+[tabs]
+active = { fg = "#24302e", bg = "#d8e8e4", bold = true }
+inactive = { fg = "#5a7a74", bg = "#f7fbf9" }
+sep_inner = { open = "", close = "" }
+sep_outer = { open = "", close = "" }
+
+[mode]
+# Normal mode
+normal_main = { fg = "#24302e", bg = "#eaeef4", bold = true }
+normal_alt = { fg = "#5a7a74", bg = "#f7fbf9" }
+
+# Select mode
+select_main = { fg = "#eef7f4", bg = "#3a6b63", bold = true }
+select_alt = { fg = "#3a6b63", bg = "#d8e8e4" }
+
+# Unset mode
+unset_main = { fg = "#eef7f4", bg = "#3a6b63", bold = true }
+unset_alt = { fg = "#3a6b63", bg = "#d8e8e4" }
+
+[status]
+overall = { fg = "#24302e" }
+
+# Permissions
+perm_type = { fg = "#4385be" }
+perm_read = { fg = "#9b7d35" }
+perm_write = { fg = "#b45a52" }
+perm_exec = { fg = "#3a6b63" }
+perm_sep = { fg = "#5a7a74" }
+
+# Progress
+progress_label = { fg = "#24302e" }
+progress_normal = { fg = "#3a6b63", bg = "#d8e8e4" }
+progress_error = { bg = "#b45a52" }
+
+[which]
+cols = 3
+mask = { bg = "#eef7f4" }
+cand = { fg = "#3a6b63", bold = true }
+rest = { fg = "#3a6b63", italic = true }
+desc = { fg = "#5a7a74" }
+separator = " "
+separator_style = { }
+
+[confirm]
+border = { fg = "#d8e8e4" }
+title = { fg = "#5a7a74", bold = true }
+body = { fg = "#24302e", bold = true }
+list = { fg = "#24302e" }
+btn_yes = { fg = "#24302e", bg = "#d8e8e4", bold = true }
+btn_no = { fg = "#5a7a74", bg = "#f7fbf9" }
+
+[spot]
+border = { fg = "#d8e8e4" }
+title = { fg = "#5a7a74", bold = true }
+tbl_col = { fg = "#5a7a74" }
+tbl_cell = { fg = "#24302e", bg = "#eef7f4" }
+
+[notify]
+title_info = { fg = "#3a6b63" }
+title_warn = { fg = "#9b7d35" }
+title_error = { fg = "#b45a52" }
+
+[pick]
+border = { fg = "#d8e8e4", bold = true }
+active = { fg = "#24302e" }
+inactive = { fg = "#5a7a74" }
+
+[input]
+border = { fg = "#d8e8e4" }
+title = { fg = "#5a7a74", bold = true }
+value = { fg = "#24302e" }
+selected = { bg = "#d8e8e4" }
+
+[cmp]
+border = { fg = "#d8e8e4", bold = true }
+active = { fg = "#24302e", bg = "#eef7f4" }
+inactive = { fg = "#5a7a74" }
+
+[tasks]
+border = { fg = "#d8e8e4" }
+title = { fg = "#5a7a74", bold = true }
+hovered = { fg = "#24302e", bg = "#eef7f4" }
+
+[help]
+on = { fg = "#3a6b63" }
+run = { fg = "#3a6b63" }
+desc = { fg = "#5a7a74", italic = true }
+hovered = { bg = "#eef7f4" }
+footer = { fg = "#24302e", bg = "#3a6b63", bold = true }
+
+[filetype]
+rules = [
+  { mime = "inode/empty", fg = "#5a7a74" },
+  { url = "*", is = "orphan", fg = "#5a7a74" },
+  { url = "*/", is = "orphan", fg = "#5a7a74" },
+  { url = "*", is = "link", fg = "#3a6b63" },
+  { url = "*/", is = "link", fg = "#3a6b63" },
+  { url = "*", is = "block", fg = "#24302e" },
+  { url = "*", is = "char", fg = "#24302e" },
+  { url = "*", is = "fifo", fg = "#b45a52" },
+  { url = "*", is = "sock", fg = "#b45a52" },
+  { url = "*", is = "sticky", fg = "#24302e" },
+  { url = "*", is = "dummy", fg = "#5a7a74" },
+  { url = "*/", fg = "#24302e" },
+  { url = "*", is = "exec", fg = "#3a6b63" },
+  { url = "*", fg = "#5a7a74" }
+]
+
+[icon]
+dirs = [
+  { name = ".config",    text = "", fg = "#3a6b63" },
+  { name = ".git",       text = "", fg = "#3a6b63" },
+  { name = ".github",    text = "", fg = "#3a6b63" },
+  { name = ".npm",       text = "", fg = "#3a6b63" },
+]
