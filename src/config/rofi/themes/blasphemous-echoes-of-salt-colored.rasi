@@ -38,7 +38,7 @@ inputbar {
 
 prompt {
   background-color: transparent;
-  text-color: rgba(255, 255, 255, 0.92);
+  text-color: @fg;
 }
 
 textbox-prompt-colon {
@@ -50,7 +50,7 @@ textbox-prompt-colon {
 
 entry {
   background-color: transparent;
-  text-color: rgba(255, 255, 255, 0.92);
+  text-color: @fg;
 }
 
 textbox {
