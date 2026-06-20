@@ -74,15 +74,28 @@ case "$1" in
     # set_wallpaper
   ;;
   --reload)
-    hyprctl reload
-    pkill hyprpaper; hyprpaper &
-    pkill hypridle; hypridle &
-    systemctl --user restart xdg-desktop-portal-gtk
-    set_wallpaper
-    run_waybars
     pkill qs; qs -c sidebar-right &
-    pkill snappy-switcher; snappy-switcher --daemon &
+
+    rm -f "$HYPRLOCK_PATH"
+    pkill hyprpaper 2>/dev/null || true
+    sleep 0.2
+    hyprpaper &
+
+    pkill hypridle 2>/dev/null || true
+    sleep 0.2
+    hypridle &
+
+    systemctl --user restart xdg-desktop-portal-gtk
+
+    set_wallpaper
+
+    run_waybars
+
     systemctl --user restart --now dunst
+
+    pkill snappy-switcher 2>/dev/null || true
+    sleep 0.2
+    snappy-switcher --daemon &
 
     # PolicyKit agent (graphical auth)
     # /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
@@ -90,6 +103,9 @@ case "$1" in
     # Bluetooth
     #systemctl enable --now bluetooth >/dev/null 2>&1 &
     #blueman-applet &
+
+    hyprctl reload
+
   ;;
   *)
     notify-send "Error" "[hyprland:scripts:init]: Invalid parameter"

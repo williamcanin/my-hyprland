@@ -91,16 +91,6 @@ fi
 # Remove old lock screen image
 rm -f "$HYPRLOCK_PATH"
 
-hyprctl reload
-
-sh "$(paths_config hypr/scripts/init.sh)" --waybars
-
-systemctl --user restart --now dunst
-
-pkill snappy-switcher 2>/dev/null || true
-sleep 0.2
-snappy-switcher --daemon &
-
 HYPRPAPER_FILE="$(paths_config hypr/hyprpaper.conf)"
 HYPRPAPER_DIR="$(paths_config hypr/wallpapers)"
 
@@ -117,6 +107,9 @@ for _ext in jpeg jpg png webp; do
     break
   fi
 done
+
+# Reload all
+sh "$(paths_config hypr/scripts/init.sh)" --reload
 
 notify-send "Theme" "Switched to '${THEME}'" 2>/dev/null || true
 printf "Theme '%s' applied.\n" "$THEME"
