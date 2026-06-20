@@ -16,6 +16,8 @@ DUNST_THEMES="${HOME}/.config/dunst/themes"
 WLOGOUT_THEMES="${HOME}/.config/wlogout/themes"
 KITTY_THEMES="${HOME}/.config/kitty/themes"
 BTOP_THEMES="${HOME}/.config/btop/themes"
+BOTTOM_THEMES="${HOME}/.config/bottom/themes"
+YAZI_THEMES="${HOME}/.config/yazi/themes"
 SNAPPY_THEMES="${HOME}/.config/snappy-switcher/themes"
 
 if [ -z "$THEME" ]; then
@@ -37,7 +39,7 @@ for _dir in \
     printf 'Error: theme directory not found: %s\n' "$_dir" >&2
     exit 1
   fi
-done
+ done
 
 printf '%s' "$THEME" > "$ACTIVE_FILE"
 
@@ -78,6 +80,17 @@ if [ -f "$SNAPPY_THEMES/$THEME/theme.ini" ]; then
   sed -i "s|^name = .*|name = ${THEME}/theme.ini|" "$_snappy_conf"
 fi
 
+if [ -f "$BOTTOM_THEMES/$THEME/bottom.toml" ]; then
+  cp "$BOTTOM_THEMES/$THEME/bottom.toml" "$(paths_config bottom/bottom.toml)"
+fi
+
+if [ -f "$YAZI_THEMES/$THEME/theme.toml" ]; then
+  cp "$YAZI_THEMES/$THEME/theme.toml" "$(paths_config yazi/theme.toml)"
+fi
+
+# Remove old lock screen image
+rm -f "$HYPRLOCK_PATH"
+
 hyprctl reload
 
 sh "$(paths_config hypr/scripts/init.sh)" --waybars
@@ -92,10 +105,19 @@ pkill snappy-switcher 2>/dev/null || true
 sleep 0.2
 snappy-switcher --daemon &
 
+HYPRPAPER_FILE="$(paths_config hypr/hyprpaper.conf)"
+HYPRPAPER_DIR="$(paths_config hypr/wallpapers)"
+
 for _ext in jpeg jpg png webp; do
   _wall="${HYPR_THEMES}/${THEME}/wallpaper.${_ext}"
+  if [ ! -f "$_wall" ]; then
+    _wall="${HYPRPAPER_DIR}/${THEME}.${_ext}"
+  fi
   if [ -f "$_wall" ]; then
+    _config_path=$(echo "$_wall" | sed "s|^$HOME|~|")
+    hyprctl hyprpaper preload "$_wall" 2>/dev/null || true
     hyprctl hyprpaper wallpaper ",$_wall" 2>/dev/null || true
+    sed -i "s|^[[:space:]]*path[[:space:]]*=.*$|  path =  ${_config_path}|" "$HYPRPAPER_FILE"
     break
   fi
 done
