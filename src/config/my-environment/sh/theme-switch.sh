@@ -95,10 +95,6 @@ hyprctl reload
 
 sh "$(paths_config hypr/scripts/init.sh)" --waybars
 
-pkill qs 2>/dev/null || true
-sleep 0.3
-qs -c sidebar-right &
-
 systemctl --user restart --now dunst
 
 pkill snappy-switcher 2>/dev/null || true
