@@ -1,10 +1,10 @@
 /* theme: blasphemous-fragment-of-guilt */
 * {
-    th-bg:            rgba(238, 247, 244, 96%);
-    th-fg:            rgb(36, 48, 46);
-    th-fg-selected:   rgba(238, 247, 244, 100%);
-    th-row-alt:       rgba(36, 48, 46, 6%);
-    th-row-selected:  rgba(58, 107, 99, 0.88);
-    th-border-color:  rgba(58, 107, 99, 0.45);
-    th-separator:     rgba(36, 48, 46, 0.18);
+    th-bg:            rgba(40, 40, 38, 92%);
+    th-fg:            rgb(137, 177, 169);
+    th-fg-selected:   rgba(216, 224, 222, 100%);
+    th-row-alt:       rgba(216, 224, 222, 6%);
+    th-row-selected:  rgba(60, 65, 62, 0.85);
+    th-border-color:  rgba(137, 177, 169, 0.45);
+    th-separator:     rgba(137, 177, 169, 0.30);
 }

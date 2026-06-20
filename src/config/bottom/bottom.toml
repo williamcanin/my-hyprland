@@ -1,21 +1,37 @@
-# Blasphemous II - Red Forest theme for Bottom
+[styles]
+theme = "default"
 
-[color]
-background = "#d9d1d2"
-foreground = "#2a282c"
-border = "#3d2932"
-text = "#2a282c"
-selected_text = "#d9d1d2"
-selected_bg = "#3d2932"
+[styles.cpu]
+all_entry_color = "#89b1a9"
+avg_entry_color = "#a4cec5"
+cpu_core_colors = ["#89b1a9", "#a4cec5", "#67837b", "#495553", "#3c413e", "#303230", "#282826", "#222220"]
 
-[colors]
-cpu_color = "#3d2932"
-mem_color = "#5a5a7a"
-swap_color = "#8a4048"
-rx_color = "#5a424a"
-tx_color = "#3d2932"
-rx_total_color = "#7c7578"
-tx_total_color = "#5a424a"
-process_color = "#2a282c"
-process_highlighted_color = "#5a424a"
-average_cpu_color = "#5a424a"
+[styles.memory]
+ram_color = "#89b1a9"
+swap_color = "#67837b"
+
+[styles.network]
+rx_color = "#a4cec5"
+tx_color = "#89b1a9"
+rx_total_color = "#67837b"
+tx_total_color = "#495553"
+
+[styles.battery]
+high_battery_color = "#89b1a9"
+medium_battery_color = "#948f67"
+low_battery_color = "#c45a52"
+
+[styles.tables]
+headers = {color = "#89b1a9", bold = true}
+
+[styles.graphs]
+graph_color = "#67837b"
+legend_text = {color = "#d8e0de"}
+
+[styles.widgets]
+border_color = "#67837b"
+selected_border_color = "#89b1a9"
+widget_title = {color = "#89b1a9"}
+text = {color = "#d8e0de"}
+selected_text = {color = "#282826", bg_color = "#89b1a9"}
+disabled_text = {color = "#6a7a76"}

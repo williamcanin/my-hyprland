@@ -2,46 +2,45 @@ import QtQuick
 
 QtObject {
     // Accent ------------------------------------------------------------------
-    // Verde-escuro médio — visível sobre fundo claro, harmonioso com a paleta mint
-    readonly property color accent:          "#3a6b63"
-    readonly property color accentDim:       "#333a6b63"   // accent 20% opaco (bgActive, borders leves)
-    readonly property color accentMid:       "#663a6b63"   // accent 40% opaco
-    readonly property color accentFaint:     "#183a6b63"   // accent 9% opaco (fundos de item)
-    readonly property color accentLight:     "#5a8c83"     // versão mais clara do accent
+    readonly property color accent:          "#89b1a9"
+    readonly property color accentDim:       "#3389b1a9"
+    readonly property color accentMid:       "#6689b1a9"
+    readonly property color accentFaint:     "#1889b1a9"
+    readonly property color accentLight:     "#a4cec5"
 
     // Foreground --------------------------------------------------------------
-    readonly property color fgTitle:         "#2d4a45"     // títulos de seção, labels de card
-    readonly property color fgText:          "#24302e"     // texto principal
-    readonly property color fgDim:           "#3d5550"     // texto secundário / valores
-    readonly property color fgSubtle:        "#5a7a74"     // texto levemente apagado
-    readonly property color fgFaint:         "#8aada8"     // desabilitado / inativo
-    readonly property color fgOnAccent:      "#eef7f4"     // texto sobre fundo accent ativo
+    readonly property color fgTitle:         "#89b1a9"
+    readonly property color fgText:          "#d8e0de"
+    readonly property color fgDim:           "#c0d0cc"
+    readonly property color fgSubtle:        "#8a9a96"
+    readonly property color fgFaint:         "#5a6a66"
+    readonly property color fgOnAccent:      "#282826"
 
     // Background --------------------------------------------------------------
-    readonly property color bg:              "#eef7f4"
-    readonly property color bgPanel:         "#eaeef7f4"   // painel principal com blur
-    readonly property color bgCard:          "#eaf7fbf9"   // card com tint verde claro
-    readonly property color bgCardAlt:       "#eaf1edea"   // card alternativo (ex: danger tint)
-    readonly property color bgHeader:        "#d8e8e4"     // header do card
-    readonly property color bgItem:          "#1824302e"   // item/linha dentro do card (fg 9%)
-    readonly property color bgItemHover:     "#2824302e"   // item hover (fg 16%)
-    readonly property color bgActive:        "#333a6b63"   // estado ativo (mesmo que accentDim)
+    readonly property color bg:              "#282826"
+    readonly property color bgPanel:         "#e8282826"
+    readonly property color bgCard:          "#e8303230"
+    readonly property color bgCardAlt:       "#e83c413e"
+    readonly property color bgHeader:        "#e8303230"
+    readonly property color bgItem:          "#18d8e0de"
+    readonly property color bgItemHover:     "#28d8e0de"
+    readonly property color bgActive:        "#3389b1a9"
 
     // Borders -----------------------------------------------------------------
-    readonly property color border:          "#333a6b63"   // borda padrão de card
-    readonly property color borderStrong:    "#663a6b63"   // borda hover / destaque
-    readonly property color borderItem:      "#183a6b63"   // borda interna de item
-    readonly property color borderSubtle:    "#c8ddd9"     // borda neutra clara
+    readonly property color border:          "#3389b1a9"
+    readonly property color borderStrong:    "#6689b1a9"
+    readonly property color borderItem:      "#1889b1a9"
+    readonly property color borderSubtle:    "#3c413e"
 
     // Scrollbar
-    readonly property color scrollbarFg:    "#5a7a74"     // scrollbar cor
-    readonly property color scrollbarBg:    "#d8e8e4"     // scrollbar fundo/track
+    readonly property color scrollbarFg:    "#89b1a9"
+    readonly property color scrollbarBg:    "#3c413e"
 
     // Status ------------------------------------------------------------------
-    readonly property color danger:          "#b45a52"
-    readonly property color dangerDim:       "#b45a5266"
-    readonly property color warn:            "#9b7d35"
-    readonly property color ok:              "#3a6b63"
+    readonly property color danger:          "#c45a52"
+    readonly property color dangerDim:       "#c45a5266"
+    readonly property color warn:            "#948f67"
+    readonly property color ok:              "#89b1a9"
 
     // Tipography --------------------------------------------------------------
     readonly property string fontMono:       "monospace"

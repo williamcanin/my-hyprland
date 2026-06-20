@@ -1,8 +1,8 @@
 /* theme: blasphemous-fragment-of-guilt — sysinfo panel */
-@define-color th-background    #eef7f4;
-@define-color th-header        #2d4a45;
-@define-color th-foreground    #24302e;
-@define-color th-window-bg     rgba(238, 247, 244, 0.77);
-@define-color th-border        rgba(36, 48, 46, 0.18);
-@define-color th-border-header rgba(36, 48, 46, 0.12);
-@define-color th-disconnected rgba(36, 48, 46, 0.35);
+@define-color th-background    #282826;
+@define-color th-header        #89b1a9;
+@define-color th-foreground    #c0d0cc;
+@define-color th-window-bg     rgba(60, 65, 62, 0.30);
+@define-color th-border        rgba(200, 210, 208, 0.08);
+@define-color th-border-header rgba(200, 210, 208, 0.06);
+@define-color th-disconnected  rgba(200, 210, 208, 0.35);

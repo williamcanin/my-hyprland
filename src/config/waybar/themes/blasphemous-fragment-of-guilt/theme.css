@@ -1,33 +1,29 @@
 /* theme: blasphemous-fragment-of-guilt */
+/* bg:        #282826  — olive black (wallpaper dominant)                      */
+/* fg:        #d8e0de  — light teal-gray (texto principal)                     */
+/* accent:    #89b1a9  — light teal (decoração, hover)                         */
+/* accent2:   #67837b  — medium teal                                           */
+/* warm:      #948f67  — olive gold                                             */
 
-/* ── Palette ──────────────────────────────────────────────────────────────── */
-/* bg:        #eef7f4  — mint cream (painel principal)                         */
-/* fg:        #24302e  — verde escuro quase preto (texto principal)            */
-/* fg-dark:   #0a0a07  — quase preto (texto enfático)                          */
-/* accent:    #3a6b63  — verde médio (decoração, hover)                        */
-/* card:      #f7fbf9  — quase branco esverdeado (cards direita)               */
-/* border:    rgba(36,48,46, 0.35)  — borda neutra escura translúcida          */
-/* ──────────────────────────────────────────────────────────────────────────── */
-
-@define-color th-foreground      #24302e;
-@define-color th-foreground2     #0a0a07;
-@define-color th-decorate        #3a6b63;
-@define-color th-decorate-rgba   rgba(58, 107, 99, 0.45);
-@define-color th-hover           #3a6b63;
-@define-color th-background      #eef7f4;
-@define-color th-background-rgba rgba(238, 247, 244, 0.88);
-@define-color th-right1-bg       rgba(215, 235, 230, 0.80);
-@define-color th-right02-bg      rgba(247, 251, 249, 0.90);
-@define-color th-border-rights   rgba(36, 48, 46, 0.35);
-@define-color th-window-fg       #24302e;
+@define-color th-foreground      #d8e0de;
+@define-color th-foreground2     #89b1a9;
+@define-color th-decorate        #89b1a9;
+@define-color th-decorate-rgba   rgba(137, 177, 169, 0.45);
+@define-color th-hover           #a4cec5;
+@define-color th-background      #282826;
+@define-color th-background-rgba rgba(40, 40, 38, 0.85);
+@define-color th-right1-bg       rgba(72, 71, 54, 0.37);
+@define-color th-right02-bg      rgba(137, 177, 169, 0.12);
+@define-color th-border-rights   rgba(200, 210, 208, 0.35);
+@define-color th-window-fg       #d8e0de;
 
 /* Status */
-@define-color th-danger          #b45a52;
-@define-color th-warn            #9b7d35;
-@define-color th-ok              #3a6b63;
-@define-color th-recording       #b45a52;
-@define-color th-recording-pause #9b7d35;
-@define-color th-power           #b45a52;
-@define-color th-mpris-bg        rgba(238, 247, 244, 0.95);
-@define-color th-mpris-border    rgba(36, 48, 46, 0.25);
-@define-color th-mpris-fg-anim   #3a6b63;
+@define-color th-danger          #c45a52;
+@define-color th-warn            #948f67;
+@define-color th-ok              #67837b;
+@define-color th-recording       #c45a52;
+@define-color th-recording-pause #948f67;
+@define-color th-power           #c45a52;
+@define-color th-mpris-bg        rgba(0, 0, 0, 0.55);
+@define-color th-mpris-border    rgba(255, 255, 255, 0.25);
+@define-color th-mpris-fg-anim   #67837b;

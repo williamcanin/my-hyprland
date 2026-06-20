@@ -1,6 +1,6 @@
 /* theme: blasphemous-fragment-of-guilt */
-@define-color th-window-bg    rgba(238, 247, 244, 0.88);
-@define-color th-button-bg    #f7fbf9;
-@define-color th-button-fg    #24302e;
-@define-color th-accent       #3a6b63;
-@define-color th-accent-text  #eef7f4;
+@define-color th-window-bg    rgba(40, 40, 38, 0.88);
+@define-color th-button-bg    #333634;
+@define-color th-button-fg    #d8e0de;
+@define-color th-accent       #89b1a9;
+@define-color th-accent-text  #282826;
