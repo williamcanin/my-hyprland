@@ -1,0 +1,6 @@
+/* theme: blasphemous-II-red-forest */
+@define-color th-window-bg    rgba(217, 209, 210, 0.88);
+@define-color th-button-bg    #e3ddde;
+@define-color th-button-fg    #2a282c;
+@define-color th-accent       #3d2932;
+@define-color th-accent-text  #d9d1d2;

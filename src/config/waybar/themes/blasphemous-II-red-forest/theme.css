@@ -1,0 +1,28 @@
+/* theme: blasphemous-II-red-forest */
+/* bg: #d9d1d2 — light beige/gray     */
+/* fg: #2a282c — very dark gray        */
+/* accent: #3d2932 — dark purple-brown */
+/* secondary: #7c7578 — muted gray     */
+
+@define-color th-foreground      #2a282c;
+@define-color th-foreground2     #3d2932;
+@define-color th-decorate        #3d2932;
+@define-color th-decorate-rgba   rgba(61, 41, 50, 0.45);
+@define-color th-hover           #5a424a;
+@define-color th-background      #d9d1d2;
+@define-color th-background-rgba rgba(217, 209, 210, 0.88);
+@define-color th-right1-bg       rgba(124, 117, 120, 0.25);
+@define-color th-right02-bg      rgba(227, 221, 222, 0.85);
+@define-color th-border-rights   rgba(42, 40, 44, 0.35);
+@define-color th-window-fg       #2a282c;
+
+/* Status */
+@define-color th-danger          #8a4048;
+@define-color th-warn            #9b7d35;
+@define-color th-ok              #3d2932;
+@define-color th-recording       #8a4048;
+@define-color th-recording-pause #9b7d35;
+@define-color th-power           #3d2932;
+@define-color th-mpris-bg        rgba(217, 209, 210, 0.95);
+@define-color th-mpris-border    rgba(42, 40, 44, 0.25);
+@define-color th-mpris-fg-anim   #3d2932;

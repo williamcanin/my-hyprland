@@ -1,0 +1,10 @@
+/* theme: blasphemous-II-red-forest */
+* {
+    th-bg:            rgba(217, 209, 210, 96%);
+    th-fg:            rgb(42, 40, 44);
+    th-fg-selected:   rgba(217, 209, 210, 100%);
+    th-row-alt:       rgba(42, 40, 44, 6%);
+    th-row-selected:  rgba(61, 41, 50, 0.88);
+    th-border-color:  rgba(61, 41, 50, 0.45);
+    th-separator:     rgba(42, 40, 44, 0.18);
+}

@@ -1,0 +1,8 @@
+/* theme: blasphemous-II-red-forest — sysinfo panel */
+@define-color th-background    #d9d1d2;
+@define-color th-header        #3d2932;
+@define-color th-foreground    #2a282c;
+@define-color th-window-bg     rgba(217, 209, 210, 0.77);
+@define-color th-border        rgba(42, 40, 44, 0.18);
+@define-color th-border-header rgba(42, 40, 44, 0.12);
+@define-color th-disconnected  rgba(42, 40, 44, 0.35);
