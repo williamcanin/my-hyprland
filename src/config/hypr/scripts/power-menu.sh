@@ -4,7 +4,7 @@
 . "$HOME/.config/.environment-bootstrap"
 
 do_lock() {
-  if [ ! -f "$HYPRLOCK_PATH" ] || [ "$WALLPAPER_PATH" -nt "$HYPRLOCK_PATH" ]; then
+  if [ "$WALLPAPER_PATH" -nt "$HYPRLOCK_PATH" ]; then
     magick "$WALLPAPER_PATH" \
       -blur 0x2 \
       -fill black -colorize 20% \
@@ -12,6 +12,7 @@ do_lock() {
   fi
   exec hyprlock
 }
+
 
 # -- power-menu.sh --lock
 # Also used for the keyboard shortcut Mod+Shift+l
@@ -37,7 +38,7 @@ else
 fi
 
 # -- Menu -----------------------------------------------------------------
-if [ $FINDER = "/usr/bin/rofi" ]; then
+if [ "$FINDER" = "/usr/bin/rofi" ]; then
   CHOICE=$(printf '%s\n' \
     "$LOCK" \
     "$SUSPEND" \
@@ -46,7 +47,7 @@ if [ $FINDER = "/usr/bin/rofi" ]; then
     "$SHUTDOWN" |
     $FINDER -dmenu -p ">" \
     -theme-str 'window {width: 220px;} listview {lines: 5;}' -no-custom -i)
-elif [ $FINDER = "/usr/bin/wofi" ]; then
+elif [ "$FINDER" = "/usr/bin/wofi" ]; then
   CHOICE=$(printf '%s\n' \
     "$LOCK" \
     "$SUSPEND" \
