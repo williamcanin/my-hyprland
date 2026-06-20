@@ -15,12 +15,15 @@ rm -f "$SELECTED_FILE"
 # Convert $HOME to ~ for config file consistency
 CONFIG_PATH=$(echo "$SELECTED_PATH" | sed "s|^$HOME|~|")
 
-# Update hyprpaper.conf
-sed -i "s|^[[:space:]]*path[[:space:]]*=.*$|  path =  $CONFIG_PATH|" "$HYPRPAPER_FILE"
+# Update hyprpaper.conf with ~ path
+sed -i "s|^[[:space:]]*path[[:space:]]*=.*$|  path =  ${CONFIG_PATH}|" "$HYPRPAPER_FILE"
 
-# Preload and apply
+# Preload and apply with full path
 hyprctl hyprpaper preload "$SELECTED_PATH"
 hyprctl hyprpaper wallpaper ",$SELECTED_PATH"
 hyprctl hyprpaper unload unused
+
+# Remove old lock screen image
+rm -f "$HYPRLOCK_PATH"
 
 notify-send "Wallpaper" "Alterado para:\n$(basename "$SELECTED_PATH")"
