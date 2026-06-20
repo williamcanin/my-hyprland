@@ -91,6 +91,13 @@ fi
 # Remove old lock screen image
 rm -f "$HYPRLOCK_PATH"
 
+# Reload Hyprland config
+hyprctl reload
+
+# Restart waybar with new theme CSS
+sh "$(paths_config hypr/scripts/init.sh)" --waybars
+
+# Set wallpaper for the new theme
 HYPRPAPER_FILE="$(paths_config hypr/hyprpaper.conf)"
 HYPRPAPER_DIR="$(paths_config hypr/wallpapers)"
 
@@ -108,8 +115,16 @@ for _ext in jpeg jpg png webp; do
   fi
 done
 
-# Reload all
-sh "$(paths_config hypr/scripts/init.sh)" --reload
+# Restart dunst with new theme colors
+systemctl --user restart --now dunst
+
+# Restart snappy-switcher with new theme
+pkill snappy-switcher 2>/dev/null || true
+sleep 0.2
+snappy-switcher --daemon &
+
+# Sidebar NOT restarted — Theme.qml picks up the new theme dynamically
+# via FileView watching .active-theme.
 
 notify-send "Theme" "Switched to '${THEME}'" 2>/dev/null || true
 printf "Theme '%s' applied.\n" "$THEME"

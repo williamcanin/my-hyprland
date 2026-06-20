@@ -13,7 +13,6 @@ Singleton {
 
     FileView {
         id: themeNameFile
-        blockLoading: true
         path: StandardPaths.writableLocation(StandardPaths.HomeLocation) +
               "/.config/my-environment/.active-theme"
         onTextChanged: {
@@ -44,6 +43,17 @@ Singleton {
         themeFile.path = StandardPaths.writableLocation(StandardPaths.HomeLocation) +
             "/.config/quickshell/sidebar-right/themes/" + themeName + "/Theme.qml"
         themeFile.reload()
+    }
+
+    function reloadActiveTheme() {
+        themeNameFile.reload()
+    }
+
+    Timer {
+        interval: 2000
+        running: true
+        repeat: true
+        onTriggered: themeNameFile.reload()
     }
 
     onThemeNameChanged: loadTheme()
