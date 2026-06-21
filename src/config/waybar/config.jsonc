@@ -2,15 +2,10 @@
   "reload_style_on_change": true,
   "position": "top",
   "mod": "dock",
-  "margin-top": 5,
-  // Minimal: "height": 24px, Medium: "height": 28px
+  "margin-top": 0,
   "height": 28,
-  // Minimal: "margin-left": 300
-  // Expanded: "margin-left": 10
-  "margin-left": 20,
-  // Minimal: "margin-right": 300
-  // Expanded: "margin-right": 10
-  "margin-right": 20,
+  "margin-left": 0,
+  "margin-right": 0,
   "margin-bottom": -8,
 
   "group/left1": {

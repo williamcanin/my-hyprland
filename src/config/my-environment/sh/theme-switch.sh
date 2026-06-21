@@ -10,7 +10,7 @@ ACTIVE_FILE="${HOME}/.config/my-environment/.active-theme"
 
 if [ -z "$THEME" ]; then
   THEME=$(
-    rofi -dmenu -p "   Select Theme" -i -theme-str 'listview {lines: 10;}' <<'EOF'
+    rofi -dmenu -p "   Select Theme" -i -theme-str 'listview {lines: 11;}' <<'EOF'
 01 - Blasphemous - Penitent
 02 - Blasphemous - Echoes Of Salt
 03 - Blasphemous - Fragment Of Guilt
@@ -21,6 +21,7 @@ if [ -z "$THEME" ]; then
 08 - Blasphemous II - Repose Of The Silent One
 09 - Blasphemous II - Red Forest
 10 - Blasphemous II - The Third Sin
+11 - Minimal
 EOF
   )
 
@@ -37,6 +38,7 @@ EOF
     "08 - Blasphemous II - Repose Of The Silent One") THEME="blasphemous-II-repose-of-the-silent-one" ;;
     "09 - Blasphemous II - Red Forest")           THEME="blasphemous-II-red-forest" ;;
     "10 - Blasphemous II - The Third Sin")        THEME="blashphemous-II-the-third-sin" ;;
+    "11 - Minimal")                               THEME="minimal" ;;
     *) printf 'Invalid theme selection\n' >&2; exit 1 ;;
   esac
 fi
