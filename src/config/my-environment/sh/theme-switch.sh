@@ -179,6 +179,24 @@ for _ext in jpeg jpg png webp; do
   fi
 done
 
+# Generate solid-color wallpaper for themes without an image
+if [ "$THEME" = "minimal" ]; then
+  _solid="${HYPRPAPER_DIR}/${THEME}.png"
+  if [ ! -f "$_solid" ]; then
+    if command -v magick >/dev/null 2>&1; then
+      magick -size 1920x1080 xc:'#2F3541' "$_solid" 2>/dev/null || true
+    elif command -v convert >/dev/null 2>&1; then
+      convert -size 1920x1080 xc:'#2F3541' "$_solid" 2>/dev/null || true
+    fi
+  fi
+  if [ -f "$_solid" ]; then
+    _config_path=$(echo "$_solid" | sed "s|^$HOME|~|")
+    hyprctl hyprpaper preload "$_solid" 2>/dev/null || true
+    hyprctl hyprpaper wallpaper ",$_solid" 2>/dev/null || true
+    sed -i "s|^[[:space:]]*path[[:space:]]*=.*$|  path =  ${_config_path}|" "$HYPRPAPER_FILE"
+  fi
+fi
+
 # Restart dunst with new theme colors
 systemctl --user restart --now dunst
 
