@@ -4,7 +4,7 @@ REMOTES := $(shell git remote)
 
 .DEFAULT_GOAL := help
 
-.PHONY: help help-dev upgrade install version push push-lease
+.PHONY: help help-dev upgrade install uninstall version push push-lease
 
 # ----- Menu help -----
 help:
@@ -19,6 +19,9 @@ upgrade:
 
 install:
 	@sh .tools/installer/main.sh --install
+
+uninstall:
+	@sh .tools/installer/uninstall.sh $(ARGS)
 
 version:
 	@sh .tools/installer/main.sh --version
