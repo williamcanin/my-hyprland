@@ -4,6 +4,8 @@ title: Estrutura e Configurações
 permalink: /structure/
 ---
 
+<!-- markdownlint-disable MD025 MD033 -->
+
 <a href="{{ '/' | relative_url }}">&larr; Voltar para HOME</a>
 
 # Estrutura e Configurações
@@ -55,7 +57,7 @@ Ao iniciar o Hyprland, `init.sh --started` sobe:
 
 ### Login via TTY
 
-`src/config/profile` serve como referência para iniciar Hyprland do TTY1 com logs em `~/.local/state/hyprland`.
+`src/config/my-environment/profile` serve como referência para iniciar Hyprland do TTY1 com logs em `~/.local/state/hyprland`.
 
 ### XWayland
 
