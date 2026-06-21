@@ -1,5 +1,32 @@
-title: ""
+title: "Meu Ambiente Desktop"
+description: "Meu Ambiente Desktop — Configuração pessoal de desktop Wayland com Hyprland para Arch Linux e Fedora de William C. Canin"
 url: "https://williamcanin.github.io"
 baseurl: "/my-environment"
+
+layouts_dir: .docs/gh-pages/_layouts
+includes_dir: .docs/gh-pages/_includes
+
+# As páginas de documentação ficam em ".docs/gh-pages/_pages" (uma collection),
+# não em "_pages" na raiz do repositório.
+#
+# IMPORTANTE: "_pages" é uma pasta com "_" e fica dentro de ".docs" (com "."),
+# então o Jekyll, por padrão, IGNORA o conteúdo dela ao varrer o site normalmente
+# (pastas/arquivos começados com "." ou "_" são pulados). Tentar resolver isso
+# só com "include:" não funciona de forma confiável para pastas aninhadas (ex.:
+# ".docs/gh-pages/_pages") — o matching do Jekyll comparа apenas o nome do
+# arquivo/pasta direto contra "source/", ignorando os subdiretórios do meio.
+#
+# A forma correta e suportada oficialmente é declarar uma "collection": o Jekyll
+# lê o diretório "_pages" diretamente a partir de "collections_dir", sem passar
+# pelo filtro de exclusão de "." / "_". É isso que resolve os 404 nos links de
+# documentação.
+collections_dir: .docs/gh-pages
+collections:
+  pages:
+    output: true
+
+# Só precisamos declarar ".docs" aqui para os ASSETS (CSS/JS/imagens), que
+# vivem em ".docs/gh-pages/assets/" e são lidos pelo scanner normal do Jekyll
+# (esse, sim, funciona com "include" porque "assets" não começa com "." nem "_").
 include:
   - ".docs"

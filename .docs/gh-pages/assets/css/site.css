@@ -1,0 +1,55 @@
+:root {
+  color-scheme: light dark;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+}
+
+/* Container que centraliza o conteúdo, no estilo da página de um arquivo
+   .md renderizado no GitHub (largura confortável de leitura + respiro nas
+   bordas, inclusive no celular). */
+.page {
+  width: 100%;
+  max-width: 900px;
+  padding: 32px 16px 64px;
+  box-sizing: border-box;
+}
+
+.markdown-body {
+  font-size: 16px;
+}
+
+.markdown-body hr {
+  margin: 32px 0;
+}
+
+/* Rodapé discreto, parecido com a área de metadados no fim de um README
+   no GitHub. */
+.markdown-body hr + p {
+  color: #59636e;
+  font-size: 13px;
+}
+
+@media (max-width: 600px) {
+  .page {
+    padding: 20px 16px 48px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  html, body {
+    background-color: #ffffff;
+  }
+
+  .markdown-body hr + p {
+    color: #9198a1;
+  }
+}
