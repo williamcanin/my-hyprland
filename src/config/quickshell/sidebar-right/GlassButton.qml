@@ -11,7 +11,7 @@ Rectangle {
     signal clicked()
 
     implicitHeight: 34
-    radius: 6
+    radius: Theme.radiusSmall
 
     color: {
         if (active) return Theme.bgCard

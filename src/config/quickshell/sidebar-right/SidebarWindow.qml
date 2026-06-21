@@ -75,10 +75,10 @@ PanelWindow {
         // Borda do painel
         Rectangle {
             anchors.fill: parent
-            color: "transparent"
+            color: Theme.bgPanel
             border.color: Theme.accent
             border.width: 1
-            radius: 8
+            radius: Theme.radius
         }
 
         // Captura Esc

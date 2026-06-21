@@ -8,7 +8,7 @@ Rectangle {
     property string cardIcon:  ""
 
     implicitHeight: innerCol.implicitHeight + 24
-    radius: 8
+    radius: Theme.radius
 
     // Glassmorphism: fundo escuro semi-transparente
     // O blur do Hyprland age na layer toda — este alpha cria o efeito "vidro fosco"
