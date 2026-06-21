@@ -17,6 +17,7 @@ painel lateral de informações do sistema e uma sidebar na direita com Quickshe
 - [Features](#features)
 - [Componentes](#componentes)
 - [Temas](#temas)
+- [Preview](https://williamcanin.github.io/my-environment/gallery/)
 - [Sidebar Quickshell](#sidebar-quickshell)
 - [Scripts](#scripts)
 - [Atalhos principais](#atalhos-principais)
@@ -105,6 +106,8 @@ O projeto possui **10 temas** inspirados na série *Blasphemous* e *Blasphemous 
 | 08 | Blasphemous II - Repose Of The Silent One | Escuro teal/azulado |
 | 09 | Blasphemous II - Red Forest | Claro bege/cinza |
 | 10 | Blasphemous II - The Third Sin | Escuro navy/teal |
+
+Você pode ver os PREVIEW dos temas [AQUI](https://williamcanin.github.io/my-environment/gallery/)
 
 ### Como usar
 
