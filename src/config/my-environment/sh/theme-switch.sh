@@ -11,34 +11,34 @@ ACTIVE_FILE="${HOME}/.config/my-environment/.active-theme"
 if [ -z "$THEME" ]; then
   THEME=$(
     rofi -dmenu -p "   Select Theme" -i -theme-str 'listview {lines: 11;}' <<'EOF'
-01 - Blasphemous - Penitent
-02 - Blasphemous - Echoes Of Salt
-03 - Blasphemous - Fragment Of Guilt
-04 - Blasphemous - Kneeling Stone
-05 - Blasphemous - Requiem Aeternam
-06 - Blasphemous - Ten Piedad
-07 - Blasphemous II - Mea Culpa
-08 - Blasphemous II - Repose Of The Silent One
-09 - Blasphemous II - Red Forest
-10 - Blasphemous II - The Third Sin
-11 - Minimal
+01 - Minimal
+02 - Blasphemous - Penitent
+03 - Blasphemous - Echoes Of Salt
+04 - Blasphemous - Fragment Of Guilt
+05 - Blasphemous - Kneeling Stone
+06 - Blasphemous - Requiem Aeternam
+07 - Blasphemous - Ten Piedad
+08 - Blasphemous II - Mea Culpa
+09 - Blasphemous II - Repose Of The Silent One
+10 - Blasphemous II - Red Forest
+11 - Blasphemous II - The Third Sin
 EOF
   )
 
   [ -z "$THEME" ] && exit 0
 
   case "$THEME" in
-    "01 - Blasphemous - Penitent")                THEME="blasphemous-penitent" ;;
-    "02 - Blasphemous - Echoes Of Salt")          THEME="blasphemous-echoes-of-salt" ;;
-    "03 - Blasphemous - Fragment Of Guilt")       THEME="blasphemous-fragment-of-guilt" ;;
-    "04 - Blasphemous - Kneeling Stone")          THEME="blasphemous-kneeling-stone" ;;
-    "05 - Blasphemous - Requiem Aeternam")        THEME="blasphemous-requiem-aeternam" ;;
-    "06 - Blasphemous - Ten Piedad")              THEME="blasphemous-ten-piedad" ;;
-    "07 - Blasphemous II - Mea Culpa")            THEME="blasphemous-mea-culpa" ;;
-    "08 - Blasphemous II - Repose Of The Silent One") THEME="blasphemous-II-repose-of-the-silent-one" ;;
-    "09 - Blasphemous II - Red Forest")           THEME="blasphemous-II-red-forest" ;;
-    "10 - Blasphemous II - The Third Sin")        THEME="blashphemous-II-the-third-sin" ;;
-    "11 - Minimal")                               THEME="minimal" ;;
+    "01 - Minimal")                               THEME="minimal" ;;
+    "02 - Blasphemous - Penitent")                THEME="blasphemous-penitent" ;;
+    "03 - Blasphemous - Echoes Of Salt")          THEME="blasphemous-echoes-of-salt" ;;
+    "04 - Blasphemous - Fragment Of Guilt")       THEME="blasphemous-fragment-of-guilt" ;;
+    "05 - Blasphemous - Kneeling Stone")          THEME="blasphemous-kneeling-stone" ;;
+    "06 - Blasphemous - Requiem Aeternam")        THEME="blasphemous-requiem-aeternam" ;;
+    "07 - Blasphemous - Ten Piedad")              THEME="blasphemous-ten-piedad" ;;
+    "08 - Blasphemous II - Mea Culpa")            THEME="blasphemous-mea-culpa" ;;
+    "09 - Blasphemous II - Repose Of The Silent One") THEME="blasphemous-II-repose-of-the-silent-one" ;;
+    "10 - Blasphemous II - Red Forest")           THEME="blasphemous-II-red-forest" ;;
+    "11 - Blasphemous II - The Third Sin")        THEME="blashphemous-II-the-third-sin" ;;
     *) printf 'Invalid theme selection\n' >&2; exit 1 ;;
   esac
 fi
