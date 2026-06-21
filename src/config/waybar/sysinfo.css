@@ -1,4 +1,4 @@
-@import url("./themes/blasphemous-echoes-of-salt/sysinfo-theme.css");
+@import url("./themes/minimal/sysinfo-theme.css");
 
 /*  Waybar — Painel vertical (Sysinfo)  */
 
@@ -16,7 +16,7 @@
 window#waybar {
   min-width: 380px;
   color: @th-foreground;
-  border-radius: 8px;
+  border-radius: 0px;
   border: 1px solid @th-border;
   background: @th-window-bg;
 }
