@@ -48,8 +48,7 @@ install_yay () {
 
   sudo pacman -S --needed --noconfirm $BASE_DEPS || die "Failed to install yay dependencies."
 
-  tmp="$(mktemp -d)"
-  trap 'rm -rf "$tmp"' EXIT INT TERM
+  tmp="$(mktemp -d)" && trap 'rm -rf "$tmp"' EXIT INT TERM
 
   log "Cloning yay..." "\n"
   git clone https://aur.archlinux.org/yay.git "$tmp/yay" || die "Failed to clone yay."
@@ -83,21 +82,15 @@ default_apps() {
 
 set_gsettings () {
   if command -v gsettings >/dev/null 2>&1; then
-
-    # GTK Theme
-    if command -v gsettings >/dev/null 2>&1; then
-      if
-        gsettings set org.gnome.desktop.interface icon-theme "$ICON_THEME" &&
-        gsettings set org.gnome.desktop.interface gtk-theme "$GTK_THEME" &&
-        gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark' &&
-        gsettings set org.gnome.desktop.interface cursor-theme "$GTK_CURSOR"
-      then
-        ok "GTK theme applied."
-      else
-        warn "Could not apply GTK theme."
-      fi
+    if
+      gsettings set org.gnome.desktop.interface icon-theme "$ICON_THEME" &&
+      gsettings set org.gnome.desktop.interface gtk-theme "$GTK_THEME" &&
+      gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark' &&
+      gsettings set org.gnome.desktop.interface cursor-theme "$GTK_CURSOR"
+    then
+      ok "GTK theme applied."
     else
-      warn "gsettings not found — GTK theme not changed."
+      warn "Could not apply GTK theme."
     fi
 
     # Disabled buttons: minimize,maximize,close.

@@ -25,7 +25,6 @@ version:
 
 set-permissions:
 	@find src/config -type f -name "*.sh" -exec chmod +x {} \;
-	@find src/config -type f -name "*.lib" -exec chmod +x {} \;
 	@find .tools/installer -type f -name "*.sh" -exec chmod +x {} \;
 
 # ----- GIT PUSH (development commands) -----

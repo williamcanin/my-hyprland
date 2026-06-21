@@ -115,15 +115,16 @@ install_hyprshutdown() {
 
   log "Installing hyprshutdown from git..." "\n"
 
-  tmp="$(mktemp -d)"
-  trap 'rm -rf "$tmp"' EXIT INT TERM
+  tmp="$(mktemp -d)" && trap 'rm -rf "$tmp"' EXIT INT TERM
 
   git clone "$HYPERSHUTDOWN_REPO" "$tmp/hyprshutdown" || die "Failed to clone hyprshutdown."
 
-  cd "$tmp/hyprshutdown"
-  cmake --no-warn-unused-cli -B build || die "Failed to configure hyprshutdown."
-  cmake --build build || die "Failed to build hyprshutdown."
-  sudo cmake --install build || die "Failed to install hyprshutdown."
+  (
+    cd "$tmp/hyprshutdown" || die
+    cmake --no-warn-unused-cli -B build || die "Failed to configure hyprshutdown."
+    cmake --build build || die "Failed to build hyprshutdown."
+    sudo cmake --install build || die "Failed to install hyprshutdown."
+  )
 
   ok "hyprshutdown installed."
 }
@@ -257,4 +258,5 @@ case "$1" in
   exit 1
   ;;
 esac
+exit 0
 exit 0
