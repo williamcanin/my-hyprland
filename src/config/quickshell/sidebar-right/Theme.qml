@@ -96,4 +96,8 @@ Singleton {
     readonly property int radiusSmall:       themeObj ? themeObj.radiusSmall    : 4
     readonly property int animFast:          themeObj ? themeObj.animFast       : 150
     readonly property int animNormal:        themeObj ? themeObj.animNormal     : 220
+    readonly property int marginTop:         themeObj ? themeObj.marginTop      : 15
+    readonly property int marginBottom:      themeObj ? themeObj.marginBottom   : 15
+    readonly property int marginRight:       themeObj ? themeObj.marginRight    : 15
+    readonly property int sidebarWidth:      themeObj ? themeObj.sidebarWidth   : 350
 }

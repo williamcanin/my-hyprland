@@ -57,5 +57,7 @@ QtObject {
 
     // Position margins
     readonly property int marginTop:          15
+    readonly property int marginBottom:       15
+    readonly property int sidebarWidth:       350
     readonly property int marginRight:        15
 }

@@ -47,5 +47,7 @@ QtObject {
     readonly property int animNormal:        220
 
     readonly property int marginTop:          1
+    readonly property int marginBottom:       1
     readonly property int marginRight:        1
+    readonly property int sidebarWidth:       350
 }

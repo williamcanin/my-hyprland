@@ -13,9 +13,9 @@ PanelWindow {
     screen: Quickshell.screens[0]
 
     WlrLayershell.margins {
-        top: 1
-        right: 0
-        bottom: 0
+        top: Theme.marginTop
+        right: Theme.marginRight
+        bottom: Theme.marginBottom
         left: 0
     }
 
@@ -31,7 +31,9 @@ PanelWindow {
 
     aboveWindows: true
     exclusiveZone: 0
-    implicitWidth: sidebarVisible ? 359 : 0
+    // A janela tem exatamente o tamanho da caixa — sem pixels extras
+    // O blur do Hyprland age na área da janela, então não pode sobrar nada fora
+    implicitWidth: sidebarVisible ? Theme.sidebarWidth : 0
 
     Behavior on implicitWidth {
         NumberAnimation { duration: 70; easing.type: Easing.OutBounce }
@@ -54,23 +56,13 @@ PanelWindow {
         ]
     }
 
-    MouseArea {
-        anchors {
-            top: parent.top
-            bottom: parent.bottom
-            left: parent.left
-            right: panel.left
-        }
-        enabled: root.sidebarVisible
-        onClicked: root.sidebarVisible = false
-    }
-
     Item {
         id: panel
-        x: root.sidebarVisible ? (root.width - width - 8) : root.width
-        y: 5
-        width: 350
-        height: root.height - 5 - 10
+        // Janela = caixa: x:0, ocupa tudo
+        x: 0
+        y: 0
+        width: root.width
+        height: root.height
 
         // Borda do painel
         Rectangle {
