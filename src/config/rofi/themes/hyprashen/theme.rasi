@@ -1,0 +1,10 @@
+/* theme: hyprashen */
+* {
+    th-bg:            rgba(24, 24, 24, 100%);
+    th-fg:            rgb(68, 68, 68);
+    th-fg-selected:   rgba(68, 68, 68, 100%);
+    th-row-alt:       rgba(34, 34, 34, 50%);
+    th-row-selected:  rgba(20, 20, 20, 0.90);
+    th-border-color:  rgba(68, 68, 68, 1);
+    th-separator:     rgba(68, 68, 68, 0.5);
+}

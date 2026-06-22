@@ -1,0 +1,21 @@
+# HyprAshen theme for Bottom
+
+[color]
+background = "#181818"
+foreground = "#444444"
+border = "#444444"
+text = "#444444"
+selected_text = "#181818"
+selected_bg = "#444444"
+
+[colors]
+cpu_color = "#444444"
+mem_color = "#444444"
+swap_color = "#333333"
+rx_color = "#444444"
+tx_color = "#444444"
+rx_total_color = "#333333"
+tx_total_color = "#444444"
+process_color = "#444444"
+process_highlighted_color = "#444444"
+average_cpu_color = "#444444"

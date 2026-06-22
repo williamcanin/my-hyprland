@@ -1,0 +1,22 @@
+/* theme: hyprashen */
+@define-color th-foreground      #444444;
+@define-color th-foreground2     #4A4A4A;
+@define-color th-decorate        #444444;
+@define-color th-decorate-rgba   rgba(68, 68, 68, 0.45);
+@define-color th-hover           #444444;
+@define-color th-background      #181818;
+@define-color th-background-rgba rgba(24, 24, 24, 1);
+@define-color th-right1-bg       #222222;
+@define-color th-right02-bg      #141414;
+@define-color th-border-rights   rgba(51, 51, 51, 0.5);
+@define-color th-window-fg       #444444;
+
+@define-color th-danger          #444444;
+@define-color th-warn            #444444;
+@define-color th-ok              #333333;
+@define-color th-recording       #444444;
+@define-color th-recording-pause #333333;
+@define-color th-power           #444444;
+@define-color th-mpris-bg        #141414;
+@define-color th-mpris-border    rgba(51, 51, 51, 0.5);
+@define-color th-mpris-fg-anim   #444444;

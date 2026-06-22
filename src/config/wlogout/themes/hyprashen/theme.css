@@ -1,0 +1,6 @@
+/* theme: hyprashen */
+@define-color th-window-bg    rgba(24, 24, 24, 1);
+@define-color th-button-bg    #141414;
+@define-color th-button-fg    #444444;
+@define-color th-accent       #444444;
+@define-color th-accent-text  #181818;

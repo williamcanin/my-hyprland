@@ -1,0 +1,8 @@
+/* theme: hyprashen — sysinfo panel */
+@define-color th-background    #181818;
+@define-color th-header        #444444;
+@define-color th-foreground    #444444;
+@define-color th-window-bg     #141414;
+@define-color th-border        #444444;
+@define-color th-border-header #444444;
+@define-color th-disconnected  rgba(51, 51, 51, 0.3);
