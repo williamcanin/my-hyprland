@@ -228,7 +228,7 @@ hl.layer_rule({ match = { namespace = "wlogout" }, blur = true })
 -- Window Rules  -------------------------------------------------------------------------------------------------------
 hl.window_rule({
   match = { class = "org.gnome.Nautilus" },
-  float = true,
+  float = false,
   size = "1399 920",
   center = true,
   opacity = theme.file_manager_opacity,
