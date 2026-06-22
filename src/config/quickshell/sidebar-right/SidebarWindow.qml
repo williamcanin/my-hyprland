@@ -64,13 +64,22 @@ PanelWindow {
         width: root.width
         height: root.height
 
-        // Borda do painel
+        // Fundo do painel (atrás do conteúdo)
         Rectangle {
             anchors.fill: parent
             color: Theme.bgPanel
+            radius: Theme.radius
+            z: 0
+        }
+
+        // Borda do painel (na frente do conteúdo — cobre o scroll nas bordas arredondadas)
+        Rectangle {
+            anchors.fill: parent
+            color: "transparent"
             border.color: Theme.borderSubtle
             border.width: 1
             radius: Theme.radius
+            z: 2
         }
 
         // Captura Esc
@@ -87,6 +96,7 @@ PanelWindow {
 
         // Flickable — mais confiável que ScrollView para calcular contentHeight
         Flickable {
+            z: 1
             id: flick
             anchors {
                 fill: parent
@@ -124,6 +134,7 @@ PanelWindow {
         // Scrollbar manual — track
         Rectangle {
             id: scrollTrack
+            z: 1
             anchors {
                 right: panel.right
                 top: panel.top
