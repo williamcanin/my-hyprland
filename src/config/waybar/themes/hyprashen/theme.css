@@ -1,7 +1,7 @@
 /* theme: hyprashen */
-@define-color th-foreground      #757575;
-@define-color th-foreground2     #4A4A4A;
-@define-color th-decorate        #757575;
+@define-color th-foreground      #898989;
+@define-color th-foreground2     #b0b0b0;
+@define-color th-decorate        #595959;
 @define-color th-decorate-rgba   rgba(117, 117, 117, 0.45);
 @define-color th-hover           #757575;
 @define-color th-background      #181818;
