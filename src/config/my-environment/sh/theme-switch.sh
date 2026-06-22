@@ -85,7 +85,7 @@ _waybar_cfg="$(paths_config waybar/config.jsonc)"
 _sysinfo_css="$(paths_config waybar/sysinfo.css)"
 
 case "$THEME" in
-  minimal)
+  minimal | hyprashen)
     sed -i "s|\"margin-top\": [0-9]*|\"margin-top\": 0|" "$_waybar_cfg"
     sed -i "s|\"margin-left\": [0-9]*|\"margin-left\": 0|" "$_waybar_cfg"
     sed -i "s|\"margin-right\": [0-9]*|\"margin-right\": 0|" "$_waybar_cfg"
