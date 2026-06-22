@@ -54,4 +54,8 @@ QtObject {
     // Animations --------------------------------------------------------------
     readonly property int animFast:          150
     readonly property int animNormal:        220
+
+    // Position margins
+    readonly property int marginTop:          15
+    readonly property int marginRight:        15
 }

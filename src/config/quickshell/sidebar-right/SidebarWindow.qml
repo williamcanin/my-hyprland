@@ -13,8 +13,8 @@ PanelWindow {
     screen: Quickshell.screens[0]
 
     WlrLayershell.margins {
-        top: 15
-        right: 15
+        top: 1
+        right: 0
         bottom: 0
         left: 0
     }
