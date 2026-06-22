@@ -132,7 +132,6 @@ help() {
   accent "  --install";    plain " ----- Install from local repository" "\n"
   accent "  --upgrade";    plain " ----- Pull latest and reinstall" "\n"
   accent "  --uninstall";  plain " ---- Uninstall (add --dry-run to preview)" "\n"
-  accent "  --version";    plain " ----- Show version" "\n"
   printf "\n"
   log "Options (remote mode — via curl):" "\n"
   accent "  --releases";   plain " ---- List available versions" "\n"
