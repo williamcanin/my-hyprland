@@ -3,16 +3,27 @@
 #
 # setup.sh — Single-file installer/uninstaller for my-environment
 #
-# Local usage:
-#   sh .tools/setup.sh [--install|--upgrade|--uninstall|--help|--help-dev|--version]
+# Local usage (from the repository):
+#   sh .tools/setup.sh --install
+#   sh .tools/setup.sh --upgrade
+#   sh .tools/setup.sh --uninstall [--dry-run] [--remove-backups] [--purge-packages]
+#   sh .tools/setup.sh --help
+#   sh .tools/setup.sh --help-dev
+#   sh .tools/setup.sh --version
 #
-# Online usage:
+# Online usage (via GitHub Releases):
 #   sh -c "$(curl -fsSL https://williamcanin.github.io/my-environment/setup.sh)"
+#   sh -c "$(curl -fsSL https://williamcanin.github.io/my-environment/setup.sh)" -- 0.2.0
+#   sh -c "$(curl -fsSL https://williamcanin.github.io/my-environment/setup.sh)" -- --releases
+#
+# Pipe form (non-interactive only):
+#   curl -fsSL https://williamcanin.github.io/my-environment/setup.sh | sh
+#   curl -fsSL https://williamcanin.github.io/my-environment/setup.sh | sh -s -- 0.2.0
 #
 # Makefile-compatible targets:
 #   make install    -> sh .tools/setup.sh --install
 #   make upgrade    -> sh .tools/setup.sh --upgrade
-#   make uninstall  -> sh .tools/setup.sh --uninstall
+#   make uninstall  -> sh .tools/setup.sh --uninstall [ARGS]
 #   make version    -> sh .tools/setup.sh --version
 #   make help       -> sh .tools/setup.sh --help
 #   make help-dev   -> sh .tools/setup.sh --help-dev
@@ -25,7 +36,7 @@ set -e
 VERSION="0.2.0 (Blasphemous)"
 
 # ============================================================================
-# MESSAGE FUNCTIONS (msg.sh)
+# MESSAGE FUNCTIONS
 # ============================================================================
 case "${LANG:-}${LC_ALL:-}" in
   *UTF-8*|*utf8*)
@@ -106,27 +117,63 @@ plain() {
     "${2:-}"
 }
 
+# Simple remote-style messages (no prefix, for release workflow)
+r_info() { printf '%s%s%s\n' "$MSG_COLOR_CYAN" "$1" "$MSG_COLOR_RESET"; }
+r_ok()   { printf '%s%s%s\n' "$MSG_COLOR_GREEN" "$1" "$MSG_COLOR_RESET"; }
+r_warn() { printf '%s%s%s\n' "$MSG_COLOR_YELLOW" "$1" "$MSG_COLOR_RESET" >&2; }
+r_die()  { printf '%s%s%s\n' "$MSG_COLOR_RED" "$1" "$MSG_COLOR_RESET" >&2; exit 1; }
+
 # ============================================================================
-# HELP (help.sh)
+# HELP
 # ============================================================================
 help() {
   printf "\n"
-  log "Options »" "\n"
-  accent "  install";    plain " ------ Install Desktop Environment Hyprland" "\n"
-  accent "  upgrade";    plain " ------ Upgrade Desktop Environment Hyprland" "\n"
-  accent "  uninstall";  plain " ---- Uninstall Desktop Environment Hyprland" "\n"
-  accent "  version";    plain " ------ Version" "\n"
+  log "Options (local mode):" "\n"
+  accent "  --install";    plain " ----- Install from local repository" "\n"
+  accent "  --upgrade";    plain " ----- Pull latest and reinstall" "\n"
+  accent "  --uninstall";  plain " ---- Uninstall (add --dry-run to preview)" "\n"
+  accent "  --version";    plain " ----- Show version" "\n"
+  printf "\n"
+  log "Options (remote mode — via curl):" "\n"
+  accent "  --releases";   plain " ---- List available versions" "\n"
+  accent "  VERSION";      plain " ------ Install a specific version (e.g. 0.2.0)" "\n"
+  accent "  (no args)";    plain " ---- Install the latest release" "\n"
+  printf "\n"
+  log "Shortcuts:" "\n"
+  accent "  --help";       plain " -------- This message" "\n"
+  accent "  --help-dev";   plain " ----- Show development commands" "\n"
 }
 
 help_dev() {
   help
   printf "\n"
-  log "Development options »" "\n"
-  accent "  --help-dev";   plain " ---------- Show this message" "\n"
+  log "Development options:" "\n"
+  accent "  --help-dev";   plain " ---------- This message" "\n"
+}
+
+online_usage() {
+  cat <<EOF
+my-environment — installer via GitHub Releases
+
+Usage:
+  setup.sh                  Install the latest release
+  setup.sh VERSION          Install a specific version (e.g.: 0.1.1 or v0.1.1)
+  setup.sh --releases       List available releases
+  setup.sh --help           Show this help
+
+Recommended (works with interactive prompts):
+  sh -c "\$(curl -fsSL https://williamcanin.github.io/my-environment/setup.sh)"
+  sh -c "\$(curl -fsSL https://williamcanin.github.io/my-environment/setup.sh)" -- 0.2.0
+  sh -c "\$(curl -fsSL https://williamcanin.github.io/my-environment/setup.sh)" -- --releases
+
+Pipe form (non-interactive only):
+  curl -fsSL https://williamcanin.github.io/my-environment/setup.sh | sh
+  curl -fsSL https://williamcanin.github.io/my-environment/setup.sh | sh -s -- 0.2.0
+EOF
 }
 
 # ============================================================================
-# COPYRIGHT (copyright.sh)
+# COPYRIGHT
 # ============================================================================
 copyright() {
   echo
@@ -136,7 +183,7 @@ copyright() {
 }
 
 # ============================================================================
-# SYMLINK (symlink.sh)
+# SYMLINK
 # ============================================================================
 symlink() {
   if [ -f "$1" ]; then
@@ -146,14 +193,12 @@ symlink() {
 }
 
 # ============================================================================
-# TERM OPTIONS (term.sh)
+# TERM OPTIONS
 # ============================================================================
 add_term_options() {
   rc_file="$1"
   source_line='. "$HOME/.config/term/options.sh"'
-
   [ -f "$rc_file" ] || touch "$rc_file"
-
   if ! grep -Fxq "$source_line" "$rc_file"; then
     cat >> "$rc_file" <<'EOF'
 
@@ -172,7 +217,7 @@ install_term_options() {
 }
 
 # ============================================================================
-# COSMIC SETTINGS (cosmic.sh)
+# COSMIC SETTINGS
 # ============================================================================
 settings_cosmic() {
   log "Cosmic Files settings..." "\n"
@@ -202,8 +247,14 @@ TERM="/usr/bin/kitty"
 BAR_SIZE="8"
 ACTIVE_THEME="blasphemous-echoes-of-salt"
 
+# Release installer config
+NAME="my-environment"
+REPO="williamcanin/my-environment"
+API="https://api.github.com/repos/${REPO}"
+SITE_URL="https://williamcanin.github.io/my-environment"
+
 # ============================================================================
-# SHARED PATHS — set after REPO_ROOT is determined
+# SHARED PATHS
 # ============================================================================
 CONFIG_SRC=""
 CONFIG_DST=""
@@ -220,7 +271,7 @@ init_paths() {
 }
 
 # ============================================================================
-# ROOT DETECTION — fix HOME when run via sudo/doas
+# ROOT DETECTION
 # ============================================================================
 fix_home_for_root() {
   if [ "$(id -u)" -eq 0 ] && [ -n "${SUDO_USER:-${DOAS_USER:-}}" ]; then
@@ -274,10 +325,8 @@ cleaner() {
 
 copy_configs() {
   [ -d "$CONFIG_SRC" ] || die "Directory of configurations not found: $CONFIG_SRC."
-
   log "Copying configs → $CONFIG_DST" "\n"
   mkdir -p "$CONFIG_DST"
-
   find "$CONFIG_SRC" -type f -name "*.sh" -exec chmod +x {} \;
 
   skip_backup=false
@@ -288,7 +337,6 @@ copy_configs() {
     name="${src_dir%/}"
     name="${name##*/}"
     dst_dir="$CONFIG_DST/$name"
-
     if [ -d "$dst_dir" ]; then
       if [ "$skip_backup" = true ]; then
         rm -rf "$dst_dir"
@@ -299,19 +347,16 @@ copy_configs() {
         warn "$name — backup saved in $backup"
       fi
     fi
-
     cp -rf "$src_dir" "$CONFIG_DST/"
     ok "$name"
   done
 
-  # Install environment bootstrap
   ENV_BOOTSTRAP_SRC="$CONFIG_SRC/my-environment/.my-environment-bootstrap"
   if [ -f "$ENV_BOOTSTRAP_SRC" ]; then
     cp -f "$ENV_BOOTSTRAP_SRC" "$CONFIG_DST/.my-environment-bootstrap"
     ok ".my-environment-bootstrap"
   fi
 
-  # Remove backups older than 30 days
   find "$CONFIG_DST" -maxdepth 1 -name "*.bak.*" -mtime +30 | while IFS= read -r old; do
     rm -rf "$old"
     warn "Old backup removed: $old"
@@ -333,30 +378,22 @@ create_lock() {
 symlinks() {
   log "Creating symbolic links..." "\n"
   mkdir -p "$HOME/.local/bin"
-
   symlink "$HOME/.config/kitty/scripts/shortcuts.sh" "$HOME/.local/bin/kitty-help"
   symlink "$HOME/.config/my-environment/sh/theme-switch.sh" "$HOME/.local/bin/theme-switch"
-
   ok "Creation of symbolic links completed."
   warn "Adding \"\$HOME/.local/bin\" in PATH"
 }
 
 copy_fonts() {
-  [ -d "$FONTS_SRC" ] || {
-    warn "Fonts directory not found: $FONTS_SRC — jumping."
-    return
-  }
-
+  [ -d "$FONTS_SRC" ] || { warn "Fonts directory not found: $FONTS_SRC — jumping."; return; }
   log "Copying fonts → $FONTS_DST" "\n"
   mkdir -p "$FONTS_DST"
-
   count=0
   for font in "$FONTS_SRC"/*; do
     [ -e "$font" ] || continue
     cp -rf "$font" "$FONTS_DST/"
     count=$((count + 1))
   done
-
   if [ "$count" -eq 0 ]; then
     warn "No source found in $FONTS_SRC."
   else
@@ -394,7 +431,6 @@ ARCH_PACKAGES="
 install_yay() {
   log "yay not found — installing dependencies..." "\n"
   sudo pacman -S --needed --noconfirm $ARCH_BASE_DEPS || die "Failed to install yay dependencies."
-
   tmp="$(mktemp -d)" && trap 'rm -rf "$tmp"' EXIT INT TERM
   log "Cloning yay..." "\n"
   git clone https://aur.archlinux.org/yay.git "$tmp/yay" || die "Failed to clone yay."
@@ -456,7 +492,6 @@ ensure_copr() {
   if ! command -v dnf >/dev/null 2>&1; then
     die "dnf not found. Are you sure this is Fedora?"
   fi
-
   log "Enabling COPR: solopasha/hyprland..." "\n"
   sudo dnf copr enable -y solopasha/hyprland || die "Failed to enable COPR solopasha/hyprland."
   ok "COPR solopasha/hyprland enabled."
@@ -479,7 +514,6 @@ install_hyprshutdown() {
     ok "hyprshutdown already installed."
     return
   fi
-
   log "Installing hyprshutdown from git..." "\n"
   tmp="$(mktemp -d)" && trap 'rm -rf "$tmp"' EXIT INT TERM
   git clone "$HYPERSHUTDOWN_REPO" "$tmp/hyprshutdown" || die "Failed to clone hyprshutdown."
@@ -533,54 +567,147 @@ detect_distro() {
 }
 
 # ============================================================================
-# GIT PULL (for --upgrade)
+# GIT PULL (for local --upgrade)
 # ============================================================================
 pull() {
   if ! command -v git >/dev/null 2>&1; then
     die "Git is not installed. Please install it."
   fi
-
   log "Checking for updates..." "\n"
   git fetch origin || die "Failed to contact the remote repository."
-
   head=$(git rev-parse HEAD)
   fetch_head=$(git rev-parse FETCH_HEAD)
-
   if [ "$head" = "$fetch_head" ]; then
     ok "Already been updated."
     return 0
   fi
-
   git merge --ff-only FETCH_HEAD || die "Failed to apply updates."
   ok "Updated to version: $VERSION."
 }
 
 # ============================================================================
-# ONLINE SETUP (curl pipe)
+# RELEASE API (remote mode)
 # ============================================================================
-clone_and_run() {
-  log "Detected online execution — cloning repository..." "\n"
+gh_get() {
+  curl -fsSL -H "Accept: application/vnd.github+json" -H "User-Agent: ${NAME}-install-script" "$1"
+}
 
-  tmpdir="$(mktemp -d)"
-  trap 'rm -rf "$tmpdir"' EXIT INT TERM
+extract_tags() {
+  sed -n 's/.*"tag_name": *"\([^"]*\)".*/\1/p'
+}
 
-  git clone --depth 1 https://github.com/williamcanin/my-environment.git "$tmpdir" || \
-    die "Failed to clone repository."
+list_releases() {
+  r_info "Fetching releases for ${REPO}..."
+  json=$(gh_get "${API}/releases") || r_die "Failed to query the GitHub API (rate limit or network issue)."
+  tags=$(printf '%s\n' "$json" | extract_tags)
+  [ -n "$tags" ] || r_die "No releases found."
+  printf '%sAvailable releases:%s\n' "$MSG_COLOR_GREEN" "$MSG_COLOR_RESET"
+  printf '%s\n' "$tags" | sed 's/^/  - /'
+}
 
-  ok "Repository cloned."
+latest_tag() {
+  json=$(gh_get "${API}/releases/latest") || r_die "Failed to fetch the latest release."
+  tag=$(printf '%s\n' "$json" | extract_tags | head -n1)
+  [ -n "$tag" ] || r_die "Could not determine the latest version."
+  printf '%s' "$tag"
+}
 
-  REPO_ROOT="$tmpdir"
-  init_paths
+tag_exists() {
+  status=$(curl -sS -o /dev/null -w '%{http_code}' \
+    -H "Accept: application/vnd.github+json" -H "User-Agent: ${NAME}-install-script" \
+    "${API}/releases/tags/$1" 2>/dev/null) || status="000"
+  [ "$status" = "200" ]
+}
 
-  install_"$(detect_distro)"
-
-  ensure_shell
-
-  copyright
+resolve_tag() {
+  want="$1"
+  if tag_exists "$want"; then
+    printf '%s' "$want"
+    return 0
+  fi
+  case "$want" in
+    v*) : ;;
+    *)
+      if tag_exists "v${want}"; then
+        printf '%s' "v${want}"
+        return 0
+      fi
+      ;;
+  esac
+  r_die "Version '$want' not found. Use --releases to list available versions."
 }
 
 # ============================================================================
-# SHELL CHECK (remote install only)
+# REMOTE INSTALL (download release, extract, run make install)
+# ============================================================================
+remote_install() {
+  need_cmd curl
+  need_cmd unzip
+  need_cmd make
+  need_cmd mktemp
+
+  version_arg="${VERSION:-}"
+  [ $# -gt 0 ] && version_arg="$1"
+
+  if [ -n "$version_arg" ]; then
+    r_info "Resolving requested version: ${version_arg}"
+    tag=$(resolve_tag "$version_arg")
+  else
+    r_info "Fetching the latest available version..."
+    tag=$(latest_tag)
+  fi
+  r_ok "Selected version: ${tag}"
+
+  download_url="https://github.com/${REPO}/archive/refs/tags/${tag}.zip"
+
+  WORKDIR=$(mktemp -d "/tmp/${NAME}.XXXXXX")
+  trap 'rm -rf "$WORKDIR"' EXIT INT TERM
+  zip_file="${WORKDIR}/${NAME}-${tag}.zip"
+
+  r_info "Downloading ${download_url}..."
+  curl -fsSL -o "$zip_file" "$download_url" || r_die "Failed to download the release archive."
+
+  r_info "Extracting archive..."
+  unzip -q "$zip_file" -d "$WORKDIR" || r_die "Failed to extract the .zip archive."
+
+  extracted_dir=$(find "$WORKDIR" -mindepth 1 -maxdepth 1 -type d | head -n1)
+  [ -n "$extracted_dir" ] && [ -d "$extracted_dir" ] || r_die "Could not locate the extracted folder."
+
+  REAL_USER="${SUDO_USER:-${DOAS_USER:-}}"
+  REAL_HOME="${HOME}"
+
+  if [ "$(id -u)" -eq 0 ]; then
+    if [ -n "$REAL_USER" ]; then
+      REAL_HOME="$(getent passwd "$REAL_USER" | cut -d: -f6)" || r_die "Failed to determine home directory for $REAL_USER."
+      r_info "Detected sudo — installing as $REAL_USER (HOME=$REAL_HOME)"
+    else
+      r_die "This script must not be run as root. Run as a regular user with sudo access."
+    fi
+  fi
+
+  if [ ! -t 0 ]; then
+    r_warn "stdin is not a terminal — if prompts appear, re-run using:"
+    r_warn "  sh -c \"\$(curl -fsSL ${SITE_URL}/setup.sh)\" instead of '| sh'."
+  fi
+
+  r_info "Running 'make install'..."
+  if [ -n "$REAL_USER" ]; then
+    sudo -u "$REAL_USER" env HOME="$REAL_HOME" make -C "$extracted_dir" install || r_die "Failed to run 'make install'."
+  else
+    make -C "$extracted_dir" install || r_die "Failed to run 'make install'."
+  fi
+
+  ensure_shell
+
+  r_ok "${NAME} installed successfully (version ${tag})."
+}
+
+need_cmd() {
+  command -v "$1" >/dev/null 2>&1 || r_die "Required command not found: $1"
+}
+
+# ============================================================================
+# SHELL CHECK
 # ============================================================================
 ensure_shell() {
   if [ "$SHELL" = "$USED_SHELL" ]; then
@@ -658,13 +785,11 @@ remove_configs() {
     warn "Source directory not found: $CONFIG_SRC — cannot determine config list."
     return
   fi
-
   for src_dir in "$CONFIG_SRC"/*/; do
     [ -d "$src_dir" ] || continue
     name="${src_dir%/}"
     name="${name##*/}"
     dst_dir="$CONFIG_DST/$name"
-
     if [ -d "$dst_dir" ]; then
       dry rm -rf "$dst_dir"
       ok "Removed: $dst_dir"
@@ -672,13 +797,11 @@ remove_configs() {
       warn "Not found: $dst_dir"
     fi
   done
-
   bootstrap_dst="$CONFIG_DST/.my-environment-bootstrap"
   if [ -f "$bootstrap_dst" ]; then
     dry rm -f "$bootstrap_dst"
     ok "Removed: $bootstrap_dst"
   fi
-
   warn "Backups (files ending with .bak.*) were preserved in $CONFIG_DST/"
   if $REMOVE_BACKUPS; then
     if confirm "Remove all backup directories?"; then
@@ -691,7 +814,6 @@ remove_configs() {
 remove_fonts() {
   [ -d "$FONTS_DST" ] || { warn "Fonts directory not found: $FONTS_DST"; return; }
   [ -d "$FONTS_SRC" ] || { warn "Source fonts not found: $FONTS_SRC"; return; }
-
   log "Removing fonts installed by this project..." "\n"
   removed=0
   for font in "$FONTS_SRC"/*; do
@@ -703,7 +825,6 @@ remove_fonts() {
       dry rm -rf "$dst"
     fi
   done
-
   if [ "$removed" -gt 0 ]; then
     if command -v fc-cache >/dev/null 2>&1; then
       log "Updating font cache..." "\n"
@@ -719,11 +840,9 @@ remove_term_options() {
   log "Removing term options from shell rc files..." "\n"
   source_line='. "$HOME/.config/term/options.sh"'
   comment_line='# Colors by Hyprland'
-
   for rc in "$HOME/.bashrc" "$HOME/.zshrc" "$HOME/.profile"; do
     [ -f "$rc" ] || continue
     if grep -Fxq "$source_line" "$rc" 2>/dev/null; then
-      dry rm -f "$rc"  # placeholder — actually edits in place
       tmpfile="$(mktemp)"
       grep -vFx "$source_line" "$rc" | grep -vFx "$comment_line" > "$tmpfile" || true
       mv "$tmpfile" "$rc"
@@ -771,7 +890,6 @@ revert_fedora_patches() {
 revert_gsettings() {
   command -v gsettings >/dev/null 2>&1 || { warn "gsettings not found — skipping."; return; }
   log "Resetting GTK settings to default..." "\n"
-
   if confirm "Reset GTK theme/icon/cursor settings to default?"; then
     $DRY_RUN || gsettings set org.gnome.desktop.interface icon-theme "Adwaita" 2>/dev/null || true
     $DRY_RUN || gsettings set org.gnome.desktop.interface gtk-theme "Adwaita" 2>/dev/null || true
@@ -808,7 +926,6 @@ list_installed_configs() {
   if [ -f "$CONFIG_DST/.my-environment-bootstrap" ]; then
     printf "  %b•%b %s\n" "$MSG_COLOR_GREEN" "$MSG_COLOR_RESET" "$CONFIG_DST/.my-environment-bootstrap"
   fi
-
   echo ""
   accent "Symlinks:"
   for link in "kitty-help" "theme-switch"; do
@@ -816,14 +933,12 @@ list_installed_configs() {
     [ -L "$target" ] && printf "  %b•%b %s → %s\n" "$MSG_COLOR_GREEN" "$MSG_COLOR_RESET" "$target" "$(readlink "$target")"
     [ -f "$target" ] && printf "  %b•%b %s (file)\n" "$MSG_COLOR_GREEN" "$MSG_COLOR_RESET" "$target"
   done
-
   echo ""
   accent "Terminal integration:"
   for rc in "$HOME/.bashrc" "$HOME/.zshrc" "$HOME/.profile"; do
     [ -f "$rc" ] && grep -q '. "$HOME/.config/term/options.sh"' "$rc" 2>/dev/null && \
       printf "  %b•%b Term options found in %s\n" "$MSG_COLOR_GREEN" "$MSG_COLOR_RESET" "$rc"
   done
-
   echo ""
   accent "Fonts:"
   if [ -d "$FONTS_DST" ] && [ -d "$FONTS_SRC" ]; then
@@ -833,7 +948,6 @@ list_installed_configs() {
       [ -e "$FONTS_DST/$name" ] && printf "  %b•%b %s\n" "$MSG_COLOR_GREEN" "$MSG_COLOR_RESET" "$FONTS_DST/$name"
     done
   fi
-
   echo ""
   if [ -f "$LOCK_FILE" ]; then
     accent "Install lock exists ($LOCK_FILE)"
@@ -856,23 +970,18 @@ uninstall() {
   warn "This will remove configurations installed by this project."
   warn "Backups made during installation will be preserved in ~/.config/*.bak.*"
   echo ""
-
   if ! confirm "Proceed with uninstall?"; then
     ok "Uninstall cancelled."
     exit 0
   fi
-
   echo ""
   list_installed_configs
   echo ""
-
   if ! confirm "Continue with full uninstall?"; then
     ok "Uninstall cancelled."
     exit 0
   fi
-
   echo ""
-
   remove_lock
   echo ""
   remove_symlinks
@@ -889,15 +998,12 @@ uninstall() {
   echo ""
   remove_fonts
   echo ""
-
   if [ -f /etc/os-release ] && grep -qi "fedora" /etc/os-release 2>/dev/null; then
     revert_fedora_patches
     echo ""
   fi
-
   remove_configs
   echo ""
-
   if $PURGE_PACKAGES; then
     warn "Package removal not implemented — uninstall packages manually."
     echo "  Arch:   yay -Rns firefox hyprland hyprpaper ..."
@@ -905,10 +1011,8 @@ uninstall() {
   else
     warn "Packages were NOT removed. To see installed packages, check the installer script."
   fi
-
   echo ""
   ok "Uninstall complete!"
-
   if confirm "Logout now to apply changes?"; then
     if $DRY_RUN; then
       warn "[DRY-RUN] Would log out"
@@ -916,22 +1020,12 @@ uninstall() {
       ok "Logging out..."
       case "${DESKTOP_SESSION:-${XDG_SESSION_DESKTOP:-}}" in
         *hyprland*|*Hyprland*)
-          if command -v hyprctl >/dev/null 2>&1; then
-            hyprctl dispatch exit
-          else
-            loginctl terminate-session self
-          fi
-          ;;
+          if command -v hyprctl >/dev/null 2>&1; then hyprctl dispatch exit
+          else loginctl terminate-session self; fi ;;
         sway)
-          if command -v swaymsg >/dev/null 2>&1; then
-            swaymsg exit
-          else
-            loginctl terminate-session self
-          fi
-          ;;
-        *)
-          loginctl terminate-session self
-          ;;
+          if command -v swaymsg >/dev/null 2>&1; then swaymsg exit
+          else loginctl terminate-session self; fi ;;
+        *) loginctl terminate-session self ;;
       esac
     fi
   fi
@@ -951,7 +1045,14 @@ EOF
 }
 
 # ============================================================================
-# MAIN
+# LOCAL INSTALL (direct, from repository checkout)
+# ============================================================================
+local_install() {
+  install_"$(detect_distro)"
+}
+
+# ============================================================================
+# MAIN DISPATCH
 # ============================================================================
 
 LOCAL_MODE=false
@@ -959,6 +1060,7 @@ REPO_ROOT=""
 DRY_RUN=false
 REMOVE_BACKUPS=false
 PURGE_PACKAGES=false
+WORKDIR=""
 
 # Determine if running from local repo or piped via curl
 SCRIPT_DIR="$(cd "$(dirname "$0")" 2>/dev/null && pwd 2>/dev/null || pwd)"
@@ -975,31 +1077,32 @@ if [ -f "$SCRIPT_DIR/src/config/my-environment/.my-environment-bootstrap" ] || \
   init_paths
 fi
 
+# Parse arguments
 case "${1:-}" in
+  # --- Local-only commands ---
   --install)
     if [ "$LOCAL_MODE" = true ]; then
-      install_"$(detect_distro)"
+      local_install
+      ensure_shell
       copyright
     else
-      clone_and_run
+      remote_install
+      copyright
     fi
     ;;
   --upgrade)
     if [ "$LOCAL_MODE" = true ]; then
       pull
-      install_"$(detect_distro)"
+      local_install
+      ensure_shell
       copyright
     else
-      warn "Upgrade is only supported from a local clone."
-      if confirm "Clone and install instead?"; then
-        clone_and_run
-      fi
+      remote_install
+      copyright
     fi
     ;;
   --uninstall)
     if [ "$LOCAL_MODE" = false ]; then
-      # For remote uninstall, we still need paths — clone to tmp
-      warn "Uninstall from remote — cloning to determine installed paths..."
       tmpdir="$(mktemp -d)"
       trap 'rm -rf "$tmpdir"' EXIT INT TERM
       git clone --depth 1 https://github.com/williamcanin/my-environment.git "$tmpdir" || \
@@ -1007,8 +1110,6 @@ case "${1:-}" in
       REPO_ROOT="$tmpdir"
       init_paths
     fi
-
-    # Parse remaining args for uninstall options
     shift
     for arg in "$@"; do
       case "$arg" in
@@ -1019,12 +1120,25 @@ case "${1:-}" in
         *) warn "Unknown option: $arg"; uninstall_usage; exit 1 ;;
       esac
     done
-
     uninstall
     copyright
     ;;
-  --help)
-    help
+  # --- Remote-only commands ---
+  --releases|-l)
+    if [ "$LOCAL_MODE" = true ]; then
+      # Works locally too
+      list_releases
+    else
+      list_releases
+    fi
+    ;;
+  # --- Universal commands ---
+  --help|-h)
+    if [ "$LOCAL_MODE" = true ]; then
+      help
+    else
+      online_usage
+    fi
     copyright
     ;;
   --help-dev)
@@ -1034,10 +1148,12 @@ case "${1:-}" in
   --version)
     plain "Version: $VERSION" "\n"
     ;;
+  # --- Positional: version tag (remote) or error (local) ---
   "")
-    # No args — if running via curl, default to install
+    # No args — remote: install latest, local: show help
     if [ "$LOCAL_MODE" = false ]; then
-      clone_and_run
+      remote_install
+      copyright
     else
       help
       copyright
@@ -1045,9 +1161,15 @@ case "${1:-}" in
     fi
     ;;
   *)
-    help
-    copyright
-    exit 1
+    # Could be a version tag — only valid in remote mode
+    if [ "$LOCAL_MODE" = false ]; then
+      remote_install "$1"
+      copyright
+    else
+      help
+      copyright
+      exit 1
+    fi
     ;;
 esac
 exit 0

@@ -20,7 +20,9 @@ permalink: /install/
 
 ## Instalador
 
-**Instalação online (RECOMENDADO):**
+O script `.tools/setup.sh` funciona tanto como instalador local quanto como instalador remoto via GitHub Releases.
+
+**Instalação online (RECOMENDADO) — baixa a última release estável:**
 
 ```sh
 sh -c "$(curl -fsSL https://williamcanin.github.io/my-environment/setup.sh)"
@@ -44,7 +46,7 @@ sh -c "$(curl -fsSL https://williamcanin.github.io/my-environment/setup.sh)" -- 
 git clone --depth=1 https://github.com/williamcanin/my-environment.git && cd my-environment && sh .tools/setup.sh --install
 ```
 
-> Nota: Essa forma de instalação é `INSTÁVEL` porque usa a branch principal, que pode conter arquivos com bugs por falta de revisão. Prefira sempre a opção `RECOMENDADA` que usa releases estáveis.
+> Nota: Essa forma de instalação usa a branch principal (`main`), que pode conter arquivos com bugs por falta de revisão. Prefira sempre a opção `RECOMENDADA` que usa releases estáveis.
 >
 > Se você mantiver o repositório, atualize antes de instalar:
 
@@ -59,7 +61,7 @@ make help          # ou: sh .tools/setup.sh --help
 make version       # ou: sh .tools/setup.sh --version
 make install       # ou: sh .tools/setup.sh --install
 make upgrade       # ou: sh .tools/setup.sh --upgrade
-make uninstall     # ou: sh .tools/setup.sh --uninstall
+make uninstall     # ou: sh .tools/setup.sh --uninstall [--dry-run]
 make set-permissions
 ```
 
