@@ -6,7 +6,7 @@
 
 -- Theme loader --------------------------------------------------------------------------------------------------------
 local _theme_file = io.open(os.getenv("HOME") .. "/.config/my-environment/.active-theme")
-local _theme_name = "blasphemous-echoes-of-salt"
+local _theme_name = "hyprashen"
 if _theme_file then
   local _line = _theme_file:read("*l")
   if _line and _line ~= "" then
@@ -231,7 +231,7 @@ hl.window_rule({
   float = true,
   size = "1399 920",
   center = true,
-  opacity = "0.94 0.94",
+  opacity = theme.file_manager_opacity,
 })
 hl.window_rule({ match = { class = "com.system76.CosmicFiles" }, animation = "none" })
 hl.window_rule({
@@ -252,7 +252,7 @@ hl.window_rule({
 })
 hl.window_rule({
   match = { class = "kitty", title = ".*nvim.*" },
-  opacity = "0.45 0.70",
+  opacity = theme.term_opacity,
 })
 hl.window_rule({ match = { class = "blueman-manager" }, float = true })
 hl.window_rule({ match = { class = "xdg-desktop-portal-gtk" }, float = true })
@@ -267,9 +267,9 @@ hl.window_rule({
 hl.window_rule({ match = { class = "mpv" }, float = true })
 
 -- Transparency at the terminals ---------------------------------------------------------------------------------------
-hl.window_rule({ match = { class = "kitty" }, opacity = "1.0 1.0" })
-hl.window_rule({ match = { class = "foot" }, opacity = "1.0 1.0" })
-hl.window_rule({ match = { class = "Alacritty" }, opacity = "1.0 1.0" })
+hl.window_rule({ match = { class = "kitty" }, opacity = theme.term_opacity })
+hl.window_rule({ match = { class = "foot" }, opacity = theme.term_opacity })
+hl.window_rule({ match = { class = "Alacritty" }, opacity = theme.term_opacity })
 
 -- ================ Keybindings ================
 

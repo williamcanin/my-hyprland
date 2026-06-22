@@ -2,19 +2,21 @@
 -- Loaded by hyprland.lua via dofile()
 return {
   -- Borders
-  border_active          = "rgba(3aa99fff)",
-  border_inactive        = "rgba(303030ff)",
+  border_active = "rgba(3aa99fff)",
+  border_inactive = "rgba(303030ff)",
   -- Group bar
-  groupbar_active        = "rgba(3aa99fff)",
-  groupbar_inactive      = "rgba(303030cc)",
+  groupbar_active = "rgba(3aa99fff)",
+  groupbar_inactive = "rgba(303030cc)",
   -- Shadow
-  shadow_color           = 0xcc1a1a2e,
-  shadow_color_inactive  = 0x661a1a2e,
+  shadow_color = 0xcc1a1a2e,
+  shadow_color_inactive = 0x661a1a2e,
   -- Decoration
-  rounding               = 8,
-  rounding_power         = 2,
+  rounding = 8,
+  rounding_power = 2,
   -- Layout
-  gaps_in                = 3,
-  gaps_out               = 17,
-  border_size            = 1,
+  gaps_in = 3,
+  gaps_out = 17,
+  border_size = 1,
+  file_manager_opacity = "0.94 0.94",
+  term_opacity = "0.45 0.70",
 }
