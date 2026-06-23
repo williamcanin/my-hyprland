@@ -142,7 +142,7 @@ hl.config({
   },
 
   -- XWayland enabled/disabled
-  xwayland = { enabled = false },
+  xwayland = { enabled = true },
 
   input = {
     kb_layout = "br,us",
@@ -170,10 +170,10 @@ hl.gesture({ fingers = 3, direction = "horizontal", action = "workspace" })
 -- XWayland ------------------------------------------------------------------------------------------------------------
 -- -- Prevent invisible XWayland ghost windows from stealing focus
 -- -- Use with: xwayland = { enabled = true }
--- hl.window_rule({
---     match = { class = "^$", title = "^$", xwayland = true, float = true, fullscreen = false, pin = false },
---     no_focus = true,
--- })
+hl.window_rule({
+  match = { class = "^$", title = "^$", xwayland = true, float = true, fullscreen = false, pin = false },
+  no_focus = true,
+})
 
 -- Animations ----------------------------------------------------------------------------------------------------------
 hl.curve("myBezier", { type = "bezier", points = { { 0.05, 0.9 }, { 0.1, 1.05 } } })
