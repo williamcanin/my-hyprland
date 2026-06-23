@@ -29,10 +29,29 @@
 
 set -e
 
-# ============================================================================
-# VERSION
-# ============================================================================
-SCRIPT_VERSION="0.2.0 (Blasphemous)"
+# --- VERSION ------------------------------------------------------------------
+VERSION="0.2.0 (Blasphemous)"
+
+# --- Variables ----------------------------------------------------------------
+USED_SHELL="/usr/bin/zsh"
+ENVIRONMENT_ROOT="${HOME}/.config/my-environment"
+HYPR_CACHE_DIR="${HOME}/.cache/hypr"
+WAYBAR_CACHE_DIR="${HOME}/.cache/waybar"
+BUTTON_LAYOUT=":"
+GTK_THEME="Adwaita-dark"
+ICON_THEME="Yaru-prussiangreen-dark"
+GTK_CURSOR="Adwaita"
+FINDER="/usr/bin/rofi"
+TERM="/usr/bin/kitty"
+BAR_SIZE="8"
+ACTIVE_THEME="blasphemous-echoes-of-salt"
+
+# Release installer config
+AUTHOR_NAME="William C. Canin"
+NAME_PROJECT="my-environment"
+REPO="williamcanin/my-environment"
+API="https://api.github.com/repos/${REPO}"
+SITE_URL="https://williamcanin.github.io/my-environment"
 
 # ============================================================================
 # MESSAGE FUNCTIONS
@@ -157,7 +176,7 @@ online_usage() {
 copyright() {
   echo
   echo "-----------------------------------------------------------------"
-  echo "© William C. Canin <https://github.com/williamcanin/my-environment>"
+  echo "© $AUTHOR_NAME <${SITE_URL}>"
   echo "-----------------------------------------------------------------"
 }
 
@@ -213,24 +232,7 @@ settings_cosmic() {
 # ============================================================================
 # SHARED VARIABLES
 # ============================================================================
-USED_SHELL="/usr/bin/zsh"
-ENVIRONMENT_ROOT="${HOME}/.config/my-environment"
-HYPR_CACHE_DIR="${HOME}/.cache/hypr"
-WAYBAR_CACHE_DIR="${HOME}/.cache/waybar"
-BUTTON_LAYOUT=":"
-GTK_THEME="Adwaita-dark"
-ICON_THEME="Yaru-prussiangreen-dark"
-GTK_CURSOR="Adwaita"
-FINDER="/usr/bin/rofi"
-TERM="/usr/bin/kitty"
-BAR_SIZE="8"
-ACTIVE_THEME="blasphemous-echoes-of-salt"
 
-# Release installer config
-NAME="my-environment"
-REPO="williamcanin/my-environment"
-API="https://api.github.com/repos/${REPO}"
-SITE_URL="https://williamcanin.github.io/my-environment"
 
 # ============================================================================
 # SHARED PATHS
@@ -350,7 +352,7 @@ settings() {
 create_lock() {
   mkdir -p "$(dirname "$LOCK_FILE")"
   printf '%s\n' "Installed on: $(date)" > "$LOCK_FILE"
-  printf '%s\n' "Version: $SCRIPT_VERSION" >> "$LOCK_FILE"
+  printf '%s\n' "Version: $VERSION" >> "$LOCK_FILE"
   ok "Installation locked."
 }
 
@@ -561,14 +563,14 @@ pull() {
     return 0
   fi
   git merge --ff-only FETCH_HEAD || die "Failed to apply updates."
-  ok "Updated to version: $SCRIPT_VERSION."
+  ok "Updated to version: $VERSION."
 }
 
 # ============================================================================
 # RELEASE API (remote mode)
 # ============================================================================
 gh_get() {
-  curl -fsSL -H "Accept: application/vnd.github+json" -H "User-Agent: ${NAME}-install-script" "$1"
+  curl -fsSL -H "Accept: application/vnd.github+json" -H "User-Agent: ${NAME_PROJECT}-install-script" "$1"
 }
 
 extract_tags() {
@@ -593,7 +595,7 @@ latest_tag() {
 
 tag_exists() {
   status=$(curl -sS -o /dev/null -w '%{http_code}' \
-    -H "Accept: application/vnd.github+json" -H "User-Agent: ${NAME}-install-script" \
+    -H "Accept: application/vnd.github+json" -H "User-Agent: ${NAME_PROJECT}-install-script" \
     "${API}/releases/tags/$1" 2>/dev/null) || status="000"
   [ "$status" = "200" ]
 }
@@ -639,9 +641,9 @@ remote_install() {
 
   download_url="https://github.com/${REPO}/archive/refs/tags/${tag}.zip"
 
-  WORKDIR=$(mktemp -d "/tmp/${NAME}.XXXXXX")
+  WORKDIR=$(mktemp -d "/tmp/${NAME_PROJECT}.XXXXXX")
   trap 'rm -rf "$WORKDIR"' EXIT INT TERM
-  zip_file="${WORKDIR}/${NAME}-${tag}.zip"
+  zip_file="${WORKDIR}/${NAME_PROJECT}-${tag}.zip"
 
   r_info "Downloading ${download_url}..."
   curl -fsSL -o "$zip_file" "$download_url" || r_die "Failed to download the release archive."
@@ -678,7 +680,7 @@ remote_install() {
 
   ensure_shell
 
-  r_ok "${NAME} installed successfully (version ${tag})."
+  r_ok "${NAME_PROJECT} installed successfully (version ${tag})."
 }
 
 need_cmd() {
@@ -1145,7 +1147,7 @@ case "${1:-}" in
   #   copyright
   #   ;;
   --version)
-    plain "Version: $SCRIPT_VERSION" "\n"
+    plain "Version: $VERSION" "\n"
     ;;
   # --- Positional: version tag (remote) or error (local) ---
   "")
