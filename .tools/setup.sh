@@ -1102,8 +1102,9 @@ case "${1:-}" in
       ensure_shell
       copyright
     else
-      remote_install
-      copyright
+      r_warn "In remote mode, just run without arguments to install the latest version."
+      r_warn "  sh -c \"\$(curl -fsSL ${SITE_URL}/setup.sh)\""
+      exit 0
     fi
     ;;
   --upgrade)
@@ -1113,8 +1114,9 @@ case "${1:-}" in
       ensure_shell
       copyright
     else
-      remote_install
-      copyright
+      r_warn "'--upgrade' is only available when running from a local repository."
+      r_warn "In remote mode, run without arguments to get the latest release."
+      exit 0
     fi
     ;;
   --uninstall)
