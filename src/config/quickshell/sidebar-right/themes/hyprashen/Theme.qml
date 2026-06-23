@@ -1,16 +1,16 @@
 import QtQuick
 
 QtObject {
-    readonly property color accent:          "#757575"
+    readonly property color accent:          "#a2a2a2"
     readonly property color accentDim:       "#222222"
     readonly property color accentMid:       "#3C3C3C"
     readonly property color accentFaint:     "#1C1C1C"
     readonly property color accentLight:     "#4E4E4E"
 
-    readonly property color fgTitle:         "#757575"
-    readonly property color fgText:          "#757575"
-    readonly property color fgDim:           "#757575"
-    readonly property color fgSubtle:        "#333333"
+    readonly property color fgTitle:         "#a2a2a2"
+    readonly property color fgText:          "#a2a2a2"
+    readonly property color fgDim:           "#a2a2a2"
+    readonly property color fgSubtle:        "#a2a2a2"
     readonly property color fgFaint:         "#222222"
     readonly property color fgOnAccent:      "#181818"
 
@@ -21,20 +21,20 @@ QtObject {
     readonly property color bgHeader:        "#141414"
     readonly property color bgItem:          "#222222"
     readonly property color bgItemHover:     "#2C2C2C"
-    readonly property color bgActive:        "#757575"
+    readonly property color bgActive:        "#a2a2a2"
 
-    readonly property color border:          "#757575"
-    readonly property color borderStrong:    "#757575"
-    readonly property color borderItem:      "#757575"
-    readonly property color borderSubtle:    "#757575"
+    readonly property color border:          "#a2a2a2"
+    readonly property color borderStrong:    "#a2a2a2"
+    readonly property color borderItem:      "#a2a2a2"
+    readonly property color borderSubtle:    "#a2a2a2"
 
-    readonly property color scrollbarFg:    "#757575"
+    readonly property color scrollbarFg:    "#a2a2a2"
     readonly property color scrollbarBg:    "#141414"
 
-    readonly property color danger:          "#757575"
-    readonly property color dangerDim:       "#757575"
-    readonly property color warn:            "#757575"
-    readonly property color ok:              "#757575"
+    readonly property color danger:          "#a2a2a2"
+    readonly property color dangerDim:       "#a2a2a2"
+    readonly property color warn:            "#a2a2a2"
+    readonly property color ok:              "#a2a2a2"
 
     readonly property string fontMono:       "monospace"
     readonly property string fontIcon:       "Font Awesome 6 Free"
