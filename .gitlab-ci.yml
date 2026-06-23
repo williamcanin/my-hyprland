@@ -14,8 +14,7 @@ release:
     - |
       PREV_TAG=$(git describe --tags --abbrev=0 "${CI_COMMIT_TAG}^" 2>/dev/null \
         || git rev-list --max-parents=0 HEAD)
-      git log --pretty=format:"- %s" "${PREV_TAG}..${CI_COMMIT_TAG}" \
-        | grep -E '^- (feat|bug|refactor):' | head -20 > /tmp/release-notes.md
+      git log --pretty=format:"- %s" --grep='^(feat|bug|refactor):' --extended-regexp --no-merges --max-count=20 "${PREV_TAG}..${CI_COMMIT_TAG}" > /tmp/release-notes.md
       echo "" >> /tmp/release-notes.md
       echo "**Full Changelog**: ${CI_PROJECT_URL}/-/commits/${CI_COMMIT_TAG}" \
         >> /tmp/release-notes.md

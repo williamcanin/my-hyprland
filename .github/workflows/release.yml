@@ -25,7 +25,8 @@ jobs:
 
       - name: Generate release notes
         run: |
-          git log --pretty=format:"- %s" $(git describe --tags --abbrev=0 HEAD^ 2>/dev/null || git rev-list --max-parents=0 HEAD)..HEAD | grep -E '^- (feat|bug|refactor):' | head -20 > /tmp/release-notes.md
+          prev_tag="$(git describe --tags --abbrev=0 HEAD^ 2>/dev/null || git rev-list --max-parents=0 HEAD)"
+          git log --pretty=format:"- %s" --grep='^(feat|bug|refactor):' --extended-regexp --no-merges --max-count=20 "${prev_tag}..HEAD" > /tmp/release-notes.md
           echo "" >> /tmp/release-notes.md
           echo "**Full Changelog**: https://github.com/${{ github.repository }}/commits/${{ github.ref_name }}" >> /tmp/release-notes.md
 
