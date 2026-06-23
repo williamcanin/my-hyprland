@@ -26,9 +26,10 @@ jobs:
       - name: Generate release notes
         run: |
           prev_tag="$(git describe --tags --abbrev=0 HEAD^ 2>/dev/null || git rev-list --max-parents=0 HEAD)"
-          git log --pretty=format:"- %s" --grep='^(feat|bug|refactor):' --extended-regexp --no-merges --max-count=20 "${prev_tag}..HEAD" > /tmp/release-notes.md
+          git log --format="%s" --no-merges "${prev_tag}..HEAD" | grep -E '^(feat|bug|refactor):' | head -20 | sed 's/^/- /' > /tmp/release-notes.md
           echo "" >> /tmp/release-notes.md
           echo "**Full Changelog**: https://github.com/${{ github.repository }}/commits/${{ github.ref_name }}" >> /tmp/release-notes.md
+          cat /tmp/release-notes.md
 
       - name: Create Release
         uses: softprops/action-gh-release@v3
