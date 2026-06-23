@@ -395,7 +395,7 @@ copy_fonts() {
 ARCH_BASE_DEPS="git base-devel go gcc lua wayland wayland-protocols"
 ARCH_PACKAGES="
   firefox hyprland hyprland-qt-support hyprpaper hypridle hyprshutdown hyprlock
-  hyprshot rofi-wayland kitty wev playerctl brightnessctl moreutils quickshell-git
+  hyprshot rofi-wayland kitty wev playerctl brightnessctl moreutils quickshell
   flameshot grim cliphist wl-clipboard slurp zsh gpu-screen-recorder wf-recorder
   xdg-desktop-portal xdg-desktop-portal-hyprland xdg-desktop-portal-gtk mpv
   xdg-desktop-portal-wlr unzip zathura terminus-font nautilus imagemagick
@@ -679,6 +679,7 @@ remote_install() {
   fi
 
   ensure_shell
+  prompt_logout
 
   r_ok "${NAME_PROJECT} installed successfully (version ${tag})."
 }
@@ -721,6 +722,28 @@ ensure_shell() {
     ok "Shell changed to $USED_SHELL. Log out and back in to apply."
   else
     warn "Failed to change shell. Try: chsh -s $USED_SHELL"
+  fi
+}
+
+# ============================================================================
+# LOGOUT PROMPT
+# ============================================================================
+prompt_logout() {
+  [ -t 0 ] || return  # skip if non-interactive (pipe mode)
+  echo ""
+  if confirm "Logout now to apply all changes?"; then
+    ok "Logging out..."
+    case "${DESKTOP_SESSION:-${XDG_SESSION_DESKTOP:-}}" in
+      *hyprland*|*Hyprland*)
+        if command -v hyprctl >/dev/null 2>&1; then hyprctl dispatch exit
+        else loginctl terminate-session self; fi ;;
+      sway)
+        if command -v swaymsg >/dev/null 2>&1; then swaymsg exit
+        else loginctl terminate-session self; fi ;;
+      *) loginctl terminate-session self ;;
+    esac
+  else
+    ok "Logout skipped. Remember to log out manually to apply changes."
   fi
 }
 
@@ -1083,6 +1106,7 @@ case "${1:-}" in
     if [ "$LOCAL_MODE" = true ]; then
       local_install
       ensure_shell
+      prompt_logout
       copyright
     else
       r_warn "In remote mode, just run without arguments to install the latest version."
@@ -1095,6 +1119,7 @@ case "${1:-}" in
       pull
       local_install
       ensure_shell
+      prompt_logout
       copyright
     else
       r_warn "'--upgrade' is only available when running from a local repository."
