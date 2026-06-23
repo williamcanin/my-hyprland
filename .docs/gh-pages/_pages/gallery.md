@@ -32,6 +32,8 @@ permalink: /gallery/
 </div>
 -->
 
+<h1>Temas neutros</h1>
+
 <div class="theme-block">
 <h2>HyprAshen</h2>
 <p class="theme-type">Plano escuro cinza, flat (sem bordas arredondadas). Desenvolvido para manter o foco nas tarefas sem distrações.</p>
@@ -84,8 +86,10 @@ permalink: /gallery/
 <span class="lightbox-counter">5 / 5</span>
 </div>
 
+<h1>Temas Blasphemous I e Blasphemous II</h1>
+
 <div class="theme-block">
-<h2>Blasphemous - Echoes Of Salt</h2>
+<h2>Echoes Of Salt</h2>
 <p class="theme-type">Escuro teal/cyan</p>
 <div class="thumb-grid">
 <a href="#blasphemous-echoes-of-salt-1" class="thumb"><img src="{{ '/assets/images/themes/blasphemous-echoes-of-salt/preview-1.png' | relative_url }}" alt="Blasphemous - Echoes Of Salt, prévia 1" loading="lazy"></a>
@@ -133,7 +137,7 @@ permalink: /gallery/
 </div>
 
 <div class="theme-block">
-<h2>Blasphemous - Penitent</h2>
+<h2>Penitent</h2>
 <p class="theme-type">Monocromático preto + #e0e0e0</p>
 <div class="thumb-grid">
 <a href="#blasphemous-penitent-1" class="thumb"><img src="{{ '/assets/images/themes/blasphemous-penitent/preview-1.png' | relative_url }}" alt="Blasphemous - Penitent, prévia 1" loading="lazy"></a>
@@ -181,7 +185,7 @@ permalink: /gallery/
 </div>
 
 <div class="theme-block">
-<h2>Blasphemous - Fragment Of Guilt</h2>
+<h2>Fragment Of Guilt</h2>
 <p class="theme-type">Escuro olive/teal</p>
 <div class="thumb-grid">
 <a href="#blasphemous-fragment-of-guilt-1" class="thumb"><img src="{{ '/assets/images/themes/blasphemous-fragment-of-guilt/preview-1.png' | relative_url }}" alt="Blasphemous - Fragment Of Guilt, prévia 1" loading="lazy"></a>
@@ -229,7 +233,7 @@ permalink: /gallery/
 </div>
 
 <div class="theme-block">
-<h2>Blasphemous - Kneeling Stone</h2>
+<h2>Kneeling Stone</h2>
 <p class="theme-type">Escuro roxo (Catppuccin-like)</p>
 <div class="thumb-grid">
 <p style="grid-column:1/-1;color:#888;font-style:italic;">Prévias em breve.</p>
@@ -237,7 +241,7 @@ permalink: /gallery/
 </div>
 
 <div class="theme-block">
-<h2>Blasphemous - Requiem Aeternam</h2>
+<h2>Requiem Aeternam</h2>
 <p class="theme-type">Monocromático preto + #ba8540</p>
 <div class="thumb-grid">
 <p style="grid-column:1/-1;color:#888;font-style:italic;">Prévias em breve.</p>
@@ -245,7 +249,7 @@ permalink: /gallery/
 </div>
 
 <div class="theme-block">
-<h2>Blasphemous - Ten Piedad</h2>
+<h2>Ten Piedad</h2>
 <p class="theme-type">Escuro terroso/warm</p>
 <div class="thumb-grid">
 <p style="grid-column:1/-1;color:#888;font-style:italic;">Prévias em breve.</p>
@@ -253,7 +257,7 @@ permalink: /gallery/
 </div>
 
 <div class="theme-block">
-<h2>Blasphemous II - Mea Culpa</h2>
+<h2>Mea Culpa</h2>
 <p class="theme-type">Escuro warm neutro</p>
 <div class="thumb-grid">
 <p style="grid-column:1/-1;color:#888;font-style:italic;">Prévias em breve.</p>
@@ -261,7 +265,7 @@ permalink: /gallery/
 </div>
 
 <div class="theme-block">
-<h2>Blasphemous II - Repose Of The Silent One</h2>
+<h2>Repose Of The Silent One</h2>
 <p class="theme-type">Escuro teal/azulado</p>
 <div class="thumb-grid">
 <p style="grid-column:1/-1;color:#888;font-style:italic;">Prévias em breve.</p>
@@ -269,7 +273,7 @@ permalink: /gallery/
 </div>
 
 <div class="theme-block">
-<h2>Blasphemous II - Red Forest</h2>
+<h2>Red Forest</h2>
 <p class="theme-type">Claro bege/cinza</p>
 <div class="thumb-grid">
 <p style="grid-column:1/-1;color:#888;font-style:italic;">Prévias em breve.</p>
@@ -277,7 +281,7 @@ permalink: /gallery/
 </div>
 
 <div class="theme-block">
-<h2>Blasphemous II - The Third Sin</h2>
+<h2>The Third Sin</h2>
 <p class="theme-type">Escuro navy/teal</p>
 <div class="thumb-grid">
 <p style="grid-column:1/-1;color:#888;font-style:italic;">Prévias em breve.</p>
