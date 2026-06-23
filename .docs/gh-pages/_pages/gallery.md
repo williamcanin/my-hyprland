@@ -36,19 +36,19 @@ permalink: /gallery/
 <h2>HyprAshen</h2>
 <p class="theme-type">Plano escuro cinza, flat (sem bordas arredondadas). Desenvolvido para manter o foco nas tarefas sem distrações.</p>
 <div class="thumb-grid">
-<a href="#HyprAshen-1" class="thumb"><img src="{{ '/.docs/gh-pages/assets/images/themes/hyprashen/preview-1.png' | relative_url }}" alt="HyprAshen, prévia 1" loading="lazy"></a>
-<a href="#HyprAshen-2" class="thumb"><img src="{{ '/.docs/gh-pages/assets/images/themes/hyprashen/preview-2.png' | relative_url }}" alt="HyprAshen, prévia 2" loading="lazy"></a>
-<a href="#HyprAshen-3" class="thumb"><img src="{{ '/.docs/gh-pages/assets/images/themes/hyprashen/preview-3.png' | relative_url }}" alt="HyprAshen, prévia 3" loading="lazy"></a>
-<a href="#HyprAshen-4" class="thumb"><img src="{{ '/.docs/gh-pages/assets/images/themes/hyprashen/preview-4.png' | relative_url }}" alt="HyprAshen, prévia 4" loading="lazy"></a>
-<a href="#HyprAshen-5" class="thumb"><img src="{{ '/.docs/gh-pages/assets/images/themes/hyprashen/preview-5.png' | relative_url }}" alt="HyprAshen, prévia 5" loading="lazy"></a>
-<a href="#HyprAshen-6" class="thumb"><img src="{{ '/.docs/gh-pages/assets/images/themes/hyprashen/preview-6.png' | relative_url }}" alt="HyprAshen, prévia 6" loading="lazy"></a>
+<a href="#HyprAshen-1" class="thumb"><img src="{{ '/assets/images/themes/hyprashen/preview-1.png' | relative_url }}" alt="HyprAshen, prévia 1" loading="lazy"></a>
+<a href="#HyprAshen-2" class="thumb"><img src="{{ '/assets/images/themes/hyprashen/preview-2.png' | relative_url }}" alt="HyprAshen, prévia 2" loading="lazy"></a>
+<a href="#HyprAshen-3" class="thumb"><img src="{{ '/assets/images/themes/hyprashen/preview-3.png' | relative_url }}" alt="HyprAshen, prévia 3" loading="lazy"></a>
+<a href="#HyprAshen-4" class="thumb"><img src="{{ '/assets/images/themes/hyprashen/preview-4.png' | relative_url }}" alt="HyprAshen, prévia 4" loading="lazy"></a>
+<a href="#HyprAshen-5" class="thumb"><img src="{{ '/assets/images/themes/hyprashen/preview-5.png' | relative_url }}" alt="HyprAshen, prévia 5" loading="lazy"></a>
+<a href="#HyprAshen-6" class="thumb"><img src="{{ '/assets/images/themes/hyprashen/preview-6.png' | relative_url }}" alt="HyprAshen, prévia 6" loading="lazy"></a>
 </div>
 </div>
 
 <div class="lightbox" id="HyprAshen-1">
 <a href="#" class="lightbox-close" aria-label="Fechar">&times;</a>
 <a href="#HyprAshen-6" class="lightbox-arrow lightbox-prev" aria-label="Anterior">&#8249;</a>
-<img src="{{ '/.docs/gh-pages/assets/images/themes/hyprashen/preview-1.png' | relative_url }}" alt="HyprAshen, prévia 1">
+<img src="{{ '/assets/images/themes/hyprashen/preview-1.png' | relative_url }}" alt="HyprAshen, prévia 1">
 <a href="#HyprAshen-2" class="lightbox-arrow lightbox-next" aria-label="Próxima">&#8250;</a>
 <span class="lightbox-counter">1 / 6</span>
 </div>
@@ -56,7 +56,7 @@ permalink: /gallery/
 <div class="lightbox" id="HyprAshen-2">
 <a href="#" class="lightbox-close" aria-label="Fechar">&times;</a>
 <a href="#HyprAshen-1" class="lightbox-arrow lightbox-prev" aria-label="Anterior">&#8249;</a>
-<img src="{{ '/.docs/gh-pages/assets/images/themes/hyprashen/preview-2.png' | relative_url }}" alt="HyprAshen, prévia 2">
+<img src="{{ '/assets/images/themes/hyprashen/preview-2.png' | relative_url }}" alt="HyprAshen, prévia 2">
 <a href="#HyprAshen-3" class="lightbox-arrow lightbox-next" aria-label="Próxima">&#8250;</a>
 <span class="lightbox-counter">2 / 6</span>
 </div>
@@ -64,7 +64,7 @@ permalink: /gallery/
 <div class="lightbox" id="HyprAshen-3">
 <a href="#" class="lightbox-close" aria-label="Fechar">&times;</a>
 <a href="#HyprAshen-2" class="lightbox-arrow lightbox-prev" aria-label="Anterior">&#8249;</a>
-<img src="{{ '/.docs/gh-pages/assets/images/themes/hyprashen/preview-3.png' | relative_url }}" alt="HyprAshen, prévia 3">
+<img src="{{ '/assets/images/themes/hyprashen/preview-3.png' | relative_url }}" alt="HyprAshen, prévia 3">
 <a href="#HyprAshen-4" class="lightbox-arrow lightbox-next" aria-label="Próxima">&#8250;</a>
 <span class="lightbox-counter">3 / 6</span>
 </div>
@@ -72,7 +72,7 @@ permalink: /gallery/
 <div class="lightbox" id="HyprAshen-4">
 <a href="#" class="lightbox-close" aria-label="Fechar">&times;</a>
 <a href="#HyprAshen-3" class="lightbox-arrow lightbox-prev" aria-label="Anterior">&#8249;</a>
-<img src="{{ '/.docs/gh-pages/assets/images/themes/hyprashen/preview-4.png' | relative_url }}" alt="HyprAshen, prévia 4">
+<img src="{{ '/assets/images/themes/hyprashen/preview-4.png' | relative_url }}" alt="HyprAshen, prévia 4">
 <a href="#HyprAshen-5" class="lightbox-arrow lightbox-next" aria-label="Próxima">&#8250;</a>
 <span class="lightbox-counter">4 / 6</span>
 </div>
@@ -80,7 +80,7 @@ permalink: /gallery/
 <div class="lightbox" id="HyprAshen-5">
 <a href="#" class="lightbox-close" aria-label="Fechar">&times;</a>
 <a href="#HyprAshen-4" class="lightbox-arrow lightbox-prev" aria-label="Anterior">&#8249;</a>
-<img src="{{ '/.docs/gh-pages/assets/images/themes/hyprashen/preview-5.png' | relative_url }}" alt="HyprAshen, prévia 5">
+<img src="{{ '/assets/images/themes/hyprashen/preview-5.png' | relative_url }}" alt="HyprAshen, prévia 5">
 <a href="#HyprAshen-6" class="lightbox-arrow lightbox-next" aria-label="Próxima">&#8250;</a>
 <span class="lightbox-counter">5 / 6</span>
 </div>
@@ -88,7 +88,7 @@ permalink: /gallery/
 <div class="lightbox" id="HyprAshen-6">
 <a href="#" class="lightbox-close" aria-label="Fechar">&times;</a>
 <a href="#HyprAshen-5" class="lightbox-arrow lightbox-prev" aria-label="Anterior">&#8249;</a>
-<img src="{{ '/.docs/gh-pages/assets/images/themes/hyprashen/preview-6.png' | relative_url }}" alt="HyprAshen, prévia 6">
+<img src="{{ '/assets/images/themes/hyprashen/preview-6.png' | relative_url }}" alt="HyprAshen, prévia 6">
 <a href="#HyprAshen-1" class="lightbox-arrow lightbox-next" aria-label="Próxima">&#8250;</a>
 <span class="lightbox-counter">6 / 6</span>
 </div>
@@ -97,54 +97,54 @@ permalink: /gallery/
 <h2>Blasphemous - Echoes Of Salt</h2>
 <p class="theme-type">Escuro teal/cyan</p>
 <div class="thumb-grid">
-<a href="#blasphemous-echoes-of-salt-1" class="thumb"><img src="{{ '/.docs/gh-pages/assets/images/themes/blasphemous-echoes-of-salt/preview-1.png' | relative_url }}" alt="Blasphemous - Echoes Of Salt, prévia 1" loading="lazy"></a>
-<a href="#blasphemous-echoes-of-salt-2" class="thumb"><img src="{{ '/.docs/gh-pages/assets/images/themes/blasphemous-echoes-of-salt/preview-2.png' | relative_url }}" alt="Blasphemous - Echoes Of Salt, prévia 2" loading="lazy"></a>
-<a href="#blasphemous-echoes-of-salt-3" class="thumb"><img src="{{ '/.docs/gh-pages/assets/images/themes/blasphemous-echoes-of-salt/preview-3.png' | relative_url }}" alt="Blasphemous - Echoes Of Salt, prévia 3" loading="lazy"></a>
-<a href="#blasphemous-echoes-of-salt-4" class="thumb"><img src="{{ '/.docs/gh-pages/assets/images/themes/blasphemous-echoes-of-salt/preview-4.png' | relative_url }}" alt="Blasphemous - Echoes Of Salt, prévia 4" loading="lazy"></a>
-<a href="#blasphemous-echoes-of-salt-5" class="thumb"><img src="{{ '/.docs/gh-pages/assets/images/themes/blasphemous-echoes-of-salt/preview-5.png' | relative_url }}" alt="Blasphemous - Echoes Of Salt, prévia 5" loading="lazy"></a>
-<a href="#blasphemous-echoes-of-salt-6" class="thumb"><img src="{{ '/.docs/gh-pages/assets/images/themes/blasphemous-echoes-of-salt/preview-6.png' | relative_url }}" alt="Blasphemous - Echoes Of Salt, prévia 6" loading="lazy"></a>
+<a href="#blasphemous-echoes-of-salt-1" class="thumb"><img src="{{ '/assets/images/themes/blasphemous-echoes-of-salt/preview-1.png' | relative_url }}" alt="Blasphemous - Echoes Of Salt, prévia 1" loading="lazy"></a>
+<a href="#blasphemous-echoes-of-salt-2" class="thumb"><img src="{{ '/assets/images/themes/blasphemous-echoes-of-salt/preview-2.png' | relative_url }}" alt="Blasphemous - Echoes Of Salt, prévia 2" loading="lazy"></a>
+<a href="#blasphemous-echoes-of-salt-3" class="thumb"><img src="{{ '/assets/images/themes/blasphemous-echoes-of-salt/preview-3.png' | relative_url }}" alt="Blasphemous - Echoes Of Salt, prévia 3" loading="lazy"></a>
+<a href="#blasphemous-echoes-of-salt-4" class="thumb"><img src="{{ '/assets/images/themes/blasphemous-echoes-of-salt/preview-4.png' | relative_url }}" alt="Blasphemous - Echoes Of Salt, prévia 4" loading="lazy"></a>
+<a href="#blasphemous-echoes-of-salt-5" class="thumb"><img src="{{ '/assets/images/themes/blasphemous-echoes-of-salt/preview-5.png' | relative_url }}" alt="Blasphemous - Echoes Of Salt, prévia 5" loading="lazy"></a>
+<a href="#blasphemous-echoes-of-salt-6" class="thumb"><img src="{{ '/assets/images/themes/blasphemous-echoes-of-salt/preview-6.png' | relative_url }}" alt="Blasphemous - Echoes Of Salt, prévia 6" loading="lazy"></a>
 </div>
 </div>
 
 <div class="lightbox" id="blasphemous-echoes-of-salt-1">
 <a href="#" class="lightbox-close" aria-label="Fechar">&times;</a>
 <a href="#blasphemous-echoes-of-salt-6" class="lightbox-arrow lightbox-prev" aria-label="Anterior">&#8249;</a>
-<img src="{{ '/.docs/gh-pages/assets/images/themes/blasphemous-echoes-of-salt/preview-1.png' | relative_url }}" alt="Blasphemous - Echoes Of Salt, prévia 1">
+<img src="{{ '/assets/images/themes/blasphemous-echoes-of-salt/preview-1.png' | relative_url }}" alt="Blasphemous - Echoes Of Salt, prévia 1">
 <a href="#blasphemous-echoes-of-salt-2" class="lightbox-arrow lightbox-next" aria-label="Próxima">&#8250;</a>
 <span class="lightbox-counter">1 / 6</span>
 </div>
 <div class="lightbox" id="blasphemous-echoes-of-salt-2">
 <a href="#" class="lightbox-close" aria-label="Fechar">&times;</a>
 <a href="#blasphemous-echoes-of-salt-1" class="lightbox-arrow lightbox-prev" aria-label="Anterior">&#8249;</a>
-<img src="{{ '/.docs/gh-pages/assets/images/themes/blasphemous-echoes-of-salt/preview-2.png' | relative_url }}" alt="Blasphemous - Echoes Of Salt, prévia 2">
+<img src="{{ '/assets/images/themes/blasphemous-echoes-of-salt/preview-2.png' | relative_url }}" alt="Blasphemous - Echoes Of Salt, prévia 2">
 <a href="#blasphemous-echoes-of-salt-3" class="lightbox-arrow lightbox-next" aria-label="Próxima">&#8250;</a>
 <span class="lightbox-counter">2 / 6</span>
 </div>
 <div class="lightbox" id="blasphemous-echoes-of-salt-3">
 <a href="#" class="lightbox-close" aria-label="Fechar">&times;</a>
 <a href="#blasphemous-echoes-of-salt-2" class="lightbox-arrow lightbox-prev" aria-label="Anterior">&#8249;</a>
-<img src="{{ '/.docs/gh-pages/assets/images/themes/blasphemous-echoes-of-salt/preview-3.png' | relative_url }}" alt="Blasphemous - Echoes Of Salt, prévia 3">
+<img src="{{ '/assets/images/themes/blasphemous-echoes-of-salt/preview-3.png' | relative_url }}" alt="Blasphemous - Echoes Of Salt, prévia 3">
 <a href="#blasphemous-echoes-of-salt-4" class="lightbox-arrow lightbox-next" aria-label="Próxima">&#8250;</a>
 <span class="lightbox-counter">3 / 6</span>
 </div>
 <div class="lightbox" id="blasphemous-echoes-of-salt-4">
 <a href="#" class="lightbox-close" aria-label="Fechar">&times;</a>
 <a href="#blasphemous-echoes-of-salt-3" class="lightbox-arrow lightbox-prev" aria-label="Anterior">&#8249;</a>
-<img src="{{ '/.docs/gh-pages/assets/images/themes/blasphemous-echoes-of-salt/preview-4.png' | relative_url }}" alt="Blasphemous - Echoes Of Salt, prévia 4">
+<img src="{{ '/assets/images/themes/blasphemous-echoes-of-salt/preview-4.png' | relative_url }}" alt="Blasphemous - Echoes Of Salt, prévia 4">
 <a href="#blasphemous-echoes-of-salt-5" class="lightbox-arrow lightbox-next" aria-label="Próxima">&#8250;</a>
 <span class="lightbox-counter">4 / 6</span>
 </div>
 <div class="lightbox" id="blasphemous-echoes-of-salt-5">
 <a href="#" class="lightbox-close" aria-label="Fechar">&times;</a>
 <a href="#blasphemous-echoes-of-salt-4" class="lightbox-arrow lightbox-prev" aria-label="Anterior">&#8249;</a>
-<img src="{{ '/.docs/gh-pages/assets/images/themes/blasphemous-echoes-of-salt/preview-5.png' | relative_url }}" alt="Blasphemous - Echoes Of Salt, prévia 5">
+<img src="{{ '/assets/images/themes/blasphemous-echoes-of-salt/preview-5.png' | relative_url }}" alt="Blasphemous - Echoes Of Salt, prévia 5">
 <a href="#blasphemous-echoes-of-salt-6" class="lightbox-arrow lightbox-next" aria-label="Próxima">&#8250;</a>
 <span class="lightbox-counter">5 / 6</span>
 </div>
 <div class="lightbox" id="blasphemous-echoes-of-salt-6">
 <a href="#" class="lightbox-close" aria-label="Fechar">&times;</a>
 <a href="#blasphemous-echoes-of-salt-5" class="lightbox-arrow lightbox-prev" aria-label="Anterior">&#8249;</a>
-<img src="{{ '/.docs/gh-pages/assets/images/themes/blasphemous-echoes-of-salt/preview-6.png' | relative_url }}" alt="Blasphemous - Echoes Of Salt, prévia 6">
+<img src="{{ '/assets/images/themes/blasphemous-echoes-of-salt/preview-6.png' | relative_url }}" alt="Blasphemous - Echoes Of Salt, prévia 6">
 <a href="#blasphemous-echoes-of-salt-1" class="lightbox-arrow lightbox-next" aria-label="Próxima">&#8250;</a>
 <span class="lightbox-counter">6 / 6</span>
 </div>

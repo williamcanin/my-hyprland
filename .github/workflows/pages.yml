@@ -41,8 +41,8 @@ jobs:
         # images, CSS, and JS are served on GitHub Pages.
         run: |
           if [ -d ".docs/gh-pages/assets" ]; then
-            sudo mkdir -p ./_site/.docs/gh-pages/assets
-            sudo cp -r .docs/gh-pages/assets/* ./_site/.docs/gh-pages/assets/
+            sudo mkdir -p ./_site/assets
+            sudo cp -r .docs/gh-pages/assets/* ./_site/assets/
           fi
       - name: Copy setup.sh into the site
         # actions/jekyll-build-pages runs Jekyll inside a Docker container as root,
