@@ -4,6 +4,8 @@ title: Galeria de Temas
 permalink: /gallery/
 ---
 
+<!-- markdownlint-disable MD033 -->
+
 <div class="theme-gallery">
 <a class="back-link" href="{{ '/' | relative_url }}">&larr; Voltar para HOME</a>
 
@@ -20,6 +22,7 @@ permalink: /gallery/
   href de "prev"/"next" de TODAS as imagens daquele tema para manter o loop fechado.
 -->
 
+<!--
 <div class="theme-block">
 <h2>HyprSlate</h2>
 <p class="theme-type">Plano escuro ardósia, flat (sem bordas arredondadas)</p>
@@ -27,13 +30,67 @@ permalink: /gallery/
 <p style="grid-column:1/-1;color:#888;font-style:italic;">Prévias em breve.</p>
 </div>
 </div>
+-->
 
 <div class="theme-block">
 <h2>HyprAshen</h2>
-<p class="theme-type">Plano escuro cinza, flat (sem bordas arredondadas)</p>
+<p class="theme-type">Plano escuro cinza, flat (sem bordas arredondadas). Desenvolvido para manter o foco nas tarefas sem distrações.</p>
 <div class="thumb-grid">
-<p style="grid-column:1/-1;color:#888;font-style:italic;">Prévias em breve.</p>
+<a href="#HyprAshen-1" class="thumb"><img src="{{ '/.docs/gh-pages/assets/images/themes/hyprashen/preview-1.png' | relative_url }}" alt="HyprAshen, prévia 1" loading="lazy"></a>
+<a href="#HyprAshen-2" class="thumb"><img src="{{ '/.docs/gh-pages/assets/images/themes/hyprashen/preview-2.png' | relative_url }}" alt="HyprAshen, prévia 2" loading="lazy"></a>
+<a href="#HyprAshen-3" class="thumb"><img src="{{ '/.docs/gh-pages/assets/images/themes/hyprashen/preview-3.png' | relative_url }}" alt="HyprAshen, prévia 3" loading="lazy"></a>
+<a href="#HyprAshen-4" class="thumb"><img src="{{ '/.docs/gh-pages/assets/images/themes/hyprashen/preview-4.png' | relative_url }}" alt="HyprAshen, prévia 4" loading="lazy"></a>
+<a href="#HyprAshen-5" class="thumb"><img src="{{ '/.docs/gh-pages/assets/images/themes/hyprashen/preview-5.png' | relative_url }}" alt="HyprAshen, prévia 5" loading="lazy"></a>
+<a href="#HyprAshen-6" class="thumb"><img src="{{ '/.docs/gh-pages/assets/images/themes/hyprashen/preview-6.png' | relative_url }}" alt="HyprAshen, prévia 6" loading="lazy"></a>
 </div>
+</div>
+
+<div class="lightbox" id="HyprAshen-1">
+<a href="#" class="lightbox-close" aria-label="Fechar">&times;</a>
+<a href="#HyprAshen-6" class="lightbox-arrow lightbox-prev" aria-label="Anterior">&#8249;</a>
+<img src="{{ '/.docs/gh-pages/assets/images/themes/hyprashen/preview-1.png' | relative_url }}" alt="HyprAshen, prévia 1">
+<a href="#HyprAshen-2" class="lightbox-arrow lightbox-next" aria-label="Próxima">&#8250;</a>
+<span class="lightbox-counter">1 / 6</span>
+</div>
+
+<div class="lightbox" id="HyprAshen-2">
+<a href="#" class="lightbox-close" aria-label="Fechar">&times;</a>
+<a href="#HyprAshen-1" class="lightbox-arrow lightbox-prev" aria-label="Anterior">&#8249;</a>
+<img src="{{ '/.docs/gh-pages/assets/images/themes/hyprashen/preview-2.png' | relative_url }}" alt="HyprAshen, prévia 2">
+<a href="#HyprAshen-3" class="lightbox-arrow lightbox-next" aria-label="Próxima">&#8250;</a>
+<span class="lightbox-counter">2 / 6</span>
+</div>
+
+<div class="lightbox" id="HyprAshen-3">
+<a href="#" class="lightbox-close" aria-label="Fechar">&times;</a>
+<a href="#HyprAshen-2" class="lightbox-arrow lightbox-prev" aria-label="Anterior">&#8249;</a>
+<img src="{{ '/.docs/gh-pages/assets/images/themes/hyprashen/preview-3.png' | relative_url }}" alt="HyprAshen, prévia 3">
+<a href="#HyprAshen-4" class="lightbox-arrow lightbox-next" aria-label="Próxima">&#8250;</a>
+<span class="lightbox-counter">3 / 6</span>
+</div>
+
+<div class="lightbox" id="HyprAshen-4">
+<a href="#" class="lightbox-close" aria-label="Fechar">&times;</a>
+<a href="#HyprAshen-3" class="lightbox-arrow lightbox-prev" aria-label="Anterior">&#8249;</a>
+<img src="{{ '/.docs/gh-pages/assets/images/themes/hyprashen/preview-4.png' | relative_url }}" alt="HyprAshen, prévia 4">
+<a href="#HyprAshen-5" class="lightbox-arrow lightbox-next" aria-label="Próxima">&#8250;</a>
+<span class="lightbox-counter">4 / 6</span>
+</div>
+
+<div class="lightbox" id="HyprAshen-5">
+<a href="#" class="lightbox-close" aria-label="Fechar">&times;</a>
+<a href="#HyprAshen-4" class="lightbox-arrow lightbox-prev" aria-label="Anterior">&#8249;</a>
+<img src="{{ '/.docs/gh-pages/assets/images/themes/hyprashen/preview-5.png' | relative_url }}" alt="HyprAshen, prévia 5">
+<a href="#HyprAshen-6" class="lightbox-arrow lightbox-next" aria-label="Próxima">&#8250;</a>
+<span class="lightbox-counter">5 / 6</span>
+</div>
+
+<div class="lightbox" id="HyprAshen-6">
+<a href="#" class="lightbox-close" aria-label="Fechar">&times;</a>
+<a href="#HyprAshen-5" class="lightbox-arrow lightbox-prev" aria-label="Anterior">&#8249;</a>
+<img src="{{ '/.docs/gh-pages/assets/images/themes/hyprashen/preview-6.png' | relative_url }}" alt="HyprAshen, prévia 6">
+<a href="#HyprAshen-1" class="lightbox-arrow lightbox-next" aria-label="Próxima">&#8250;</a>
+<span class="lightbox-counter">6 / 6</span>
 </div>
 
 <div class="theme-block">
