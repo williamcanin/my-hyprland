@@ -27,9 +27,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       - name: Setup Pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6
       - name: Build with Jekyll
         uses: actions/jekyll-build-pages@v1
         with:
@@ -45,7 +45,7 @@ jobs:
           test -f .tools/setup.sh
           sudo install -D -m 0755 .tools/setup.sh ./_site/setup.sh
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
 
   # Deployment job
   deploy:
