@@ -305,11 +305,51 @@ permalink: /gallery/
 </div>
 
 <div class="theme-block">
-<h2>Repose Of The Silent One</h2>
+<h2>Blasphemous II - Repose Of The Silent One</h2>
 <p class="theme-type">Escuro teal/azulado</p>
 <div class="thumb-grid">
-<p style="grid-column:1/-1;color:#888;font-style:italic;">Prévias em breve.</p>
+<a href="#blasphemous-II-repose-of-the-silent-one-1" class="thumb"><img src="{{ '/assets/images/themes/blasphemous-II-repose-of-the-silent-one/preview-1.png' | relative_url }}" alt="Blasphemous II - Repose Of The Silent One, prévia 1" loading="lazy"></a>
+<a href="#blasphemous-II-repose-of-the-silent-one-2" class="thumb"><img src="{{ '/assets/images/themes/blasphemous-II-repose-of-the-silent-one/preview-2.png' | relative_url }}" alt="Blasphemous II - Repose Of The Silent One, prévia 2" loading="lazy"></a>
+<a href="#blasphemous-II-repose-of-the-silent-one-3" class="thumb"><img src="{{ '/assets/images/themes/blasphemous-II-repose-of-the-silent-one/preview-3.png' | relative_url }}" alt="Blasphemous II - Repose Of The Silent One, prévia 3" loading="lazy"></a>
+<a href="#blasphemous-II-repose-of-the-silent-one-4" class="thumb"><img src="{{ '/assets/images/themes/blasphemous-II-repose-of-the-silent-one/preview-4.png' | relative_url }}" alt="Blasphemous II - Repose Of The Silent One, prévia 4" loading="lazy"></a>
+<a href="#blasphemous-II-repose-of-the-silent-one-5" class="thumb"><img src="{{ '/assets/images/themes/blasphemous-II-repose-of-the-silent-one/preview-5.png' | relative_url }}" alt="Blasphemous II - Repose Of The Silent One, prévia 5" loading="lazy"></a>
 </div>
+</div>
+
+<div class="lightbox" id="blasphemous-II-repose-of-the-silent-one-1">
+<a href="#" class="lightbox-close" aria-label="Fechar">&times;</a>
+<a href="#blasphemous-II-repose-of-the-silent-one-5" class="lightbox-arrow lightbox-prev" aria-label="Anterior">&#8249;</a>
+<img src="{{ '/assets/images/themes/blasphemous-II-repose-of-the-silent-one/preview-1.png' | relative_url }}" alt="Blasphemous II - Repose Of The Silent One, prévia 1">
+<a href="#blasphemous-II-repose-of-the-silent-one-2" class="lightbox-arrow lightbox-next" aria-label="Próxima">&#8250;</a>
+<span class="lightbox-counter">1 / 5</span>
+</div>
+<div class="lightbox" id="blasphemous-II-repose-of-the-silent-one-2">
+<a href="#" class="lightbox-close" aria-label="Fechar">&times;</a>
+<a href="#blasphemous-II-repose-of-the-silent-one-1" class="lightbox-arrow lightbox-prev" aria-label="Anterior">&#8249;</a>
+<img src="{{ '/assets/images/themes/blasphemous-II-repose-of-the-silent-one/preview-2.png' | relative_url }}" alt="Blasphemous II - Repose Of The Silent One, prévia 2">
+<a href="#blasphemous-II-repose-of-the-silent-one-3" class="lightbox-arrow lightbox-next" aria-label="Próxima">&#8250;</a>
+<span class="lightbox-counter">2 / 5</span>
+</div>
+<div class="lightbox" id="blasphemous-II-repose-of-the-silent-one-3">
+<a href="#" class="lightbox-close" aria-label="Fechar">&times;</a>
+<a href="#blasphemous-II-repose-of-the-silent-one-2" class="lightbox-arrow lightbox-prev" aria-label="Anterior">&#8249;</a>
+<img src="{{ '/assets/images/themes/blasphemous-II-repose-of-the-silent-one/preview-3.png' | relative_url }}" alt="Blasphemous II - Repose Of The Silent One, prévia 3">
+<a href="#blasphemous-II-repose-of-the-silent-one-4" class="lightbox-arrow lightbox-next" aria-label="Próxima">&#8250;</a>
+<span class="lightbox-counter">3 / 5</span>
+</div>
+<div class="lightbox" id="blasphemous-II-repose-of-the-silent-one-4">
+<a href="#" class="lightbox-close" aria-label="Fechar">&times;</a>
+<a href="#blasphemous-II-repose-of-the-silent-one-3" class="lightbox-arrow lightbox-prev" aria-label="Anterior">&#8249;</a>
+<img src="{{ '/assets/images/themes/blasphemous-II-repose-of-the-silent-one/preview-4.png' | relative_url }}" alt="Blasphemous II - Repose Of The Silent One, prévia 4">
+<a href="#blasphemous-II-repose-of-the-silent-one-5" class="lightbox-arrow lightbox-next" aria-label="Próxima">&#8250;</a>
+<span class="lightbox-counter">4 / 5</span>
+</div>
+<div class="lightbox" id="blasphemous-II-repose-of-the-silent-one-5">
+<a href="#" class="lightbox-close" aria-label="Fechar">&times;</a>
+<a href="#blasphemous-II-repose-of-the-silent-one-4" class="lightbox-arrow lightbox-prev" aria-label="Anterior">&#8249;</a>
+<img src="{{ '/assets/images/themes/blasphemous-II-repose-of-the-silent-one/preview-5.png' | relative_url }}" alt="Blasphemous II - Repose Of The Silent One, prévia 5">
+<a href="#blasphemous-II-repose-of-the-silent-one-1" class="lightbox-arrow lightbox-next" aria-label="Próxima">&#8250;</a>
+<span class="lightbox-counter">5 / 5</span>
 </div>
 
 <div class="theme-block">
@@ -321,11 +361,51 @@ permalink: /gallery/
 </div>
 
 <div class="theme-block">
-<h2>The Third Sin</h2>
+<h2>Blasphemous II - The Third Sin</h2>
 <p class="theme-type">Escuro navy/teal</p>
 <div class="thumb-grid">
-<p style="grid-column:1/-1;color:#888;font-style:italic;">Prévias em breve.</p>
+<a href="#blashphemous-II-the-third-sin-1" class="thumb"><img src="{{ '/assets/images/themes/blashphemous-II-the-third-sin/preview-1.png' | relative_url }}" alt="Blasphemous II - The Third Sin, prévia 1" loading="lazy"></a>
+<a href="#blashphemous-II-the-third-sin-2" class="thumb"><img src="{{ '/assets/images/themes/blashphemous-II-the-third-sin/preview-2.png' | relative_url }}" alt="Blasphemous II - The Third Sin, prévia 2" loading="lazy"></a>
+<a href="#blashphemous-II-the-third-sin-3" class="thumb"><img src="{{ '/assets/images/themes/blashphemous-II-the-third-sin/preview-3.png' | relative_url }}" alt="Blasphemous II - The Third Sin, prévia 3" loading="lazy"></a>
+<a href="#blashphemous-II-the-third-sin-4" class="thumb"><img src="{{ '/assets/images/themes/blashphemous-II-the-third-sin/preview-4.png' | relative_url }}" alt="Blasphemous II - The Third Sin, prévia 4" loading="lazy"></a>
+<a href="#blashphemous-II-the-third-sin-5" class="thumb"><img src="{{ '/assets/images/themes/blashphemous-II-the-third-sin/preview-5.png' | relative_url }}" alt="Blasphemous II - The Third Sin, prévia 5" loading="lazy"></a>
 </div>
+</div>
+
+<div class="lightbox" id="blashphemous-II-the-third-sin-1">
+<a href="#" class="lightbox-close" aria-label="Fechar">&times;</a>
+<a href="#blashphemous-II-the-third-sin-5" class="lightbox-arrow lightbox-prev" aria-label="Anterior">&#8249;</a>
+<img src="{{ '/assets/images/themes/blashphemous-II-the-third-sin/preview-1.png' | relative_url }}" alt="Blasphemous II - The Third Sin, prévia 1">
+<a href="#blashphemous-II-the-third-sin-2" class="lightbox-arrow lightbox-next" aria-label="Próxima">&#8250;</a>
+<span class="lightbox-counter">1 / 5</span>
+</div>
+<div class="lightbox" id="blashphemous-II-the-third-sin-2">
+<a href="#" class="lightbox-close" aria-label="Fechar">&times;</a>
+<a href="#blashphemous-II-the-third-sin-1" class="lightbox-arrow lightbox-prev" aria-label="Anterior">&#8249;</a>
+<img src="{{ '/assets/images/themes/blashphemous-II-the-third-sin/preview-2.png' | relative_url }}" alt="Blasphemous II - The Third Sin, prévia 2">
+<a href="#blashphemous-II-the-third-sin-3" class="lightbox-arrow lightbox-next" aria-label="Próxima">&#8250;</a>
+<span class="lightbox-counter">2 / 5</span>
+</div>
+<div class="lightbox" id="blashphemous-II-the-third-sin-3">
+<a href="#" class="lightbox-close" aria-label="Fechar">&times;</a>
+<a href="#blashphemous-II-the-third-sin-2" class="lightbox-arrow lightbox-prev" aria-label="Anterior">&#8249;</a>
+<img src="{{ '/assets/images/themes/blashphemous-II-the-third-sin/preview-3.png' | relative_url }}" alt="Blasphemous II - The Third Sin, prévia 3">
+<a href="#blashphemous-II-the-third-sin-4" class="lightbox-arrow lightbox-next" aria-label="Próxima">&#8250;</a>
+<span class="lightbox-counter">3 / 5</span>
+</div>
+<div class="lightbox" id="blashphemous-II-the-third-sin-4">
+<a href="#" class="lightbox-close" aria-label="Fechar">&times;</a>
+<a href="#blashphemous-II-the-third-sin-3" class="lightbox-arrow lightbox-prev" aria-label="Anterior">&#8249;</a>
+<img src="{{ '/assets/images/themes/blashphemous-II-the-third-sin/preview-4.png' | relative_url }}" alt="Blasphemous II - The Third Sin, prévia 4">
+<a href="#blashphemous-II-the-third-sin-5" class="lightbox-arrow lightbox-next" aria-label="Próxima">&#8250;</a>
+<span class="lightbox-counter">4 / 5</span>
+</div>
+<div class="lightbox" id="blashphemous-II-the-third-sin-5">
+<a href="#" class="lightbox-close" aria-label="Fechar">&times;</a>
+<a href="#blashphemous-II-the-third-sin-4" class="lightbox-arrow lightbox-prev" aria-label="Anterior">&#8249;</a>
+<img src="{{ '/assets/images/themes/blashphemous-II-the-third-sin/preview-5.png' | relative_url }}" alt="Blasphemous II - The Third Sin, prévia 5">
+<a href="#blashphemous-II-the-third-sin-1" class="lightbox-arrow lightbox-next" aria-label="Próxima">&#8250;</a>
+<span class="lightbox-counter">5 / 5</span>
 </div>
 
 </div> <!-- theme-gallery -->
