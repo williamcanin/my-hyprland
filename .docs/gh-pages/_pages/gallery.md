@@ -233,11 +233,51 @@ permalink: /gallery/
 </div>
 
 <div class="theme-block">
-<h2>Kneeling Stone</h2>
+<h2>Blasphemous - Kneeling Stone</h2>
 <p class="theme-type">Escuro roxo (Catppuccin-like)</p>
 <div class="thumb-grid">
-<p style="grid-column:1/-1;color:#888;font-style:italic;">Prévias em breve.</p>
+<a href="#blasphemous-kneeling-stone-1" class="thumb"><img src="{{ '/assets/images/themes/blasphemous-kneeling-stone/preview-1.png' | relative_url }}" alt="Blasphemous - Kneeling Stone, prévia 1" loading="lazy"></a>
+<a href="#blasphemous-kneeling-stone-2" class="thumb"><img src="{{ '/assets/images/themes/blasphemous-kneeling-stone/preview-2.png' | relative_url }}" alt="Blasphemous - Kneeling Stone, prévia 2" loading="lazy"></a>
+<a href="#blasphemous-kneeling-stone-3" class="thumb"><img src="{{ '/assets/images/themes/blasphemous-kneeling-stone/preview-3.png' | relative_url }}" alt="Blasphemous - Kneeling Stone, prévia 3" loading="lazy"></a>
+<a href="#blasphemous-kneeling-stone-4" class="thumb"><img src="{{ '/assets/images/themes/blasphemous-kneeling-stone/preview-4.png' | relative_url }}" alt="Blasphemous - Kneeling Stone, prévia 4" loading="lazy"></a>
+<a href="#blasphemous-kneeling-stone-5" class="thumb"><img src="{{ '/assets/images/themes/blasphemous-kneeling-stone/preview-5.png' | relative_url }}" alt="Blasphemous - Kneeling Stone, prévia 5" loading="lazy"></a>
 </div>
+</div>
+
+<div class="lightbox" id="blasphemous-kneeling-stone-1">
+<a href="#" class="lightbox-close" aria-label="Fechar">&times;</a>
+<a href="#blasphemous-kneeling-stone-5" class="lightbox-arrow lightbox-prev" aria-label="Anterior">&#8249;</a>
+<img src="{{ '/assets/images/themes/blasphemous-kneeling-stone/preview-1.png' | relative_url }}" alt="Blasphemous - Kneeling Stone, prévia 1">
+<a href="#blasphemous-kneeling-stone-2" class="lightbox-arrow lightbox-next" aria-label="Próxima">&#8250;</a>
+<span class="lightbox-counter">1 / 5</span>
+</div>
+<div class="lightbox" id="blasphemous-kneeling-stone-2">
+<a href="#" class="lightbox-close" aria-label="Fechar">&times;</a>
+<a href="#blasphemous-kneeling-stone-1" class="lightbox-arrow lightbox-prev" aria-label="Anterior">&#8249;</a>
+<img src="{{ '/assets/images/themes/blasphemous-kneeling-stone/preview-2.png' | relative_url }}" alt="Blasphemous - Kneeling Stone, prévia 2">
+<a href="#blasphemous-kneeling-stone-3" class="lightbox-arrow lightbox-next" aria-label="Próxima">&#8250;</a>
+<span class="lightbox-counter">2 / 5</span>
+</div>
+<div class="lightbox" id="blasphemous-kneeling-stone-3">
+<a href="#" class="lightbox-close" aria-label="Fechar">&times;</a>
+<a href="#blasphemous-kneeling-stone-2" class="lightbox-arrow lightbox-prev" aria-label="Anterior">&#8249;</a>
+<img src="{{ '/assets/images/themes/blasphemous-kneeling-stone/preview-3.png' | relative_url }}" alt="Blasphemous - Kneeling Stone, prévia 3">
+<a href="#blasphemous-kneeling-stone-4" class="lightbox-arrow lightbox-next" aria-label="Próxima">&#8250;</a>
+<span class="lightbox-counter">3 / 5</span>
+</div>
+<div class="lightbox" id="blasphemous-kneeling-stone-4">
+<a href="#" class="lightbox-close" aria-label="Fechar">&times;</a>
+<a href="#blasphemous-kneeling-stone-3" class="lightbox-arrow lightbox-prev" aria-label="Anterior">&#8249;</a>
+<img src="{{ '/assets/images/themes/blasphemous-kneeling-stone/preview-4.png' | relative_url }}" alt="Blasphemous - Kneeling Stone, prévia 4">
+<a href="#blasphemous-kneeling-stone-5" class="lightbox-arrow lightbox-next" aria-label="Próxima">&#8250;</a>
+<span class="lightbox-counter">4 / 5</span>
+</div>
+<div class="lightbox" id="blasphemous-kneeling-stone-5">
+<a href="#" class="lightbox-close" aria-label="Fechar">&times;</a>
+<a href="#blasphemous-kneeling-stone-4" class="lightbox-arrow lightbox-prev" aria-label="Anterior">&#8249;</a>
+<img src="{{ '/assets/images/themes/blasphemous-kneeling-stone/preview-5.png' | relative_url }}" alt="Blasphemous - Kneeling Stone, prévia 5">
+<a href="#blasphemous-kneeling-stone-1" class="lightbox-arrow lightbox-next" aria-label="Próxima">&#8250;</a>
+<span class="lightbox-counter">5 / 5</span>
 </div>
 
 <div class="theme-block">
