@@ -406,7 +406,8 @@ ARCH_PACKAGES="
   smog-bin xarchiver zip just libqalculate fontconfig qt5-quickcontrols2
   kvantum nwg-look qt5ct qt6ct qt6-declarative qt6-tools cosmic-files
   cosmic-settings file-roller pwvucontrol wtype fastfetch polkit-gnome bluez
-  bluez-utils blueman imv
+  bluez-utils blueman imv zsh-autocomplete zsh-autosuggestions fzf-tab
+  zsh-syntax-highlighting
 "
 
 install_yay() {
