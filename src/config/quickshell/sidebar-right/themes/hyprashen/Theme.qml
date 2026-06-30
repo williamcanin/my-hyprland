@@ -55,16 +55,16 @@ QtObject {
     // --- Light mode overrides ---
     readonly property QtObject light: QtObject {
         readonly property color accent:          "#181818"
-        readonly property color accentDim:       "#cccccc"
+        readonly property color accentDim:       "#aaaaaa"
         readonly property color accentMid:       "#999999"
-        readonly property color accentFaint:     "#e0e0e0"
+        readonly property color accentFaint:     "#d0d0d0"
         readonly property color accentLight:     "#aaaaaa"
 
         readonly property color fgTitle:         "#181818"
         readonly property color fgText:          "#181818"
         readonly property color fgDim:           "#181818"
         readonly property color fgSubtle:        "#181818"
-        readonly property color fgFaint:         "#bfbfbf"
+        readonly property color fgFaint:         "#777777"
         readonly property color fgOnAccent:      "#cccccc"
 
         readonly property color bg:              "#cccccc"
@@ -87,6 +87,6 @@ QtObject {
         readonly property color danger:          "#181818"
         readonly property color dangerDim:       "#181818"
         readonly property color warn:            "#181818"
-        readonly property color ok:              "#cccccc"
+        readonly property color ok:              "#555555"
     }
 }

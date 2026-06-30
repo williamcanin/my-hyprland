@@ -1,0 +1,5 @@
+/* mode.rasi — GTK mode overrides for rofi
+   Generated dynamically by gtk-theme.sh.
+   Dark mode: empty (no overrides).
+   Light mode: contains variable definitions that override the per-theme
+   theme.rasi because this file is imported AFTER the theme import. */

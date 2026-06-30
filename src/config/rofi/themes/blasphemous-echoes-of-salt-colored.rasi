@@ -1,4 +1,5 @@
 @import "~/.config/rofi/themes/hyprashen/theme.rasi"
+@import "~/.config/rofi/mode.rasi"
 
 /* Author: William C. Canin */
 

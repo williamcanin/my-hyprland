@@ -1,6 +1,1 @@
-/* mode.css — GTK mode overrides for waybar
-   This file is generated dynamically by gtk-theme.sh.
-   Dark mode: empty (no overrides — theme's own colors are used).
-   Light mode: contains @define-color overrides that take precedence
-   because this file is imported AFTER the per-theme theme.css. */
-
+/* mode.css — Dark mode (no overrides) */
