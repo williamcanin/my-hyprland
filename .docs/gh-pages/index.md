@@ -15,7 +15,7 @@ ambiente leve, direto e produtivo para [Arch Linux](https://archlinux.org) e [Fe
 
 O repositório reúne os arquivos de configuração, scripts de automação, temas, fontes e atalhos usados no meu setup diário.
 
-O visual combina **Hyprland** com bordas discretas, blur, sombras, wallpaper, tema escuro para **GTK/Rofi/terminais**, **Waybar** no topo, painel lateral de informações do sistema e uma sidebar na direita com **Quickshell/QML**.
+O visual combina **Hyprland** com bordas discretas, blur, sombras, wallpaper, tema adaptável para **GTK/Rofi/terminais** (HyprAshen suporta alternância light/dark), **Waybar** no topo, painel lateral de informações do sistema e uma sidebar na direita com **Quickshell/QML**.
 
 ## Documentação
 

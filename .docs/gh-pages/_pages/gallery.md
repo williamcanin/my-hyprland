@@ -26,7 +26,7 @@ permalink: /gallery/
 
 <div class="theme-block">
 <h2>HyprAshen</h2>
-<p class="theme-type">Plano escuro cinza, flat (sem bordas arredondadas). Desenvolvido para manter o foco nas tarefas sem distrações.</p>
+<p class="theme-type">Plano escuro cinza, flat (sem bordas arredondadas). Desenvolvido para manter o foco nas tarefas sem distrações. Suporta alternância light/dark via <kbd>Mod+F5</kbd>.</p>
 <div class="thumb-grid">
 <a href="#HyprAshen-1" class="thumb"><img src="{{ '/assets/images/themes/hyprashen/preview-1.png' | relative_url }}" alt="HyprAshen, prévia 1" loading="lazy"></a>
 <a href="#HyprAshen-2" class="thumb"><img src="{{ '/assets/images/themes/hyprashen/preview-2.png' | relative_url }}" alt="HyprAshen, prévia 2" loading="lazy"></a>

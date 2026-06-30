@@ -27,7 +27,7 @@ O projeto possui **12 temas** (HyprSlate, HyprAshen + 10 inspirados na série *B
 | # | Tema | Tipo |
 | --- | --- | --- |
 | 01 | HyprSlate | Plano escuro ardósia (`#2F3541`) + texto `#A6B8C4` |
-| 02 | HyprAshen | Plano escuro cinza (`#181818`) + texto `#757575` |
+| 02 | HyprAshen | Plano escuro cinza (`#181818`) + texto `#757575`. Suporta alternância light/dark via `Mod+F5` — fundo `#cccccc`, texto `#181818` |
 | 03 | Blasphemous - Penitent | Monocromático preto + `#e0e0e0` |
 | 04 | Blasphemous - Echoes Of Salt | Escuro teal/cyan |
 | 05 | Blasphemous - Fragment Of Guilt | Escuro olive/teal |
@@ -57,6 +57,29 @@ O tema ativo é armazenado em:
 ~/.config/my-environment/.active-theme
 ```
 
+## Modo adaptativo (light/dark)
+
+O HyprAshen suporta alternância entre modo escuro (dark) e claro (light) com `Mod+F5`, que aciona o script `toggle-mode.sh`.
+
+Quando ativado, o script:
+
+1. Alterna o tema GTK entre `Adwaita-dark` e `Adwaita` (`gsettings`).
+2. Gera `mode.css` em `~/.config/waybar/` com as cores do modo claro, sobrescrevendo as variáveis do tema (importado por último em `style.css` e `sysinfo.css`).
+3. Gera `mode.rasi` em `~/.config/rofi/` com as cores claras para o launcher.
+4. Reinicia a waybar para aplicar o novo CSS.
+5. Gera o wallpaper sólido `hyprashen-light.png` (`#386775`, 1920×1080) via ImageMagick e aplica com hyprpaper.
+6. Escreve o arquivo `~/.config/my-environment/.gtk-mode` com `"light"` ou `"dark"` para o Quickshell.
+7. O `Theme.qml` da sidebar lê `.gtk-mode` e ativa o objeto `light` com as cores invertidas.
+
+Os arquivos de override são gerados dinamicamente e resetados para dark ao trocar de tema via `theme-switch.sh`.
+
+```text
+~/.config/waybar/mode.css              # Override de cores da waybar (gerado)
+~/.config/rofi/mode.rasi               # Override de cores do rofi (gerado)
+~/.config/my-environment/.gtk-mode     # Flag "light"/"dark" para o Quickshell (gerado)
+~/.config/hypr/wallpapers/hyprashen-light.png  # Wallpaper sólido claro (gerado)
+```
+
 ## Estrutura de arquivos do tema
 
 ```text
@@ -66,6 +89,8 @@ src/config/waybar/themes/<theme>/theme.css         # Cores da waybar topo
 src/config/waybar/themes/<theme>/sysinfo-theme.css # Cores do painel sysinfo
 src/config/quickshell/sidebar-right/themes/<theme>/Theme.qml  # Cores da sidebar QML
 src/config/rofi/themes/<theme>/theme.rasi          # Cores do launcher
+src/config/waybar/mode.css                         # Override dinâmico do modo light (gerado)
+src/config/rofi/mode.rasi                          # Override dinâmico do modo light (gerado)
 src/config/kitty/themes/<theme>/theme.conf         # Esquema de cores do terminal
 src/config/btop/themes/<theme>/theme.theme         # Cores do monitor de sistema
 src/config/bottom/themes/<theme>/bottom.toml       # Cores do btm
@@ -82,6 +107,7 @@ Cada tema possui um wallpaper correspondente em `src/config/hypr/wallpapers/`:
 ```text
 hyprslate.png     (gerado dinamicamente pelo theme-switch.sh via ImageMagick)
 hyprashen.png     (symlink)
+hyprashen-light.png  (gerado dinamicamente pelo toggle-mode.sh)
 blasphemous-echoes-of-salt.jpeg
 blasphemous-fragment-of-guilt.png
 blasphemous-kneeling-stone.png

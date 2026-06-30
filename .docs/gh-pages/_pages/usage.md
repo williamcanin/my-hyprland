@@ -74,6 +74,7 @@ A sidebar carrega o tema dinamicamente — ao trocar o tema, as cores são atual
 | `json.sh` | Escape e saída JSON para Waybar |
 | `hypr.sh` | Parse de caminhos do Hyprland |
 | `theme-switch.sh` | Alternância completa de temas (symlink: `theme-switch`) |
+| `toggle-mode.sh` | Alterna modo claro/escuro (GTK + waybar + quickshell + rofi + wallpaper) |
 
 ## Atalhos principais
 
@@ -84,6 +85,7 @@ A sidebar carrega o tema dinamicamente — ao trocar o tema, as cores são atual
 | `Super + D` | Abrir launcher Rofi |
 | `Super + B` | Abrir navegador padrão |
 | `Super + Q` | Fechar janela |
+| `Super + F5` | Alternar modo claro/escuro (HyprAshen) |
 | `Super + F` | Alternar fullscreen |
 | `Super + S` | Alternar maximizado |
 | `Super + E` | Alternar direção do split |

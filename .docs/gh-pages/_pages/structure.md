@@ -30,7 +30,7 @@ src/
     environment.d/       Variáveis de ambiente Wayland
     term/                Opções compartilhadas do shell
     gtk-3.0/ gtk-4.0/    Temas e configurações GTK3/GTK4
-    my-environment/      Tema ativo, .my-environment-bootstrap e biblioteca shell (sh/)
+    my-environment/      Tema ativo, .active-theme, .gtk-mode, .my-environment-bootstrap e biblioteca shell (sh/)
   fonts/                 Font Awesome e Terminus local
 ```
 
