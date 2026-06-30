@@ -58,7 +58,7 @@ QtObject {
         readonly property color accentDim:       "#aaaaaa"
         readonly property color accentMid:       "#999999"
         readonly property color accentFaint:     "#d0d0d0"
-        readonly property color accentLight:     "#aaaaaa"
+        readonly property color accentLight:     "#181818"
 
         readonly property color fgTitle:         "#181818"
         readonly property color fgText:          "#181818"
